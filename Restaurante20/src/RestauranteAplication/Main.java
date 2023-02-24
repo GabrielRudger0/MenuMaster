@@ -15,8 +15,8 @@ public class Main {
         Tela iniciar = new Tela();
 
         //funcoesCliente.cadastrarCliente(clienteDAO, cliente);
-        iniciar.iniciarTela();
 
+        iniciar.iniciarTela();
 
 
 
