@@ -2,19 +2,24 @@ package RestauranteAplication;
 
 import restauranteDAO.ClienteDAO;
 import restaurantepkg.Clientes;
+import restaurantepkg.FuncoesCliente;
+import restaurantepkg.Tela;
+
+import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
         ClienteDAO clienteDAO = new ClienteDAO();
-
         Clientes cliente = new Clientes();
-        cliente.setNomeCliente("Murilo Cordova");
-        cliente.setCepCliente("89050570");
-        cliente.setEmailCliente("muriloocordova@gmail.com");
+        FuncoesCliente funcoesCliente = new FuncoesCliente();
+        Tela iniciar = new Tela();
 
-        clienteDAO.save(cliente);
+        //funcoesCliente.cadastrarCliente(clienteDAO, cliente);
+        iniciar.iniciarTela();
+
 
 
 
     }
+
 }
