@@ -11,7 +11,7 @@ public class Tela {
     private JPanel telaLogin;
     private JTextField receberLogin;
     private JPasswordField senhaLogin;
-    private JButton botaoRegistro;
+    public JButton botaoRegistro;
     private JButton botaoLogin;
 
     public String telefone;
@@ -40,6 +40,7 @@ public class Tela {
             public void actionPerformed(ActionEvent e) {
                 TelaRegistro telaRegistro = new TelaRegistro();
                 telaRegistro.iniciarTelaRegistro();
+
             }
         });
 
@@ -50,6 +51,7 @@ public void iniciarTela() {
     frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     frame.pack();
     frame.setVisible(true);
+
 
 
 

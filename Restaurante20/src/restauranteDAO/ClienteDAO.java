@@ -11,7 +11,7 @@ public class ClienteDAO {
 
     public void save(Clientes clientes){
 
-        String sql = "INSERT INTO cadastro_cliente(nome_cliente,cep_cliente,email_cliente,tel_cliente) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO cadastro_cliente(nome_cliente,cep_cliente,email_cliente,tel_cliente, senha_cliente) VALUES(?,?,?,?,?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -25,6 +25,7 @@ public class ClienteDAO {
             pstm.setString(2, clientes.getCepCliente());
             pstm.setString(3, clientes.getEmailCliente());
             pstm.setString(4, clientes.getTelefoneCliente());
+            pstm.setString(5, clientes.getSenha_cliente());
 
             //executa a query
 

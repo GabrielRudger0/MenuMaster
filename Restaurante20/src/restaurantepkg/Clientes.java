@@ -11,7 +11,7 @@ public class Clientes {
     private String emailCliente;
     private String telefoneCliente;
     private int idCliente;
-    private Date datacadastro;
+    private String senha_cliente;
 
     public String getNomeCliente() {
         return nomeCliente;
@@ -53,11 +53,12 @@ public class Clientes {
         this.idCliente = idCliente;
     }
 
-    public Date getDatacadastro() {
-        return datacadastro;
+
+    public String getSenha_cliente() {
+        return senha_cliente;
     }
 
-    public void setDatacadastro(Date datacadastro) {
-        this.datacadastro = datacadastro;
+    public void setSenha_cliente(String senha_cliente) {
+        this.senha_cliente = senha_cliente;
     }
 }
