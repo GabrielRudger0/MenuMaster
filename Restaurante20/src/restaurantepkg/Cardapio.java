@@ -9,7 +9,7 @@ public class Cardapio {
 
     private String categoria;
 
-    private boolean disponibilidade;
+    private String disponibilidade;
 
     private String restricoes;
 
@@ -39,14 +39,6 @@ public class Cardapio {
         this.categoria = categoria;
     }
 
-    public boolean isDisponibilidade() {
-        return disponibilidade;
-    }
-
-    public void setDisponibilidade(boolean disponibilidade) {
-        this.disponibilidade = disponibilidade;
-    }
-
     public String getRestricoes() {
         return restricoes;
     }
@@ -61,5 +53,13 @@ public class Cardapio {
 
     public void setIngredientes(String ingredientes) {
         this.ingredientes = ingredientes;
+    }
+
+    public String getDisponibilidade() {
+        return disponibilidade;
+    }
+
+    public void setDisponibilidade(String disponibilidade) {
+        this.disponibilidade = disponibilidade;
     }
 }

@@ -14,6 +14,7 @@ public class TelaRegistro {
     private JButton registrarButton;
     private JButton voltarButton;
     private JTextField inserirTelefone;
+    private JTextField insiraSenha;
 
     public JFrame frame = new JFrame("Registro");
 
@@ -55,6 +56,13 @@ public TelaRegistro() {
         @Override
         public void actionPerformed(ActionEvent e) {
 
+        }
+    });
+    insiraSenha.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            cliente.setSenha_cliente(insiraSenha.getText());
+            System.out.println(cliente.getSenha_cliente());
         }
     });
 
