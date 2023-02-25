@@ -21,32 +21,68 @@ public class TelaFazerPedido {
     private JLabel nomePrato2;
     private JLabel DescricaoPrato2;
     private JLabel valorPrato2;
+    private JLabel nomeBebida1;
+    private JLabel descricaoBebida1;
+    private JLabel nomePrato3;
+    private JLabel DescricaoPrato3;
+    private JLabel valorPrato3;
+    private JButton fazerPedido3;
+    private JButton maisInfos3;
+    private JLabel nomePrato4;
+    private JLabel DescricaoPrato4;
+    private JLabel valorPrato4;
+    private JButton fazerPedido4;
+    private JButton maisInfos4;
+    private JLabel nomePrato5;
+    private JLabel DescricaoPrato5;
+    private JLabel valorPrato5;
+    private JButton fazerPedido5;
+    private JButton maisInfos5;
 
     public TelaFazerPedido() {
 
-        //Prato1
-        Cardapio prato1 = new Cardapio();
-        prato1 = cardapioDAO.getCardapio().get(0);
+        //INSERÇÃO DE PRATOS
 
-        String nome1 = prato1.getNome_prato();
-        String descricao1 = prato1.getIngredientes();
-        String preco1 = "R$ " + (prato1.getPreco());
+        //Prato 1
+        if(cardapioDAO.getCardapio().size() >= 1) {
+            this.inserirNoCardapio(nomePrato1, DescricaoPrato1, valorPrato1, fazerPedidoButton, maisInformacoes1Button, 0);
+        } else {
+            fazerPedidoButton.setVisible(false);
+            maisInformacoes1Button.setVisible(false);
+        }
 
-        nomePrato1.setText(nome1);
-        DescricaoPrato1.setText(descricao1);
-        valorPrato1.setText(preco1);
+        //Prato 2
+        if(cardapioDAO.getCardapio().size() >= 2) {
+            this.inserirNoCardapio(nomePrato2, DescricaoPrato2, valorPrato2, fazerPedido2, maisInfos2, 1);
+        } else {
+            fazerPedido2.setVisible(false);
+            maisInfos2.setVisible(false);
+        }
 
-        //Prato2
-        Cardapio prato2 = new Cardapio();
-        prato2 = cardapioDAO.getCardapio().get(1);
+        //Prato 3
+        if (cardapioDAO.getCardapio().size() >= 3) {
+            this.inserirNoCardapio(nomePrato3, DescricaoPrato3, valorPrato3, fazerPedido3, maisInfos3, 2);
+        } else {
+            fazerPedido3.setVisible(false);
+            maisInfos3.setVisible(false);
+        }
+        //Prato 4
+        if (cardapioDAO.getCardapio().size() >= 4) {
+            this.inserirNoCardapio(nomePrato4, DescricaoPrato4, valorPrato4, fazerPedido4, maisInfos4, 3);
+        } else {
+            fazerPedido4.setVisible(false);
+            maisInfos4.setVisible(false);
+        }
 
-        String nome2 = prato2.getNome_prato();
-        String descricao2 = prato2.getIngredientes();
-        String preco2 = "R$ " + (prato2.getPreco());
+        if (cardapioDAO.getCardapio().size() >= 5) {
+            this.inserirNoCardapio(nomePrato5, DescricaoPrato5, valorPrato5, fazerPedido5, maisInfos5, 4);
+        } else {
+            fazerPedido5.setVisible(false);
+            maisInfos5.setVisible(false);
+        }
 
-        nomePrato2.setText(nome2);
-        DescricaoPrato2.setText(descricao2);
-        valorPrato2.setText(preco2);
+
+
 
         maisInformacoes1Button.addActionListener(new ActionListener() {
             @Override
@@ -74,8 +110,22 @@ public class TelaFazerPedido {
 
 
     }
-    public int indexArray(int indexSelecionado) {
-        return indexSelecionado;
+
+    public void inserirNoCardapio(JLabel nomePrato, JLabel DescricaoPrato, JLabel valorPrato,
+                                  JButton fazerPedido, JButton maisInfos, int indexArray) {
+
+        fazerPedido.setVisible(true);
+        maisInfos.setVisible(true);
+        Cardapio prato = new Cardapio();
+        prato = cardapioDAO.getCardapio().get(indexArray);
+
+        String nome1 = prato.getNome_prato();
+        String descricao1 = prato.getIngredientes();
+        String preco1 = "R$ " + (prato.getPreco());
+
+        nomePrato.setText(nome1);
+        DescricaoPrato.setText(descricao1);
+        valorPrato.setText(preco1);
     }
 
 
