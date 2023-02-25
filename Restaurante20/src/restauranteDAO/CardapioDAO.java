@@ -23,7 +23,7 @@ public class CardapioDAO {
             pstm.setString(1, cardapio.getNome_prato());
             pstm.setFloat(2, cardapio.getPreco());
             pstm.setString(3, cardapio.getCategoria());
-            pstm.setBoolean(4, cardapio.isDisponibilidade());
+            pstm.setString(4, cardapio.getDisponibilidade());
             pstm.setString(5, cardapio.getRestricoes());
             pstm.setString(6, cardapio.getIngredientes());
 

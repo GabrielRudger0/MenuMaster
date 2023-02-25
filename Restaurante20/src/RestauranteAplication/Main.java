@@ -2,8 +2,8 @@ package RestauranteAplication;
 
 import restauranteDAO.ClienteDAO;
 import restaurantepkg.Clientes;
-import restaurantepkg.FuncoesCliente;
 import restaurantepkg.Tela;
+import restaurantepkg.TelaCardapio;
 
 import javax.swing.*;
 
@@ -11,13 +11,12 @@ public class Main {
     public static void main(String[] args) {
         ClienteDAO clienteDAO = new ClienteDAO();
         Clientes cliente = new Clientes();
-        FuncoesCliente funcoesCliente = new FuncoesCliente();
         Tela iniciar = new Tela();
+        TelaCardapio telaCardapio = new TelaCardapio();
 
-        //funcoesCliente.cadastrarCliente(clienteDAO, cliente);
 
         iniciar.iniciarTela();
-
+        telaCardapio.iniciarTelaCriarCardapio();
 
 
     }

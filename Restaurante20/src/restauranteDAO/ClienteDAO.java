@@ -19,7 +19,6 @@ public class ClienteDAO {
         try {
             //cria conexao com banco de dados
             conn = ConnectionFactory.createConnectionToMySQL();
-
             pstm = (PreparedStatement) conn.prepareStatement(sql);
             pstm.setString(1, clientes.getNomeCliente());
             pstm.setString(2, clientes.getCepCliente());
