@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="restaurantepkg.TelaFazerPedido">
+  <grid id="27dc6" binding="FazerPedido" layout-manager="GridLayoutManager" row-count="7" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="20" left="20" bottom="20" right="20"/>
+    <constraints>
+      <xy x="20" y="20" width="581" height="234"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="63956" class="javax.swing.JLabel" binding="nomePrato1">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Prato1"/>
+        </properties>
+      </component>
+      <component id="cb5a7" class="javax.swing.JLabel" binding="DescricaoPrato1">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="DescricaoPrato"/>
+        </properties>
+      </component>
+      <component id="85bbc" class="javax.swing.JLabel" binding="valorPrato1">
+        <constraints>
+          <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="valorPrato"/>
+        </properties>
+      </component>
+      <component id="9b883" class="javax.swing.JButton" binding="fazerPedidoButton" default-binding="true">
+        <constraints>
+          <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Fazer Pedido"/>
+        </properties>
+      </component>
+      <component id="a0c4c" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="                  "/>
+        </properties>
+      </component>
+      <component id="3d240" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="              "/>
+        </properties>
+      </component>
+      <component id="dd059" class="javax.swing.JLabel" binding="MenuMaster">
+        <constraints>
+          <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="4" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="67" height="19"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="MenuMaster"/>
+        </properties>
+      </component>
+      <component id="6df84" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Cardápio"/>
+        </properties>
+      </component>
+      <component id="42aba" class="javax.swing.JButton" binding="maisInformacoes1Button">
+        <constraints>
+          <grid row="4" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Mais Informações"/>
+        </properties>
+      </component>
+      <component id="8845" class="javax.swing.JLabel" binding="nomePrato2">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Prato2"/>
+        </properties>
+      </component>
+      <component id="ed8fc" class="javax.swing.JLabel" binding="DescricaoPrato2">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="DescricaoPrato2"/>
+        </properties>
+      </component>
+      <component id="ea809" class="javax.swing.JLabel" binding="valorPrato2">
+        <constraints>
+          <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="valorPrato2"/>
+        </properties>
+      </component>
+      <component id="cf4b9" class="javax.swing.JButton" binding="fazerPedido2">
+        <constraints>
+          <grid row="6" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Fazer Pedido"/>
+        </properties>
+      </component>
+      <component id="d5e84" class="javax.swing.JButton" binding="maisInfos2">
+        <constraints>
+          <grid row="6" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Mais Informações"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
