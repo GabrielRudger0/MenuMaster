@@ -8,9 +8,11 @@ public class TelaMenuAdmin {
     private JPanel telaMenuAdm;
     private JButton registrarPratoNoCardápioButton;
     private JButton registrarClienteButton;
+
 public TelaMenuAdmin() {
     TelaCardapio telaCardapio = new TelaCardapio();
     TelaRegistro telaRegistro = new TelaRegistro();
+
     registrarPratoNoCardápioButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -32,7 +34,6 @@ public TelaMenuAdmin() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-
 
     }
 }

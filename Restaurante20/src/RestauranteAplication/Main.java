@@ -1,22 +1,32 @@
 package RestauranteAplication;
 
-import restauranteDAO.CardapioDAO;
 import restauranteDAO.ClienteDAO;
 import restaurantepkg.*;
 
 import javax.swing.*;
 
 public class Main {
+
+    public static JFrame mainTelaLogin = new JFrame("Login");
+
     public static void main(String[] args) {
         ClienteDAO clienteDAO = new ClienteDAO();
         Clientes cliente = new Clientes();
-        Tela TelaLogin = new Tela();
+        Tela telaLogin = new Tela();
         TelaFazerPedido fazerPedido = new TelaFazerPedido();
         TelaMenuAdmin menuAdmin = new TelaMenuAdmin();
 
         menuAdmin.iniciarTelaAdmin();
-        //TelaLogin.iniciarTela();
         //fazerPedido.iniciarTelaFazerPedido();
+        //inicarTelaLogin();
+        //iniciarTelaRegistro();
+
+    }
+   public static void inicarTelaLogin() {
+        mainTelaLogin.setContentPane(new Tela().telaLogin);
+        mainTelaLogin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        mainTelaLogin.pack();
+        mainTelaLogin.setVisible(true);
 
     }
 

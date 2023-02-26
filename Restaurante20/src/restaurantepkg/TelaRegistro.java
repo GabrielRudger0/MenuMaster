@@ -1,5 +1,6 @@
 package restaurantepkg;
 
+import RestauranteAplication.Main;
 import restauranteDAO.ClienteDAO;
 
 import javax.swing.*;
@@ -7,16 +8,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class TelaRegistro {
-    private JPanel panel1;
+    public JPanel panel1;
     private JTextField inserirNome;
     private JTextField inserirCep;
     private JTextField inserirEmail;
     private JButton registrarButton;
-    private JButton voltarButton;
+    public JButton voltarButton;
     private JTextField inserirTelefone;
     private JTextField insiraSenha;
 
-    public JFrame frame = new JFrame("Registro");
+    private Main main = new Main();
+
+    public JFrame telaRegistroTela = new JFrame("Registro");
 
 public TelaRegistro() {
 
@@ -52,12 +55,7 @@ public TelaRegistro() {
 
         }
     });
-    voltarButton.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
 
-        }
-    });
     insiraSenha.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -74,18 +72,25 @@ public TelaRegistro() {
             if (registroECorreto(cliente) != false) {
                 clienteDAO.save(cliente);
                 JOptionPane.showMessageDialog(null, "Registro Concluído!", "Registro", JOptionPane.INFORMATION_MESSAGE);
-                frame.dispose();
+                telaRegistroTela.dispose();
             }
         }
     });
+
+    voltarButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+        }
+    });
+
 }
     public void iniciarTelaRegistro() {
 
-        frame.setContentPane(new TelaRegistro().panel1);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-
+        telaRegistroTela.setContentPane(new TelaRegistro().panel1);
+        telaRegistroTela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        telaRegistroTela.pack();
+        telaRegistroTela.setVisible(true);
 
     }
     public boolean registroECorreto(Clientes cliente) {
