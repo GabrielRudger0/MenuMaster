@@ -10,14 +10,13 @@ public class Main {
     public static void main(String[] args) {
         ClienteDAO clienteDAO = new ClienteDAO();
         Clientes cliente = new Clientes();
-        Tela iniciar = new Tela();
-        TelaCardapio telaCardapio = new TelaCardapio();
+        Tela TelaLogin = new Tela();
         TelaFazerPedido fazerPedido = new TelaFazerPedido();
+        TelaMenuAdmin menuAdmin = new TelaMenuAdmin();
 
-
-        //iniciar.iniciarTela();
-        //telaCardapio.iniciarTelaCriarCardapio();
-        fazerPedido.iniciarTelaFazerPedido();
+        menuAdmin.iniciarTelaAdmin();
+        //TelaLogin.iniciarTela();
+        //fazerPedido.iniciarTelaFazerPedido();
 
     }
 
