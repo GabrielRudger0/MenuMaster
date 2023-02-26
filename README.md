@@ -31,5 +31,7 @@
 <p>   Back-End e Front-End</p>
 <p>Murilo Cordova</p>
 <p>   Banco de Dados e Back-End</p>
+<p>Guilherme Gadotti</p>
+<p>   Back-End</p>
 <img src="https://media.tenor.com/-olKpbFHbNEAAAAM/cena.gif">
 
