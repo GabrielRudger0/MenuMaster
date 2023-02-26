@@ -72,6 +72,7 @@ public class TelaCardapio {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardapioDAO.save(cardapioObject);
+                JOptionPane.showInputDialog(null,"Item registrado no cardápio","Cardapio",JOptionPane.INFORMATION_MESSAGE);
                 System.exit(0);
 
             }
