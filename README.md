@@ -18,20 +18,25 @@
 <p> 👉 Vizualizar detalhes dos pratos;</p>
 <p> 👉 Realizar pedidos;</p>
 <br>
+
 <h1 align="center">
     <a href="https://pt-br.reactjs.org/">👤 Funcionalidades do Admin </a>
 </h1>
 <p> 👉 Registro do cliente;</p>
 <p> 👉 Registro de pratos no cardapio;</p>
 <br>
+
 <h2 align="left">
     <a href="https://pt-br.reactjs.org/">🦅 Os Autores</a>
 </h2>
-<p>Gabriel Rüdger</p>
+<h3 align="left"> Gabriel Rüdger</h3>
 <p>   Back-End e Front-End</p>
-<p>Murilo Cordova</p>
+<h3 align="left">Murilo Cordova</h3>
+
 <p>   Banco de Dados e Back-End</p>
-<p>Guilherme Gadotti</p>
+<h3 align="left">Guilherme Gadotti</h3>
 <p>   Back-End</p>
+
 <img src="https://media.tenor.com/-olKpbFHbNEAAAAM/cena.gif">
+
 
