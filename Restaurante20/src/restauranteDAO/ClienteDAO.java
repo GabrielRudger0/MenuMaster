@@ -2,10 +2,14 @@ package restauranteDAO;
 
 import com.mysql.jdbc.PreparedStatement;
 import restaurante.factory.ConnectionFactory;
+import restaurantepkg.AdminPKG;
 import restaurantepkg.Clientes;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ClienteDAO {
 
@@ -46,6 +50,68 @@ public class ClienteDAO {
                 e.printStackTrace();
             }
         }
+
+    }
+
+    public List<Clientes> getClientes() {
+
+        String sql = "SELECT * FROM cadastro_cliente";
+
+        List<Clientes> clientes = new ArrayList<>();
+
+        Connection conn = null;
+        PreparedStatement pstn = null;
+        //pesquisa SELECT
+        ResultSet rset = null;
+
+        try {
+
+            conn = ConnectionFactory.createConnectionToMySQL();
+
+            pstn = (PreparedStatement) conn.prepareStatement(sql);
+
+            rset = pstn.executeQuery();
+
+
+            while (rset.next()) {
+                Clientes pegaclientes = new Clientes();
+
+                //pegar dados
+
+
+                pegaclientes.setCepCliente(rset.getString("cep_cliente"));
+                pegaclientes.setNomeCliente(rset.getString("nome_cliente"));
+                pegaclientes.setEmailCliente(rset.getString("email_cliente"));
+                pegaclientes.setTelefoneCliente(rset.getString("tel_cliente"));
+                pegaclientes.setSenha_cliente(rset.getString("senha_cliente"));
+
+
+                clientes.add(pegaclientes);
+            }
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            try {
+
+
+                if (rset != null) {
+                    rset.close();
+                }
+                if (pstn != null) {
+                    pstn.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+
+        return clientes;
+
 
     }
 }
