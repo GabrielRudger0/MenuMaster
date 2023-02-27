@@ -16,8 +16,8 @@ public class Main {
         TelaFazerPedido fazerPedido = new TelaFazerPedido();
         TelaMenuAdmin menuAdmin = new TelaMenuAdmin();
 
-        menuAdmin.iniciarTelaAdmin();
-        //fazerPedido.iniciarTelaFazerPedido();
+        //menuAdmin.iniciarTelaAdmin();
+        fazerPedido.iniciarTelaFazerPedido();
         //inicarTelaLogin();
         //iniciarTelaRegistro();
 
