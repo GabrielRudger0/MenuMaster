@@ -31,12 +31,16 @@
 </h2>
 <h3 align="left"> Gabriel Rüdger</h3>
 <p>   Back-End e Front-End</p>
-<h3 align="left">Murilo Cordova</h3>
+<img src="https://media.tenor.com/-olKpbFHbNEAAAAM/cena.gif" width="150" height="150">
 
+
+<h3 align="left">Murilo Cordova</h3>
 <p>   Banco de Dados e Back-End</p>
+
+
 <h3 align="left">Guilherme Gadotti</h3>
 <p>   Back-End</p>
+<img src="https://media.tenor.com/LAI8l_qXRHYAAAAM/saul-goodman3d-saul.gif" width="150" height="150">
 
-<img src="https://media.tenor.com/-olKpbFHbNEAAAAM/cena.gif">
 
 
