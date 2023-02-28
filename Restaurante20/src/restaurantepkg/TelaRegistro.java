@@ -68,11 +68,11 @@ public TelaRegistro() {
     registrarButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            telaRegistroTela.dispose();
             if (registroECorreto(cliente) != false) {
                 clienteDAO.save(cliente);
                 JOptionPane.showMessageDialog(null, "Registro Concluído!", "Registro", JOptionPane.INFORMATION_MESSAGE);
-                telaRegistroTela.dispose();
+
             }
         }
     });

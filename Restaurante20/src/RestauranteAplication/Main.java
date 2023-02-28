@@ -17,8 +17,8 @@ public class Main {
         TelaMenuAdmin menuAdmin = new TelaMenuAdmin();
 
         //menuAdmin.iniciarTelaAdmin();
-        fazerPedido.iniciarTelaFazerPedido();
-        //inicarTelaLogin();
+        //fazerPedido.iniciarTelaFazerPedido();
+        inicarTelaLogin();
         //iniciarTelaRegistro();
 
     }
@@ -29,5 +29,6 @@ public class Main {
         mainTelaLogin.setVisible(true);
 
     }
+
 
 }

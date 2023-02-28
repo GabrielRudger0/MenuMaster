@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 public class TelaMenuAdmin {
     private JPanel telaMenuAdm;
+    public JFrame frameTelaMenuAdm = new JFrame("Menu Admin");
     private JButton registrarPratoNoCardápioButton;
     private JButton registrarClienteButton;
 
@@ -22,6 +23,7 @@ public TelaMenuAdmin() {
     registrarClienteButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
+            frameTelaMenuAdm.dispose();
             telaRegistro.iniciarTelaRegistro();
         }
     });
@@ -29,11 +31,11 @@ public TelaMenuAdmin() {
 
 }
     public void iniciarTelaAdmin() {
-        JFrame frame = new JFrame("Menu Admin");
-        frame.setContentPane(new TelaMenuAdmin().telaMenuAdm);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
+
+        frameTelaMenuAdm.setContentPane(new TelaMenuAdmin().telaMenuAdm);
+        frameTelaMenuAdm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frameTelaMenuAdm.pack();
+        frameTelaMenuAdm.setVisible(true);
 
     }
 }
