@@ -39,7 +39,7 @@
 <p>   Banco de Dados e Back-End</p>
 
 
-<h3 align="left">Guilherme Gadotti <img src="https://media.tenor.com/LAI8l_qXRHYAAAAM/saul-goodman3d-saul.gif" width="50" height="50">
+<h3 align="left">Guilherme Gadotti <img src="https://media.tenor.com/LAI8l_qXRHYAAAAM/saul-goodman3d-saul.gif" width="50" height="50"  height:-40px>
 </h3>
 <p>   Back-End</p>
 
