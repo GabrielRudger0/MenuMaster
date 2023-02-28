@@ -39,9 +39,9 @@
 <p>   Banco de Dados e Back-End</p>
 
 
-<h3 align="left">Guilherme Gadotti</h3>
+<h3 align="left">Guilherme Gadotti <img src="https://media.tenor.com/LAI8l_qXRHYAAAAM/saul-goodman3d-saul.gif" width="50" height="50">
+</h3>
 <p>   Back-End</p>
-<img src="https://media.tenor.com/LAI8l_qXRHYAAAAM/saul-goodman3d-saul.gif" width="1500" height="150">
 
 
 
