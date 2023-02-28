@@ -10,6 +10,7 @@ public class Main {
     public static JFrame mainTelaLogin = new JFrame("Login");
 
     public static void main(String[] args) {
+
         ClienteDAO clienteDAO = new ClienteDAO();
         Clientes cliente = new Clientes();
         Tela telaLogin = new Tela();
@@ -18,6 +19,7 @@ public class Main {
 
         //menuAdmin.iniciarTelaAdmin();
         //fazerPedido.iniciarTelaFazerPedido();
+
         inicarTelaLogin();
         //iniciarTelaRegistro();
 

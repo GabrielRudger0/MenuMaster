@@ -94,8 +94,10 @@ public TelaRegistro() {
 
     }
     public boolean registroECorreto(Clientes cliente) {
+
         String textoTela = "Informações não preenchidas!\n";
         boolean verificaRegistro = true;
+
         if (cliente.getNomeCliente() == null) {
             textoTela += "Nome do Cliente;\n";
             verificaRegistro = false;

@@ -78,7 +78,6 @@ public class ClienteDAO {
 
                 //pegar dados
 
-
                 pegaclientes.setCepCliente(rset.getString("cep_cliente"));
                 pegaclientes.setNomeCliente(rset.getString("nome_cliente"));
                 pegaclientes.setEmailCliente(rset.getString("email_cliente"));
