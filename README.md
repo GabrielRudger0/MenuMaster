@@ -29,11 +29,12 @@
 </h2>
 <h3 align="left"> Gabriel Rüdger </h3>
 <p>   Back-End e Front-End  </p>
-<img src="https://media.tenor.com/05u_m7AsVFEAAAAd/frango-andando-frango-assado-andando.gif"  width:200px height:200px>
+<img src="https://media.tenor.com/05u_m7AsVFEAAAAd/frango-andando-frango-assado-andando.gif"  width="150" height="150" width:200px height:200px>
 <img src="https://media.tenor.com/-olKpbFHbNEAAAAM/cena.gif" width="150" height="150">
 
 
-<h3 align="left">Murilo Cordova</h3>
+<h3 align="left">Murilo Cordova   <img src="https://media.tenor.com/05u_m7AsVFEAAAAd/frango-andando-frango-assado-andando.gif"  width="150" height="150" width:200px height:200px>
+</h3>
 <p>   Banco de Dados e Back-End</p>
 
 
