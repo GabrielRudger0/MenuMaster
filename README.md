@@ -29,7 +29,6 @@
 </h2>
 <h3 align="left"> Gabriel Rüdger <img src="https://media.tenor.com/05u_m7AsVFEAAAAd/frango-andando-frango-assado-andando.gif"  width="20" height="20" width:200px height:200px> </h3>
 <p>   Back-End e Front-End  </p>
-<img src="https://media.tenor.com/05u_m7AsVFEAAAAd/frango-andando-frango-assado-andando.gif"  width="150" height="150" width:200px height:200px>
 <img src="https://media.tenor.com/-olKpbFHbNEAAAAM/cena.gif" width="150" height="150">
 
 
