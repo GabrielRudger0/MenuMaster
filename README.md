@@ -9,7 +9,7 @@
 <p> 🥔 GitHub </p>
 
 
-<img src="https://media.tenor.com/05u_m7AsVFEAAAAd/frango-andando-frango-assado-andando.gif" width="100" height="100" align="center">
+<img src="https://media.tenor.com/05u_m7AsVFEAAAAd/frango-andando-frango-assado-andando.gif" width="100" height="100" align="right">
 
 
 <h1 align="center">
