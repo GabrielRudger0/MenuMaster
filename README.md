@@ -27,8 +27,8 @@
 <h2 align="left">
     <a href="https://pt-br.reactjs.org/">🦅 Os Autores</a>
 </h2>
-<h3 align="left"> Gabriel Rüdger</h3>
-<p>   Back-End e Front-End</p>
+<h3 align="left"> Gabriel Rüdger  img src="https://media.tenor.com/05u_m7AsVFEAAAAd/frango-andando-frango-assado-andando.gif" width="100" height="100"  </h3>
+<p>   Back-End e Front-End  </p>
 <img src="https://media.tenor.com/05u_m7AsVFEAAAAd/frango-andando-frango-assado-andando.gif" width="100" height="100" >
 <img src="https://media.tenor.com/-olKpbFHbNEAAAAM/cena.gif" width="150" height="150">
 
