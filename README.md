@@ -8,10 +8,6 @@
 <p> 📦 HeidSQL (Banco de Dados) </p>
 <p> 🥔 GitHub </p>
 
-
-<img src="https://media.tenor.com/05u_m7AsVFEAAAAd/frango-andando-frango-assado-andando.gif" width="100" height="100" align="right">
-
-
 <h1 align="center">
     <a href="https://pt-br.reactjs.org/">👥 Funcionalidades do Cliente </a>
 </h1>
@@ -33,6 +29,7 @@
 </h2>
 <h3 align="left"> Gabriel Rüdger</h3>
 <p>   Back-End e Front-End</p>
+<img src="https://media.tenor.com/05u_m7AsVFEAAAAd/frango-andando-frango-assado-andando.gif" width="100" height="100" align="right">
 <img src="https://media.tenor.com/-olKpbFHbNEAAAAM/cena.gif" width="150" height="150">
 
 
