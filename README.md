@@ -7,11 +7,11 @@
 <p> 🌌 IntelliJ Swing GUI </p>
 <p> 📦 HeidSQL (Banco de Dados) </p>
 <p> 🥔 GitHub </p>
-<align="center">
 
+<h1 align="center">
 < img src="https://media.tenor.com/05u_m7AsVFEAAAAd/frango-andando-frango-assado-andando.gif" width="100" height="100">
+</h1>
 
-</align>
 <h1 align="center">
     <a href="https://pt-br.reactjs.org/">👥 Funcionalidades do Cliente </a>
 </h1>
