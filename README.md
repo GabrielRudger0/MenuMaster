@@ -40,7 +40,7 @@
 
 <h3 align="left">Guilherme Gadotti</h3>
 <p>   Back-End</p>
-<img src="https://media.tenor.com/LAI8l_qXRHYAAAAM/saul-goodman3d-saul.gif" width="150" height="150">
+<img src="https://media.tenor.com/LAI8l_qXRHYAAAAM/saul-goodman3d-saul.gif" width="1500" height="150">
 
 
 
