@@ -8,6 +8,8 @@
 <p> 📦 HeidSQL (Banco de Dados) </p>
 <p> 🥔 GitHub </p>
 
+<img src="https://media.tenor.com/05u_m7AsVFEAAAAd/frango-andando-frango-assado-andando.gif"  width="200" height="200" width:200px height:200px>
+
 <h1 align="center">
     <a href="https://pt-br.reactjs.org/">👥 Funcionalidades do Cliente </a>
 </h1>
