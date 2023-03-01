@@ -1,6 +1,7 @@
 package restaurantepkg;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class ExecutaTelas {
     public static JFrame frameTelaMenuAdm = new JFrame("Menu Admin");
@@ -11,12 +12,16 @@ public class ExecutaTelas {
     public static JFrame frameTelaAvaliacoes = new JFrame("Avalie nosso serviço!");
     public static JFrame frameTelaContabil = new JFrame("Contabilidade");
     public static JFrame frameTelaInformacoesPrato = new JFrame("Informações");
+    private static Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+
     public void iniciarTelaAdmin() {
 
         frameTelaMenuAdm.setContentPane(new TelaMenuAdmin().telaMenuAdm);
         frameTelaMenuAdm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frameTelaMenuAdm.pack();
         frameTelaMenuAdm.setVisible(true);
+        frameTelaMenuAdm.setLocation((dim.width-frameTelaMenuAdm.getSize().width)/2, dim.height/2-frameTelaMenuAdm.getSize().height/2);
+
 
     }
     public void iniciarTelaRegistro() {
@@ -25,6 +30,8 @@ public class ExecutaTelas {
         frameTelaRegistro.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frameTelaRegistro.pack();
         frameTelaRegistro.setVisible(true);
+        frameTelaRegistro.setLocation((dim.width-frameTelaRegistro.getSize().width)/2, dim.height/2-frameTelaRegistro.getSize().height/2);
+
 
     }
     public void iniciarTelaLogin() {
@@ -33,18 +40,17 @@ public class ExecutaTelas {
         frameTelaLogin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frameTelaLogin.pack();
         frameTelaLogin.setVisible(true);
+        frameTelaLogin.setLocation(dim.width/2-frameTelaLogin.getSize().width/2, dim.height/2-frameTelaLogin.getSize().height/2);
 
     }
 
     public void iniciarTelaFazerPedido() {
 
-
         frameTelaFazerPedido.setContentPane(new TelaFazerPedido().FazerPedido);
         frameTelaFazerPedido.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frameTelaFazerPedido.pack();
         frameTelaFazerPedido.setVisible(true);
-
-
+        frameTelaFazerPedido.setLocation(dim.width/2-frameTelaFazerPedido.getSize().width/2, dim.height/2-frameTelaFazerPedido.getSize().height/2);
     }
 
     public void iniciarTelaCriarCardapio() {
@@ -53,6 +59,7 @@ public class ExecutaTelas {
         frameTelaCardapio.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frameTelaCardapio.pack();
         frameTelaCardapio.setVisible(true);
+        frameTelaCardapio.setLocation(dim.width/2-frameTelaCardapio.getSize().width/2, dim.height/2-frameTelaCardapio.getSize().height/2);
 
     }
     public void iniciarTelaAvaliacoes() {
@@ -61,6 +68,8 @@ public class ExecutaTelas {
         frameTelaAvaliacoes.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frameTelaAvaliacoes.pack();
         frameTelaAvaliacoes.setVisible(true);
+        frameTelaAvaliacoes.setLocation(dim.width/2-frameTelaLogin.getSize().width/2, dim.height/2-frameTelaLogin.getSize().height/2);
+
 
 
     }
@@ -70,6 +79,8 @@ public class ExecutaTelas {
         frameTelaAvaliacoes.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frameTelaAvaliacoes.pack();
         frameTelaAvaliacoes.setVisible(true);
+        frameTelaAvaliacoes.setLocation(dim.width/2-frameTelaLogin.getSize().width/2, dim.height/2-frameTelaLogin.getSize().height/2);
+
 
     }
     public void iniciarTelaInformacoesPedido(int index) {
@@ -78,7 +89,7 @@ public class ExecutaTelas {
         frameTelaInformacoesPrato.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frameTelaInformacoesPrato.pack();
         frameTelaInformacoesPrato.setVisible(true);
-
+        frameTelaInformacoesPrato.setLocation(dim.width/2-frameTelaInformacoesPrato.getSize().width/2, dim.height/2-frameTelaInformacoesPrato.getSize().height/2);
 
     }
 }
