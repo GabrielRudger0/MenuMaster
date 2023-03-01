@@ -8,12 +8,24 @@ public class TelaMenuAdmin {
     public JPanel telaMenuAdm;
     private JButton registrarPratoNoCardápioButton;
     private JButton registrarClienteButton;
+    private JButton contabilidadeMenuButton;
     private JButton botaoVoltar;
 
     public TelaMenuAdmin() {
     TelaCardapio telaCardapio = new TelaCardapio();
     TelaRegistro telaRegistro = new TelaRegistro();
+    TelaContabilMenu telaContabilMenu = new TelaContabilMenu();
     ExecutaTelas executaTelas = new ExecutaTelas();
+
+
+    contabilidadeMenuButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            ExecutaTelas.frameTelaMenuAdm.dispose();
+            executaTelas.iniciarTelaContabil();
+        }
+    });
+
     registrarPratoNoCardápioButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {

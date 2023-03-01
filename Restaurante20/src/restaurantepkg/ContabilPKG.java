@@ -5,13 +5,9 @@ import java.sql.Date;
 public class ContabilPKG {
 
     private Date data;
-
     private String descricao;
-
     private double receitas;
-
     private double despesas;
-
     private double saldo;
 
     public Date getData() {
