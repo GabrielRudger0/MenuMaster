@@ -21,7 +21,7 @@ public class Main {
         System.out.println(viacep.getUf()); // imprime "SP"
 
         //executaTelas.iniciarTelaAdmin();
-        executaTelas.iniciarTelaFazerPedido();
-
+        //executaTelas.iniciarTelaFazerPedido();
+        executaTelas.iniciarTelaLogin();
     }
 }

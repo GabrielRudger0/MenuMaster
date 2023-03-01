@@ -33,7 +33,7 @@ public class TelaMenuAdmin {
         botaoVoltar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Object[] opcaoConfirma = {"Voltar ao Cardapio", "Sair"};
+                Object[] opcaoConfirma = {"Voltar ao Menu Admin", "Sair"};
                 int opcaoSelecionada = JOptionPane.showOptionDialog(null,
                         "Deseja sair da conta e voltar a tela de login?", "Menu Admin",
                         JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE,
