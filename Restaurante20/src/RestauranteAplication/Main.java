@@ -16,6 +16,9 @@ public class Main {
         Tela telaLogin = new Tela();
         TelaFazerPedido fazerPedido = new TelaFazerPedido();
         TelaMenuAdmin menuAdmin = new TelaMenuAdmin();
+        TelaAvaliacao telaAvaliacao = new TelaAvaliacao();
+
+        telaAvaliacao.iniciarTelaAvaliacoes();
 
         //menuAdmin.iniciarTelaAdmin();
         //fazerPedido.iniciarTelaFazerPedido();
