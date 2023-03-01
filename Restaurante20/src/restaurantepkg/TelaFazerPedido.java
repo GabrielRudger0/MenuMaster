@@ -4,6 +4,8 @@ import restauranteDAO.CardapioDAO;
 import restauranteDAO.PedidoDAO;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,7 +15,13 @@ public class TelaFazerPedido {
     private PedidoDAO pedidoDAO = new PedidoDAO();
     private PedidoPkg pedido = new PedidoPkg();
     private int[] sequencialIndexes = {-1,-1,-1,-1,-1};
+    private static int indexPedidoAtual;
     private float precoPratoParaFolhaPedido;
+    private static int quantidadePedido1;
+    private static int quantidadePedido2;
+    private static int quantidadePedido3;
+    private static int quantidadePedido4;
+    private static int quantidadePedido5;
 
     private JLabel MenuMaster;
     private JLabel nomePrato1;
@@ -64,6 +72,16 @@ public class TelaFazerPedido {
     private JButton cofirmarCompraButton;
     private JButton botaoCancelar;
     private JButton botaoSair;
+    private JSpinner spinnerPedido1;
+    private JSpinner spinnerPedido2;
+    private JSpinner spinnerPedido3;
+    private JSpinner spinnerPedido4;
+    private JSpinner spinnerPedido5;
+    private JSpinner spinnerBebida1;
+    private JSpinner spinnerBebida2;
+    private JSpinner spinnerBebida3;
+    private JSpinner spinnerBebida4;
+    private JSpinner spinnerBebida5;
 
     public TelaFazerPedido() {
 
@@ -78,6 +96,7 @@ public class TelaFazerPedido {
             if (this.eBebida(0)) {
                 fazerPedidoButton.setVisible(false);
                 maisInformacoes1Button.setVisible(false);
+                spinnerPedido1.setVisible(false);
                 this.inserirBebida(0, nomeBebida1, descricaoBebida1, valorBebida1, fazerPedidoBebida1);
             } else {
                 fazerPedidoBebida1.setVisible(false);
@@ -87,6 +106,7 @@ public class TelaFazerPedido {
             fazerPedidoBebida1.setVisible(false);
             fazerPedidoButton.setVisible(false);
             maisInformacoes1Button.setVisible(false);
+            spinnerPedido1.setVisible(false);
         }
 
         //Prato/Bebida 2
@@ -263,17 +283,40 @@ public class TelaFazerPedido {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Object[] opcaoConfirma = {"Confirmar", "Sair"};
+                int quantidadePedido = 0;
+
+                switch (indexPedidoAtual) {
+                    case 0:
+                        quantidadePedido = quantidadePedido1;
+                        break;
+                    case 1:
+                        quantidadePedido = quantidadePedido2;
+                        break;
+                    case 2:
+                        quantidadePedido = quantidadePedido3;
+                        break;
+                    case 3:
+                        quantidadePedido = quantidadePedido4;
+                        break;
+                    case 4:
+                        quantidadePedido = quantidadePedido5;
+                        break;
+
+                }
                 int opcaoSelecionada = JOptionPane.showOptionDialog(null, "Prato/Bebida: " + pedido.getItenspedidos() +
                                 "\nPreço: R$ " + precoPratoParaFolhaPedido +
-                                "\nQuantidade: " + pedido.getQuantidade() +
+                                "\nQuantidade: " + quantidadePedido +
                                 "\nObservação: " + pedido.getObservacao(), "Observação", JOptionPane.OK_CANCEL_OPTION,
                                 JOptionPane.QUESTION_MESSAGE, null, opcaoConfirma, opcaoConfirma[0]);
                 if (opcaoSelecionada == 0) {
                     JOptionPane.showMessageDialog(null, "Seu pedido chegará em instantes, Obrigado!");
+
+
                     pedidoDAO.save(pedido);
                 }
             }
         });
+
         botaoCancelar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -281,6 +324,7 @@ public class TelaFazerPedido {
                 //ou apenas um
             }
         });
+
         botaoSair.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -296,6 +340,38 @@ public class TelaFazerPedido {
                     executaTelas.iniciarTelaLogin();
                 }
 
+            }
+        });
+
+        spinnerPedido1.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                quantidadePedido1 = (int) spinnerPedido1.getValue();
+
+            }
+        });
+        spinnerPedido2.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                quantidadePedido2 = (int) spinnerPedido1.getValue();
+            }
+        });
+        spinnerPedido3.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                quantidadePedido3 = (int) spinnerPedido1.getValue();
+            }
+        });
+        spinnerPedido4.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                quantidadePedido4 = (int) spinnerPedido1.getValue();
+            }
+        });
+        spinnerPedido5.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                quantidadePedido5 = (int) spinnerPedido1.getValue();
             }
         });
     }
@@ -354,6 +430,7 @@ public class TelaFazerPedido {
         String pratoPedido = prato.getNome_prato();
         pedido.setItenspedidos(pratoPedido);
         pedido.setQuantidade("" + qtd);
+        indexPedidoAtual = indexArray;
 
         if (opcaoSelecionada == 0) {
             obs = JOptionPane.showInputDialog(null, "Observação:", "Observação", JOptionPane.INFORMATION_MESSAGE);
