@@ -5,37 +5,46 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class TelaMenuAdmin {
-    private JPanel telaMenuAdm;
-    public JFrame frameTelaMenuAdm = new JFrame("Menu Admin");
+    public JPanel telaMenuAdm;
     private JButton registrarPratoNoCardápioButton;
     private JButton registrarClienteButton;
+    private JButton botaoVoltar;
 
-public TelaMenuAdmin() {
+    public TelaMenuAdmin() {
     TelaCardapio telaCardapio = new TelaCardapio();
     TelaRegistro telaRegistro = new TelaRegistro();
-
+    ExecutaTelas executaTelas = new ExecutaTelas();
     registrarPratoNoCardápioButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            telaCardapio.iniciarTelaCriarCardapio();
+            ExecutaTelas.frameTelaMenuAdm.dispose();
+            executaTelas.iniciarTelaCriarCardapio();
         }
     });
     registrarClienteButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            frameTelaMenuAdm.dispose();
-            telaRegistro.iniciarTelaRegistro();
+
+            ExecutaTelas.frameTelaMenuAdm.dispose();
+            executaTelas.iniciarTelaRegistro();
         }
     });
 
+        botaoVoltar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Object[] opcaoConfirma = {"Voltar ao Cardapio", "Sair"};
+                int opcaoSelecionada = JOptionPane.showOptionDialog(null,
+                        "Deseja sair da conta e voltar a tela de login?", "Menu Admin",
+                        JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE,
+                        null, opcaoConfirma, opcaoConfirma[0]);
 
-}
-    public void iniciarTelaAdmin() {
-
-        frameTelaMenuAdm.setContentPane(new TelaMenuAdmin().telaMenuAdm);
-        frameTelaMenuAdm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frameTelaMenuAdm.pack();
-        frameTelaMenuAdm.setVisible(true);
-
+                if (opcaoSelecionada == 1) {
+                    ExecutaTelas executaTelas = new ExecutaTelas();
+                    ExecutaTelas.frameTelaMenuAdm.dispose();
+                    executaTelas.iniciarTelaLogin();
+                }
+            }
+        });
     }
 }

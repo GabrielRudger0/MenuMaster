@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class TelaAvaliacao {
-    private JPanel telaAvaliacaoPrato;
+    public JPanel telaAvaliacaoPrato;
     private JButton botaoEstrela1;
     private JButton botaoEstrela2;
     private JButton botaoEstrela3;
@@ -45,14 +45,6 @@ public class TelaAvaliacao {
         });
     }
 
-    public void iniciarTelaAvaliacoes() {
-        JFrame frame = new JFrame("Avalie nosso serviço!");
-        frame.setContentPane(new TelaAvaliacao().telaAvaliacaoPrato);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
 
-
-    }
 }
 

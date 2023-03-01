@@ -13,13 +13,9 @@ public class TelaRegistro {
     private JTextField inserirCep;
     private JTextField inserirEmail;
     private JButton registrarButton;
-    public JButton voltarButton;
+    private JButton voltarButton;
     private JTextField inserirTelefone;
     private JTextField insiraSenha;
-
-    private Main main = new Main();
-
-    public JFrame telaRegistroTela = new JFrame("Registro");
 
 public TelaRegistro() {
 
@@ -60,7 +56,6 @@ public TelaRegistro() {
         @Override
         public void actionPerformed(ActionEvent e) {
             cliente.setSenha_cliente(insiraSenha.getText());
-            System.out.println(cliente.getSenha_cliente());
         }
     });
 
@@ -68,7 +63,6 @@ public TelaRegistro() {
     registrarButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            telaRegistroTela.dispose();
             if (registroECorreto(cliente) != false) {
                 clienteDAO.save(cliente);
                 JOptionPane.showMessageDialog(null, "Registro Concluído!", "Registro", JOptionPane.INFORMATION_MESSAGE);
@@ -80,19 +74,13 @@ public TelaRegistro() {
     voltarButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            ExecutaTelas executaTelas = new ExecutaTelas();
+            ExecutaTelas.frameTelaRegistro.dispose();
+            executaTelas.iniciarTelaAdmin();
         }
     });
 
 }
-    public void iniciarTelaRegistro() {
-
-        telaRegistroTela.setContentPane(new TelaRegistro().panel1);
-        telaRegistroTela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        telaRegistroTela.pack();
-        telaRegistroTela.setVisible(true);
-
-    }
     public boolean registroECorreto(Clientes cliente) {
 
         String textoTela = "Informações não preenchidas!\n";

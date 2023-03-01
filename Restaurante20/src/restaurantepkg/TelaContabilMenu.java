@@ -7,10 +7,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class TelaContabilMenu {
+    public JPanel TelaContabilidadeMenu;
     private JButton relatorioGeralButton;
     private JButton detalhesDeReceitasButton;
     private JButton detalhesDeDespesasButton;
-    public JPanel TelaContabilidadeMenu;
+    private JButton botaoVoltar;
 
     public TelaContabilMenu() {
     relatorioGeralButton.addActionListener(new ActionListener() {
@@ -32,6 +33,12 @@ public class TelaContabilMenu {
 
         }
     });
-}
+        botaoVoltar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+    }
 
 }

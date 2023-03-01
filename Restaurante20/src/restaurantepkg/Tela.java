@@ -9,36 +9,32 @@ import RestauranteAplication.Main;
 import restauranteDAO.ClienteDAO;
 
 public class Tela {
+    public JPanel telaLogin;
     private String emailDigitadoUsuario;
-    private Main mainView = new Main();
-    private TelaFazerPedido fazerPedido = new TelaFazerPedido();
     private String senhaDigitadoUsuario;
     private int posicaoArrayCliente;
     private boolean aceitaEmail = false;
     private boolean aceitaSenha = false;
     private JButton login;
-    public JPanel telaLogin;
     private JTextField receberLogin;
     private JPasswordField senhaLogin;
     public JButton botaoRegistro;
     private JButton botaoLogin;
+    private JButton botaoSair;
 
     public Tela() {
-
 
         receberLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ClienteDAO clienteDAO = new ClienteDAO();
                 emailDigitadoUsuario = receberLogin.getText();
-                System.out.println(emailDigitadoUsuario);
 
                 for (int i = 0; i < clienteDAO.getClientes().size(); i++) {
                     Clientes cliente = new Clientes();
                     cliente = clienteDAO.getClientes().get(i);
                     if (emailDigitadoUsuario.equals(cliente.getEmailCliente())) {
                         aceitaEmail = true;
-                        System.out.println(aceitaEmail);
                         posicaoArrayCliente = i;
                     }
                 }
@@ -74,8 +70,10 @@ public class Tela {
                     JOptionPane.showMessageDialog(null,"Login efetuado com sucesso!\nBem-Vindo, " + cliente.getNomeCliente() + ".",
                             "Login",JOptionPane.INFORMATION_MESSAGE);
 
-                    mainView.mainTelaLogin.dispose();
-                    fazerPedido.iniciarTelaFazerPedido();
+                    ExecutaTelas executaTelas = new ExecutaTelas();
+                    ExecutaTelas.frameTelaLogin.dispose();
+                    executaTelas.iniciarTelaFazerPedido();
+
                 } else {
                     JOptionPane.showMessageDialog(null,"Erro no login: Verifique as credenciais digitadas.",
                             "Login",JOptionPane.ERROR_MESSAGE);
@@ -84,6 +82,12 @@ public class Tela {
             }
         });
 
+        botaoSair.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
     }
 
 }

@@ -6,18 +6,16 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class TelaCardapio {
+    public JPanel telaCriacaoCardapio;
     private JTextField insiraNomePrato;
     private JTextField insiraRestricoes;
+    private JTextField insiraIngredientes;
+    private JTextField insiraPreco;
     private JComboBox selecionaCategoria;
     private JButton disponivelButton;
     private JButton indisponivelButton;
-    private JTextField insiraIngredientes;
-    private JTextField insiraPreco;
     private JButton confirmarButton;
     private JButton voltarButton;
-    private JPanel telaCriacaoCardapio;
-    private JComboBox comboBox1;
-    private JTextField textField1;
 
     public TelaCardapio() {
 
@@ -27,7 +25,6 @@ public class TelaCardapio {
         insiraNomePrato.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 cardapioObject.setNome_prato(insiraNomePrato.getText());
 
             }
@@ -64,7 +61,7 @@ public class TelaCardapio {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardapioObject.setIngredientes(insiraIngredientes.getText());
-                System.out.println(cardapioObject.getIngredientes());
+
             }
         });
 
@@ -74,7 +71,6 @@ public class TelaCardapio {
                 cardapioDAO.save(cardapioObject);
                 int cont = 0;
                 JOptionPane.showMessageDialog(null,(cont+1)+"Item registrado no cardápio!","Cardapio",JOptionPane.INFORMATION_MESSAGE);
-                System.exit(0);
 
             }
         });
@@ -86,14 +82,14 @@ public class TelaCardapio {
                 cardapioObject.setCategoria(selecionado);
             }
         });
+        voltarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ExecutaTelas executaTelas = new ExecutaTelas();
+                ExecutaTelas.frameTelaCardapio.dispose();
+                executaTelas.iniciarTelaAdmin();
+            }
+        });
     }
-    public void iniciarTelaCriarCardapio() {
-        JFrame frame = new JFrame("Cardapio");
-        frame.setContentPane(new TelaCardapio().telaCriacaoCardapio);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
 
-
-    }
 }

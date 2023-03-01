@@ -9,11 +9,9 @@ import java.io.IOException;
 
 public class Main {
 
-    public static JFrame mainTelaLogin = new JFrame("Login");
-
-
-
     public static void main(String[] args) throws IOException {
+        ExecutaTelas executaTelas = new ExecutaTelas();
+
 
         ViaCEP viacep = new ViaCEP("89050570");
         viacep.buscar();
@@ -22,30 +20,8 @@ public class Main {
         System.out.println(viacep.getLocalidade()); // imprime "São Paulo"
         System.out.println(viacep.getUf()); // imprime "SP"
 
-
-        //  ClienteDAO clienteDAO = new ClienteDAO();
-       // Clientes cliente = new Clientes();
-       // Tela telaLogin = new Tela();
-       // TelaFazerPedido fazerPedido = new TelaFazerPedido();
-        //TelaMenuAdmin menuAdmin = new TelaMenuAdmin();
-        TelaAvaliacao telaAvaliacao = new TelaAvaliacao();
-
-        telaAvaliacao.iniciarTelaAvaliacoes();
-
-        //menuAdmin.iniciarTelaAdmin();
-        //fazerPedido.iniciarTelaFazerPedido();
-
-        //inicarTelaLogin();
-        //iniciarTelaRegistro();
+        //executaTelas.iniciarTelaAdmin();
+        executaTelas.iniciarTelaFazerPedido();
 
     }
-   public static void inicarTelaLogin() {
-        mainTelaLogin.setContentPane(new Tela().telaLogin);
-        mainTelaLogin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        mainTelaLogin.pack();
-        mainTelaLogin.setVisible(true);
-
-    }
-
-
 }

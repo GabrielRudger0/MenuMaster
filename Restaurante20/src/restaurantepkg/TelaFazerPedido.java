@@ -8,15 +8,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class TelaFazerPedido {
-
-    public CardapioDAO cardapioDAO = new CardapioDAO();
-    public PedidoDAO pedidoDAO = new PedidoDAO();
-    public PedidoPkg pedido = new PedidoPkg();
-
+    public JPanel FazerPedido;
+    private CardapioDAO cardapioDAO = new CardapioDAO();
+    private PedidoDAO pedidoDAO = new PedidoDAO();
+    private PedidoPkg pedido = new PedidoPkg();
     public int[] sequencialIndexes = {-1,-1,-1,-1,-1};
-
     public float precoPratoParaFolhaPedido;
-    private JPanel FazerPedido;
+
     private JLabel MenuMaster;
     private JLabel nomePrato1;
     private JLabel DescricaoPrato1;
@@ -65,8 +63,11 @@ public class TelaFazerPedido {
     private JLabel nomeBebida5;
     private JButton cofirmarCompraButton;
     private JButton botaoCancelar;
+    private JButton botaoSair;
 
     public TelaFazerPedido() {
+
+        ExecutaTelas executaTelas = new ExecutaTelas();
 
         //INSERÇÃO DE PRATOS E BEBIDAS
 
@@ -157,37 +158,32 @@ public class TelaFazerPedido {
         maisInformacoes1Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                TelaInformacoesPrato telaInformacoes = new TelaInformacoesPrato(0);
-                telaInformacoes.iniciarTelaInformacoesPedido(0);
+                executaTelas.iniciarTelaInformacoesPedido(0);
 
             }
         });
         maisInfos2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                TelaInformacoesPrato telaInformacoes = new TelaInformacoesPrato(1);
-                telaInformacoes.iniciarTelaInformacoesPedido(1);
+                executaTelas.iniciarTelaInformacoesPedido(1);
             }
         });
         maisInfos3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                TelaInformacoesPrato telaInformacoes = new TelaInformacoesPrato(2);
-                telaInformacoes.iniciarTelaInformacoesPedido(2);
+                executaTelas.iniciarTelaInformacoesPedido(2);
             }
         });
         maisInfos4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                TelaInformacoesPrato telaInformacoes = new TelaInformacoesPrato(3);
-                telaInformacoes.iniciarTelaInformacoesPedido(3);
+                executaTelas.iniciarTelaInformacoesPedido(3);
             }
         });
         maisInfos5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                TelaInformacoesPrato telaInformacoes = new TelaInformacoesPrato(4);
-                telaInformacoes.iniciarTelaInformacoesPedido(4);
+                executaTelas.iniciarTelaInformacoesPedido(4);
             }
         });
 
@@ -268,7 +264,7 @@ public class TelaFazerPedido {
                 int opcaoSelecionada = JOptionPane.showOptionDialog(null, "Prato/Bebida: " + pedido.getItenspedidos() +
                                 "\nPreço: R$ " + precoPratoParaFolhaPedido +
                                 "\nQuantidade: " + pedido.getQuantidade() +
-                                "\nObservação: " + pedido.getObservacao(), "Obervação", JOptionPane.OK_CANCEL_OPTION,
+                                "\nObservação: " + pedido.getObservacao(), "Observação", JOptionPane.OK_CANCEL_OPTION,
                                 JOptionPane.QUESTION_MESSAGE, null, opcaoConfirma, opcaoConfirma[0]);
                 if (opcaoSelecionada == 0) {
                     JOptionPane.showMessageDialog(null, "Seu pedido chegará em instantes, Obrigado!");
@@ -279,19 +275,27 @@ public class TelaFazerPedido {
         botaoCancelar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                //fazer um delete para deletar todos os pedidos do usuario
+                //ou apenas um
             }
         });
-    }
+        botaoSair.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Object[] opcaoConfirma = {"Voltar ao Cardapio", "Sair"};
+                int opcaoSelecionada = JOptionPane.showOptionDialog(null,
+                        "Deseja sair da conta e voltar a tela de login?", "Cardapio",
+                        JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE,
+                        null, opcaoConfirma, opcaoConfirma[0]);
 
-    public void iniciarTelaFazerPedido() {
-        JFrame frame = new JFrame("Cardapio");
-        frame.setContentPane(new TelaFazerPedido().FazerPedido);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
+                if (opcaoSelecionada == 1) {
+                    ExecutaTelas executaTelas = new ExecutaTelas();
+                    ExecutaTelas.frameTelaFazerPedido.dispose();
+                    executaTelas.iniciarTelaLogin();
+                }
 
-
+            }
+        });
     }
 
     public void inserirNoCardapio(JLabel nomePrato, JLabel DescricaoPrato, JLabel valorPrato,
