@@ -35,14 +35,15 @@ public class Tela {
 
                 emailDigitadoUsuario = receberLogin.getText();
 
+                //Bloco de if que verifica se o email digitado pertence a
+                // uma conta presente no banco de dados de ADMIN
                 if (emailDigitadoUsuario.equals(admin.getUsuarioAdm())) {
-                    System.out.println("admusuario: " + admin.getUsuarioAdm());
                     aceitaEmail = true;
                     eAdmin = true;
-                    System.out.println("aceita email: " + aceitaEmail);
-                    System.out.println("é adm?: " + eAdmin);
 
                 } else {
+                    //Verifica se o email digitado pertence a
+                    // uma conta presente no banco de dados
                     for (int i = 0; i < clienteDAO.getClientes().size(); i++) {
                         Clientes cliente = new Clientes();
                         cliente = clienteDAO.getClientes().get(i);
@@ -66,7 +67,9 @@ public class Tela {
                 admin = adminDAO.getAdminPKG().get(0);
 
                 senhaDigitadoUsuario = receberSenha.getText();
-                System.out.println("é adm senha: " + eAdmin);
+
+                //Bloco verifica se o email digitado é de uma conta admin
+                // depois verifica se a senha digitada é correspondente
                 if (eAdmin == true) {
                     System.out.println("senha do banco: " + admin.getSenhaAdm());
                     if (senhaDigitadoUsuario.equals(admin.getSenhaAdm())) {
@@ -74,6 +77,7 @@ public class Tela {
                         System.out.println("aceita senha: " + aceitaSenha);
                     }
                 } else {
+                    //Bloco verifica se a senha digitada é correspondente a conta do banco
                     cliente = clienteDAO.getClientes().get(posicaoArrayCliente);
                     String senhaDoBanco = cliente.getSenha_cliente();
 
@@ -92,17 +96,21 @@ public class Tela {
                 ExecutaTelas executaTelas = new ExecutaTelas();
                 ClienteDAO clienteDAO = new ClienteDAO();
                 Clientes cliente = new Clientes();
+
                 cliente = clienteDAO.getClientes().get(posicaoArrayCliente);
 
+                //Bloco verifica se ambas as credenciais são validas e libera ou barra o usuário
                 if (aceitaEmail == true && aceitaSenha == true) {
                     if (eAdmin == true) {
                         JOptionPane.showMessageDialog(null,"Login Admin efetuado com sucesso!",
                                 "Login",JOptionPane.INFORMATION_MESSAGE);
+
                         eAdmin = false;
                         aceitaEmail = false;
                         aceitaSenha = false;
                         ExecutaTelas.frameTelaLogin.dispose();
                         executaTelas.iniciarTelaAdmin();
+
                     } else {
                         JOptionPane.showMessageDialog(null,"Login efetuado com sucesso!\nBem-Vindo, " + cliente.getNomeCliente() + ".",
                                 "Login",JOptionPane.INFORMATION_MESSAGE);

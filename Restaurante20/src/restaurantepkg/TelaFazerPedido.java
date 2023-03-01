@@ -12,8 +12,8 @@ public class TelaFazerPedido {
     private CardapioDAO cardapioDAO = new CardapioDAO();
     private PedidoDAO pedidoDAO = new PedidoDAO();
     private PedidoPkg pedido = new PedidoPkg();
-    public int[] sequencialIndexes = {-1,-1,-1,-1,-1};
-    public float precoPratoParaFolhaPedido;
+    private int[] sequencialIndexes = {-1,-1,-1,-1,-1};
+    private float precoPratoParaFolhaPedido;
 
     private JLabel MenuMaster;
     private JLabel nomePrato1;
@@ -71,9 +71,10 @@ public class TelaFazerPedido {
 
         //INSERÇÃO DE PRATOS E BEBIDAS
 
-        //Prato 1
+        //Prato/Bebida 1
         if (cardapioDAO.getCardapio().size() >= 1) {
 
+            //Blocos verificam se é uma bebida que foi registrada ou um prato
             if (this.eBebida(0)) {
                 fazerPedidoButton.setVisible(false);
                 maisInformacoes1Button.setVisible(false);
@@ -88,7 +89,7 @@ public class TelaFazerPedido {
             maisInformacoes1Button.setVisible(false);
         }
 
-        //Prato 2
+        //Prato/Bebida 2
         if (cardapioDAO.getCardapio().size() >= 2) {
             if (this.eBebida(1)) {
                 fazerPedido2.setVisible(false);
@@ -105,7 +106,7 @@ public class TelaFazerPedido {
             maisInfos2.setVisible(false);
         }
 
-        //Prato 3
+        //Prato/Bebida 3
         if (cardapioDAO.getCardapio().size() >= 3) {
             if (this.eBebida(2)) {
                 fazerPedido3.setVisible(false);
@@ -121,7 +122,7 @@ public class TelaFazerPedido {
             fazerPedido3.setVisible(false);
             maisInfos3.setVisible(false);
         }
-        //Prato 4
+        //Prato/Bebida 4
         if (cardapioDAO.getCardapio().size() >= 4) {
             if (this.eBebida(3)) {
                 fazerPedido4.setVisible(false);
@@ -138,6 +139,7 @@ public class TelaFazerPedido {
             maisInfos4.setVisible(false);
         }
 
+        //Prato/Bebida 5
         if (cardapioDAO.getCardapio().size() >= 5) {
             if (this.eBebida(4)) {
                 fazerPedido5.setVisible(false);
@@ -352,6 +354,7 @@ public class TelaFazerPedido {
         String pratoPedido = prato.getNome_prato();
         pedido.setItenspedidos(pratoPedido);
         pedido.setQuantidade("" + qtd);
+
         if (opcaoSelecionada == 0) {
             obs = JOptionPane.showInputDialog(null, "Observação:", "Observação", JOptionPane.INFORMATION_MESSAGE);
             pedido.setObservacao(obs);
@@ -359,7 +362,8 @@ public class TelaFazerPedido {
         }
     }
 
-        public boolean eBebida ( int indexArray){
+    public boolean eBebida ( int indexArray){
+        //Função verifica se é uma bebida que esta sendo registrada ou não
             boolean eBebidaSN = false;
             Cardapio bebida = new Cardapio();
             bebida = cardapioDAO.getCardapio().get(indexArray);
@@ -369,9 +373,11 @@ public class TelaFazerPedido {
             }
             return eBebidaSN;
 
-
     }
     public void organizaSequenciaDeIndex(int indexArray) {
+
+        //Função criada para organizar os botões respectivamente com seus itens
+        // o index de cada item vai entrando na variavel sequencialIndexes[]
         if (sequencialIndexes[0] == -1) {
             sequencialIndexes[0] = indexArray;
 

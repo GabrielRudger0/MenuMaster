@@ -20,8 +20,6 @@ public class Main {
         System.out.println(viacep.getLocalidade()); // imprime "São Paulo"
         System.out.println(viacep.getUf()); // imprime "SP"
 
-        //executaTelas.iniciarTelaAdmin();
-        //executaTelas.iniciarTelaFazerPedido();
         executaTelas.iniciarTelaLogin();
     }
 }
