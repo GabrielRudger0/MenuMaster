@@ -6,6 +6,8 @@ import restauranteDAO.ClienteDAO;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 
 public class TelaRegistro {
     public JPanel panel1;
@@ -21,44 +23,6 @@ public TelaRegistro() {
 
     ClienteDAO clienteDAO = new ClienteDAO();
     Clientes cliente = new Clientes();
-
-    inserirNome.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            cliente.setNomeCliente(inserirNome.getText());
-
-        }
-    });
-    inserirCep.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-
-            cliente.setCepCliente(inserirCep.getText());
-
-        }
-    });
-    inserirEmail.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            cliente.setEmailCliente(inserirEmail.getText());
-
-        }
-    });
-    inserirTelefone.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            cliente.setTelefoneCliente(inserirTelefone.getText());
-
-        }
-    });
-
-    insiraSenha.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            cliente.setSenha_cliente(insiraSenha.getText());
-        }
-    });
-
 
     registrarButton.addActionListener(new ActionListener() {
         @Override
@@ -80,6 +44,42 @@ public TelaRegistro() {
         }
     });
 
+    inserirNome.addFocusListener(new FocusAdapter() {
+        @Override
+        public void focusLost(FocusEvent e) {
+            super.focusLost(e);
+            cliente.setNomeCliente(inserirNome.getText());
+            System.out.println(inserirNome.getText());
+        }
+    });
+    inserirCep.addFocusListener(new FocusAdapter() {
+        @Override
+        public void focusLost(FocusEvent e) {
+            super.focusLost(e);
+            cliente.setCepCliente(inserirCep.getText());
+        }
+    });
+    inserirEmail.addFocusListener(new FocusAdapter() {
+        @Override
+        public void focusLost(FocusEvent e) {
+            super.focusLost(e);
+            cliente.setEmailCliente(inserirEmail.getText());
+        }
+    });
+    inserirTelefone.addFocusListener(new FocusAdapter() {
+        @Override
+        public void focusLost(FocusEvent e) {
+            super.focusLost(e);
+            cliente.setTelefoneCliente(inserirTelefone.getText());
+        }
+    });
+    insiraSenha.addFocusListener(new FocusAdapter() {
+        @Override
+        public void focusLost(FocusEvent e) {
+            super.focusLost(e);
+            cliente.setSenha_cliente(insiraSenha.getText());
+        }
+    });
 }
     public boolean registroECorreto(Clientes cliente) {
 
