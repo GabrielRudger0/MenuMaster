@@ -32,7 +32,7 @@
 <h3 align="left"> Gabriel Rüdger <img src="https://media.tenor.com/05u_m7AsVFEAAAAd/frango-andando-frango-assado-andando.gif"  width="20" height="20" width:200px height:200px> </h3>
 <p>   Back-End e Front-End  </p>
 <img src="https://media.tenor.com/-olKpbFHbNEAAAAM/cena.gif" width="150" height="150">
-<img src="https://user-images.githubusercontent.com/53534714/222299494-073b8525-fcbd-4436-abc1-4e6070d8a2bf.png" width="150" height="150">
+<img src="https://user-images.githubusercontent.com/53534714/222299891-32fed336-6547-497b-a091-1b0b9f15adbc.gif" width="150" height="150">
 
 
 <h3 align="left">Murilo Cordova   
