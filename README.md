@@ -1,7 +1,8 @@
 <h1 align="center">🍽 MenuMaster</h1>
+<p>MenuMaster é um restaurante delivery online que oferece uma ampla variedade de opções deliciosas para os seus clientes. Com um menu que abrange desde pratos principais até sobremesas, o MenuMaster tem algo para todos os gostos. O sistema de pedido é fácil e intuitivo, permitindo que os clientes façam seus pedidos rapidamente e com tranquilidade.</p>
 
 <h1 align="center">
-    <a href="https://pt-br.reactjs.org/">🚀 Aplicativos e Linguagens </a>
+    <a href="https://drive.google.com/file/d/1wdje-LvP3jYJnffHY1UxU3jSarmYZq7G/view?usp=share_link">🚀 Aplicativos e Linguagens </a>
 </h1>
 <p> ☕️ Java </p>
 <p> 🌌 IntelliJ Swing GUI </p>
@@ -17,13 +18,20 @@
 <p> 👉 Vizualizar cardápio;</p>
 <p> 👉 Vizualizar detalhes dos pratos;</p>
 <p> 👉 Realizar pedidos;</p>
+<p> 👉 Avaliar serviço;</p>
 <br>
 
 <h1 align="center">
     <a href="https://pt-br.reactjs.org/">👤 Funcionalidades do Admin </a>
 </h1>
+<h2 align="left">👤 Menu do Admin</h2>
 <p> 👉 Registro do cliente;</p>
 <p> 👉 Registro de pratos no cardapio;</p>
+<p> 👉 Vizualização da contabilidade;</p>
+<h2 align="left">💲 Menu Contabilidade</h2>
+<p> 👉 Relatório Geral;</p>
+<p> 👉 Detalhes de Receita;</p>
+<p> 👉 Detalhes de Despesas;</p>
 <br>
 
 <h2 align="left">
