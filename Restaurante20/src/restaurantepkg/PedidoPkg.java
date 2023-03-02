@@ -1,13 +1,11 @@
 package restaurantepkg;
 
 public class PedidoPkg {
-
     private String itenspedidos;
 
     private String observacao;
 
     private String quantidade;
-
 
     public String getItenspedidos() {
         return itenspedidos;

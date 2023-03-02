@@ -22,7 +22,6 @@ public class TelaFazerPedido {
     private static int quantidadePedido3;
     private static int quantidadePedido4;
     private static int quantidadePedido5;
-    private static boolean estaDiponivel;
     private JLabel MenuMaster;
     private JLabel nomePrato1;
     private JLabel DescricaoPrato1;
@@ -475,7 +474,6 @@ public class TelaFazerPedido {
             qtd = retornaIndexPedidoAtual(indexArray);
 
             pedido.setQuantidade("" + qtd);
-
 
             if (opcaoSelecionada == 0) {
                 obs = JOptionPane.showInputDialog(null, "Observação:", "Observação", JOptionPane.INFORMATION_MESSAGE);
