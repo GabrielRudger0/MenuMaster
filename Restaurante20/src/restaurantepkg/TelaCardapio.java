@@ -3,6 +3,8 @@ package restaurantepkg;
 import restauranteDAO.CardapioDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import javax.swing.*;
 
 public class TelaCardapio {
@@ -22,20 +24,6 @@ public class TelaCardapio {
         CardapioDAO cardapioDAO = new CardapioDAO();
         Cardapio cardapioObject = new Cardapio();
 
-        insiraNomePrato.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cardapioObject.setNome_prato(insiraNomePrato.getText());
-
-            }
-        });
-        insiraPreco.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cardapioObject.setPreco(Float.parseFloat(insiraPreco.getText()));
-
-            }
-        });
         disponivelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -50,20 +38,7 @@ public class TelaCardapio {
 
             }
         });
-        insiraRestricoes.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cardapioObject.setRestricoes(insiraRestricoes.getText());
 
-            }
-        });
-        insiraIngredientes.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cardapioObject.setIngredientes(insiraIngredientes.getText());
-
-            }
-        });
 
         confirmarButton.addActionListener(new ActionListener() {
             @Override
@@ -88,6 +63,34 @@ public class TelaCardapio {
                 ExecutaTelas executaTelas = new ExecutaTelas();
                 ExecutaTelas.frameTelaCardapio.dispose();
                 executaTelas.iniciarTelaAdmin();
+            }
+        });
+        insiraNomePrato.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusLost(FocusEvent e) {
+                super.focusLost(e);
+                cardapioObject.setNome_prato(insiraNomePrato.getText());
+            }
+        });
+        insiraPreco.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusLost(FocusEvent e) {
+                super.focusLost(e);
+                cardapioObject.setPreco(Float.parseFloat(insiraPreco.getText()));
+            }
+        });
+        insiraRestricoes.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusLost(FocusEvent e) {
+                super.focusLost(e);
+                cardapioObject.setRestricoes(insiraRestricoes.getText());
+            }
+        });
+        insiraIngredientes.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusLost(FocusEvent e) {
+                super.focusLost(e);
+                cardapioObject.setIngredientes(insiraIngredientes.getText());
             }
         });
     }

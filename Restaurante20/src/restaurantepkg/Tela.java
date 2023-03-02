@@ -3,6 +3,8 @@ package restaurantepkg;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.util.ArrayList;
 
 import RestauranteAplication.Main;
@@ -24,71 +26,6 @@ public class Tela {
 
     public Tela() {
 
-
-        receberLogin.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ClienteDAO clienteDAO = new ClienteDAO();
-                AdminPKG admin = new AdminPKG();
-                AdminDAO adminDAO = new AdminDAO();
-                admin = adminDAO.getAdminPKG().get(0);
-
-                emailDigitadoUsuario = receberLogin.getText();
-
-                //Bloco de if que verifica se o email digitado pertence a
-                // uma conta presente no banco de dados de ADMIN
-                if (emailDigitadoUsuario.equals(admin.getUsuarioAdm())) {
-                    aceitaEmail = true;
-                    eAdmin = true;
-
-                } else {
-                    //Verifica se o email digitado pertence a
-                    // uma conta presente no banco de dados
-                    for (int i = 0; i < clienteDAO.getClientes().size(); i++) {
-                        Clientes cliente = new Clientes();
-                        cliente = clienteDAO.getClientes().get(i);
-
-                        if (emailDigitadoUsuario.equals(cliente.getEmailCliente())) {
-                            aceitaEmail = true;
-                            posicaoArrayCliente = i;
-                        }
-                    }
-                }
-            }
-        });
-
-        receberSenha.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ClienteDAO clienteDAO = new ClienteDAO();
-                Clientes cliente = new Clientes();
-                AdminPKG admin = new AdminPKG();
-                AdminDAO adminDAO = new AdminDAO();
-                admin = adminDAO.getAdminPKG().get(0);
-
-                senhaDigitadoUsuario = receberSenha.getText();
-
-                //Bloco verifica se o email digitado é de uma conta admin
-                // depois verifica se a senha digitada é correspondente
-                if (eAdmin == true) {
-                    System.out.println("senha do banco: " + admin.getSenhaAdm());
-                    if (senhaDigitadoUsuario.equals(admin.getSenhaAdm())) {
-                        aceitaSenha = true;
-                        System.out.println("aceita senha: " + aceitaSenha);
-                    }
-                } else {
-                    //Bloco verifica se a senha digitada é correspondente a conta do banco
-                    cliente = clienteDAO.getClientes().get(posicaoArrayCliente);
-                    String senhaDoBanco = cliente.getSenha_cliente();
-
-                    if (senhaDigitadoUsuario.equals(senhaDoBanco)) {
-                        aceitaSenha = true;
-                    }
-
-                }
-
-            }
-        });
 
         botaoLogin.addActionListener(new ActionListener() {
             @Override
@@ -137,6 +74,71 @@ public class Tela {
                 System.exit(0);
             }
 
+        });
+        receberLogin.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusLost(FocusEvent e) {
+                super.focusLost(e);
+                ClienteDAO clienteDAO = new ClienteDAO();
+                AdminPKG admin = new AdminPKG();
+                AdminDAO adminDAO = new AdminDAO();
+                admin = adminDAO.getAdminPKG().get(0);
+
+                emailDigitadoUsuario = receberLogin.getText();
+
+                //Bloco de if que verifica se o email digitado pertence a
+                // uma conta presente no banco de dados de ADMIN
+                if (emailDigitadoUsuario.equals(admin.getUsuarioAdm())) {
+                    aceitaEmail = true;
+                    eAdmin = true;
+
+                } else {
+                    //Verifica se o email digitado pertence a
+                    // uma conta presente no banco de dados
+                    for (int i = 0; i < clienteDAO.getClientes().size(); i++) {
+                        Clientes cliente = new Clientes();
+                        cliente = clienteDAO.getClientes().get(i);
+
+                        if (emailDigitadoUsuario.equals(cliente.getEmailCliente())) {
+                            aceitaEmail = true;
+                            posicaoArrayCliente = i;
+                        }
+                    }
+                }
+            }
+        });
+        receberSenha.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusLost(FocusEvent e) {
+                super.focusLost(e);
+
+                ClienteDAO clienteDAO = new ClienteDAO();
+                Clientes cliente = new Clientes();
+                AdminPKG admin = new AdminPKG();
+                AdminDAO adminDAO = new AdminDAO();
+                admin = adminDAO.getAdminPKG().get(0);
+
+                senhaDigitadoUsuario = receberSenha.getText();
+
+                //Bloco verifica se o email digitado é de uma conta admin
+                // depois verifica se a senha digitada é correspondente
+                if (eAdmin == true) {
+                    System.out.println("senha do banco: " + admin.getSenhaAdm());
+                    if (senhaDigitadoUsuario.equals(admin.getSenhaAdm())) {
+                        aceitaSenha = true;
+                        System.out.println("aceita senha: " + aceitaSenha);
+                    }
+                } else {
+                    //Bloco verifica se a senha digitada é correspondente a conta do banco
+                    cliente = clienteDAO.getClientes().get(posicaoArrayCliente);
+                    String senhaDoBanco = cliente.getSenha_cliente();
+
+                    if (senhaDigitadoUsuario.equals(senhaDoBanco)) {
+                        aceitaSenha = true;
+                    }
+
+                }
+            }
         });
     }
 
