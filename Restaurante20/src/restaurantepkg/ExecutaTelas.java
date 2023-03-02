@@ -68,7 +68,7 @@ public class ExecutaTelas {
         frameTelaAvaliacoes.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frameTelaAvaliacoes.pack();
         frameTelaAvaliacoes.setVisible(true);
-        frameTelaAvaliacoes.setLocation(dim.width/2-frameTelaLogin.getSize().width/2, dim.height/2-frameTelaLogin.getSize().height/2);
+        frameTelaAvaliacoes.setLocation(dim.width/2-frameTelaAvaliacoes.getSize().width/2, dim.height/2-frameTelaAvaliacoes.getSize().height/2);
 
 
 

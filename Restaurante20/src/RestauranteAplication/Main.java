@@ -14,6 +14,7 @@ public class Main {
 
 
         //executaTelas.iniciarTelaLogin();
-       executaTelas.iniciarTelaAdmin();
+        executaTelas.iniciarTelaFazerPedido();
+        //executaTelas.iniciarTelaAdmin();
     }
 }

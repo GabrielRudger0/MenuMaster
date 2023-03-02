@@ -93,6 +93,7 @@ public class TelaFazerPedido {
         if (cardapioDAO.getCardapio().size() >= 1) {
 
             //Blocos verificam se é uma bebida que foi registrada ou um prato
+            //Caso seja uma bebida, desativa a posição de pratos, e vice versa
             if (this.eBebida(0)) {
                 fazerPedidoButton.setVisible(false);
                 maisInformacoes1Button.setVisible(false);
@@ -100,6 +101,7 @@ public class TelaFazerPedido {
                 this.inserirBebida(0, nomeBebida1, descricaoBebida1, valorBebida1, fazerPedidoBebida1);
             } else {
                 fazerPedidoBebida1.setVisible(false);
+                spinnerBebida1.setVisible(false);
                 this.inserirNoCardapio(nomePrato1, DescricaoPrato1, valorPrato1, fazerPedidoButton, maisInformacoes1Button, 0);
             }
         } else {
@@ -107,6 +109,7 @@ public class TelaFazerPedido {
             fazerPedidoButton.setVisible(false);
             maisInformacoes1Button.setVisible(false);
             spinnerPedido1.setVisible(false);
+            spinnerBebida1.setVisible(false);
         }
 
         //Prato/Bebida 2
@@ -114,9 +117,11 @@ public class TelaFazerPedido {
             if (this.eBebida(1)) {
                 fazerPedido2.setVisible(false);
                 maisInfos2.setVisible(false);
+                spinnerPedido2.setVisible(false);
                 this.inserirBebida(1, nomeBebida2, descricaoBebida2, valorBebida2, fazerPedidoBebida2);
             } else {
                 fazerPedidoBebida2.setVisible(false);
+                spinnerBebida2.setVisible(false);
                 this.inserirNoCardapio(nomePrato2, DescricaoPrato2, valorPrato2, fazerPedido2, maisInfos2, 1);
             }
 
@@ -124,6 +129,8 @@ public class TelaFazerPedido {
             fazerPedidoBebida2.setVisible(false);
             fazerPedido2.setVisible(false);
             maisInfos2.setVisible(false);
+            spinnerPedido2.setVisible(false);
+            spinnerBebida2.setVisible(false);
         }
 
         //Prato/Bebida 3
@@ -131,9 +138,11 @@ public class TelaFazerPedido {
             if (this.eBebida(2)) {
                 fazerPedido3.setVisible(false);
                 maisInfos3.setVisible(false);
+                spinnerPedido3.setVisible(false);
                 this.inserirBebida(2, nomeBebida3, descricaoBebida3, valorBebida3, fazerPedidoBebida3);
             } else {
                 fazerPedidoBebida3.setVisible(false);
+                spinnerBebida3.setVisible(false);
                 this.inserirNoCardapio(nomePrato3, DescricaoPrato3, valorPrato3, fazerPedido3, maisInfos3, 2);
             }
 
@@ -141,15 +150,19 @@ public class TelaFazerPedido {
             fazerPedidoBebida3.setVisible(false);
             fazerPedido3.setVisible(false);
             maisInfos3.setVisible(false);
+            spinnerPedido3.setVisible(false);
+            spinnerBebida3.setVisible(false);
         }
         //Prato/Bebida 4
         if (cardapioDAO.getCardapio().size() >= 4) {
             if (this.eBebida(3)) {
                 fazerPedido4.setVisible(false);
                 maisInfos4.setVisible(false);
+                spinnerPedido4.setVisible(false);
                 this.inserirBebida(3, nomeBebida4, descricaoBebida4, valorBebida4, fazerPedidoBebida4);
             } else {
                 fazerPedidoBebida4.setVisible(false);
+                spinnerBebida4.setVisible(false);
                 this.inserirNoCardapio(nomePrato4, DescricaoPrato4, valorPrato4, fazerPedido4, maisInfos4, 3);
             }
 
@@ -157,6 +170,8 @@ public class TelaFazerPedido {
             fazerPedidoBebida4.setVisible(false);
             fazerPedido4.setVisible(false);
             maisInfos4.setVisible(false);
+            spinnerPedido4.setVisible(false);
+            spinnerBebida4.setVisible(false);
         }
 
         //Prato/Bebida 5
@@ -164,9 +179,11 @@ public class TelaFazerPedido {
             if (this.eBebida(4)) {
                 fazerPedido5.setVisible(false);
                 maisInfos5.setVisible(false);
+                spinnerPedido5.setVisible(false);
                 this.inserirBebida(4, nomeBebida5, descricaoBebida5, valorBebida5, fazerPedidoBebida5);
             } else {
                 fazerPedidoBebida5.setVisible(false);
+                spinnerBebida5.setVisible(false);
                 this.inserirNoCardapio(nomePrato5, DescricaoPrato5, valorPrato5, fazerPedido5, maisInfos5, 4);
             }
 
@@ -174,6 +191,8 @@ public class TelaFazerPedido {
             fazerPedidoBebida5.setVisible(false);
             fazerPedido5.setVisible(false);
             maisInfos5.setVisible(false);
+            spinnerPedido5.setVisible(false);
+            spinnerBebida5.setVisible(false);
         }
 
 
@@ -283,36 +302,25 @@ public class TelaFazerPedido {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Object[] opcaoConfirma = {"Confirmar", "Sair"};
+                String obs = pedido.getObservacao();
                 int quantidadePedido = 0;
 
-                switch (indexPedidoAtual) {
-                    case 0:
-                        quantidadePedido = quantidadePedido1;
-                        break;
-                    case 1:
-                        quantidadePedido = quantidadePedido2;
-                        break;
-                    case 2:
-                        quantidadePedido = quantidadePedido3;
-                        break;
-                    case 3:
-                        quantidadePedido = quantidadePedido4;
-                        break;
-                    case 4:
-                        quantidadePedido = quantidadePedido5;
-                        break;
+                quantidadePedido = retornaIndexPedidoAtual(indexPedidoAtual);
 
+                if (pedido.getObservacao() == null) {
+                    obs = "Nenhuma Observação";
                 }
+
                 int opcaoSelecionada = JOptionPane.showOptionDialog(null, "Prato/Bebida: " + pedido.getItenspedidos() +
-                                "\nPreço: R$ " + precoPratoParaFolhaPedido +
+                                "\nPreço: R$ " + (precoPratoParaFolhaPedido * quantidadePedido) +
                                 "\nQuantidade: " + quantidadePedido +
-                                "\nObservação: " + pedido.getObservacao(), "Observação", JOptionPane.OK_CANCEL_OPTION,
+                                "\nObservação: " + obs, "Finalizar Pedido", JOptionPane.OK_CANCEL_OPTION,
                                 JOptionPane.QUESTION_MESSAGE, null, opcaoConfirma, opcaoConfirma[0]);
                 if (opcaoSelecionada == 0) {
                     JOptionPane.showMessageDialog(null, "Seu pedido chegará em instantes, Obrigado!");
 
-
                     pedidoDAO.save(pedido);
+
                 }
             }
         });
@@ -337,7 +345,7 @@ public class TelaFazerPedido {
                 if (opcaoSelecionada == 1) {
                     ExecutaTelas executaTelas = new ExecutaTelas();
                     ExecutaTelas.frameTelaFazerPedido.dispose();
-                    executaTelas.iniciarTelaLogin();
+                    executaTelas.iniciarTelaAvaliacoes();
                 }
 
             }
@@ -353,25 +361,55 @@ public class TelaFazerPedido {
         spinnerPedido2.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                quantidadePedido2 = (int) spinnerPedido1.getValue();
+                quantidadePedido2 = (int) spinnerPedido2.getValue();
             }
         });
         spinnerPedido3.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                quantidadePedido3 = (int) spinnerPedido1.getValue();
+                quantidadePedido3 = (int) spinnerPedido3.getValue();
             }
         });
         spinnerPedido4.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                quantidadePedido4 = (int) spinnerPedido1.getValue();
+                quantidadePedido4 = (int) spinnerPedido4.getValue();
             }
         });
         spinnerPedido5.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                quantidadePedido5 = (int) spinnerPedido1.getValue();
+                quantidadePedido5 = (int) spinnerPedido5.getValue();
+            }
+        });
+        spinnerBebida1.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                quantidadePedido1 = (int) spinnerBebida1.getValue();
+            }
+        });
+        spinnerBebida2.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                quantidadePedido2 = (int) spinnerBebida2.getValue();
+            }
+        });
+        spinnerBebida3.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                quantidadePedido3 = (int) spinnerBebida3.getValue();
+            }
+        });
+        spinnerBebida4.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                quantidadePedido4 = (int) spinnerBebida4.getValue();
+            }
+        });
+        spinnerBebida5.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                quantidadePedido5 = (int) spinnerBebida5.getValue();
             }
         });
     }
@@ -416,6 +454,7 @@ public class TelaFazerPedido {
 
     public void registrarPedido(int indexArray) {
         Cardapio prato = new Cardapio();
+        indexPedidoAtual = indexArray;
 
         prato = cardapioDAO.getCardapio().get(indexArray);
         int qtd = 1;
@@ -429,8 +468,11 @@ public class TelaFazerPedido {
 
         String pratoPedido = prato.getNome_prato();
         pedido.setItenspedidos(pratoPedido);
+
+        qtd = retornaIndexPedidoAtual(indexArray);
+
         pedido.setQuantidade("" + qtd);
-        indexPedidoAtual = indexArray;
+
 
         if (opcaoSelecionada == 0) {
             obs = JOptionPane.showInputDialog(null, "Observação:", "Observação", JOptionPane.INFORMATION_MESSAGE);
@@ -468,5 +510,27 @@ public class TelaFazerPedido {
         } else if(sequencialIndexes[4] == -1) {
             sequencialIndexes[4] = indexArray;
         }
+    }
+    public int retornaIndexPedidoAtual(int index) {
+        int quantidadePedido = 0;
+        switch (index) {
+            case 0:
+                quantidadePedido = quantidadePedido1;
+                break;
+            case 1:
+                quantidadePedido = quantidadePedido2;
+                break;
+            case 2:
+                quantidadePedido = quantidadePedido3;
+                break;
+            case 3:
+                quantidadePedido = quantidadePedido4;
+                break;
+            case 4:
+                quantidadePedido = quantidadePedido5;
+                break;
+
+        }
+        return quantidadePedido;
     }
 }

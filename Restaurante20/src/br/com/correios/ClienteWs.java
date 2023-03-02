@@ -10,8 +10,8 @@ import org.apache.http.message.BasicHeader;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 
-import javax.xml.soap.MessageFactory;
-import javax.xml.soap.SOAPMessage;
+//import javax.xml.soap.MessageFactory;
+//import javax.xml.soap.SOAPMessage;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.*;
@@ -115,9 +115,9 @@ public class ClienteWs {
 
                 ByteArrayInputStream bais = new ByteArrayInputStream(buffer);
 
-                SOAPMessage soapMessage = MessageFactory.newInstance().createMessage(null, bais);
+                //SOAPMessage soapMessage = MessageFactory.newInstance().createMessage(null, bais);
 
-                document = soapMessage.getSOAPBody().extractContentAsDocument();
+                //document = soapMessage.getSOAPBody().extractContentAsDocument();
 
                 inputStream.close();
             }
