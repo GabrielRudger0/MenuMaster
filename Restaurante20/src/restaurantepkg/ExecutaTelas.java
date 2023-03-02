@@ -75,11 +75,11 @@ public class ExecutaTelas {
     }
     public void iniciarTelaContabil() {
 
-        frameTelaAvaliacoes.setContentPane(new TelaAvaliacao().telaAvaliacaoPrato);
-        frameTelaAvaliacoes.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frameTelaAvaliacoes.pack();
-        frameTelaAvaliacoes.setVisible(true);
-        frameTelaAvaliacoes.setLocation(dim.width/2-frameTelaLogin.getSize().width/2, dim.height/2-frameTelaLogin.getSize().height/2);
+        frameTelaContabil.setContentPane(new TelaContabilMenu().TelaContabilidadeMenu);
+        frameTelaContabil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frameTelaContabil.pack();
+        frameTelaContabil.setVisible(true);
+        frameTelaContabil.setLocation(dim.width/2-frameTelaContabil.getSize().width/2, dim.height/2-frameTelaContabil.getSize().height/2);
 
 
     }

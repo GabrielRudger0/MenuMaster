@@ -16,33 +16,38 @@ public class TelaAvaliacao {
         botaoEstrela1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                fechaAvaliacaoAbreLogin();
             }
         });
         botaoEstrela2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                fechaAvaliacaoAbreLogin();
             }
         });
         botaoEstrela3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                fechaAvaliacaoAbreLogin();
             }
         });
         botaoEstrela4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                fechaAvaliacaoAbreLogin();
             }
         });
         botaoEstrela5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                fechaAvaliacaoAbreLogin();
             }
         });
+    }
+    private void fechaAvaliacaoAbreLogin() {
+        ExecutaTelas executaTelas = new ExecutaTelas();
+        ExecutaTelas.frameTelaAvaliacoes.dispose();
+        executaTelas.iniciarTelaLogin();
     }
 
 

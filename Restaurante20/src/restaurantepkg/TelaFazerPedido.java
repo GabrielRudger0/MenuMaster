@@ -22,7 +22,7 @@ public class TelaFazerPedido {
     private static int quantidadePedido3;
     private static int quantidadePedido4;
     private static int quantidadePedido5;
-
+    private static boolean estaDiponivel;
     private JLabel MenuMaster;
     private JLabel nomePrato1;
     private JLabel DescricaoPrato1;
@@ -455,30 +455,35 @@ public class TelaFazerPedido {
     public void registrarPedido(int indexArray) {
         Cardapio prato = new Cardapio();
         indexPedidoAtual = indexArray;
-
         prato = cardapioDAO.getCardapio().get(indexArray);
-        int qtd = 1;
-        Object[] opcaoSimNao = {"Sim", "Não"};
-        String obs = "Nenhuma Observação";
-        int opcaoSelecionada = 0;
-        precoPratoParaFolhaPedido = prato.getPreco();
 
-        opcaoSelecionada = JOptionPane.showOptionDialog(null, "Deseja fazer uma observação?", "Obervação",
-                JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcaoSimNao, opcaoSimNao[1]);
+        if (prato.getDisponibilidade().equals("Não")) {
+            JOptionPane.showMessageDialog(null,"Sentimos muito, o item selecionado não está disponível.","Cardapio",JOptionPane.ERROR_MESSAGE);
+        } else {
+            int qtd = 1;
+            Object[] opcaoSimNao = {"Sim", "Não"};
+            String obs = "Nenhuma Observação";
+            int opcaoSelecionada = 0;
+            precoPratoParaFolhaPedido = prato.getPreco();
 
-        String pratoPedido = prato.getNome_prato();
-        pedido.setItenspedidos(pratoPedido);
+            opcaoSelecionada = JOptionPane.showOptionDialog(null, "Deseja fazer uma observação?", "Obervação",
+                    JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcaoSimNao, opcaoSimNao[1]);
 
-        qtd = retornaIndexPedidoAtual(indexArray);
+            String pratoPedido = prato.getNome_prato();
+            pedido.setItenspedidos(pratoPedido);
 
-        pedido.setQuantidade("" + qtd);
+            qtd = retornaIndexPedidoAtual(indexArray);
+
+            pedido.setQuantidade("" + qtd);
 
 
-        if (opcaoSelecionada == 0) {
-            obs = JOptionPane.showInputDialog(null, "Observação:", "Observação", JOptionPane.INFORMATION_MESSAGE);
-            pedido.setObservacao(obs);
+            if (opcaoSelecionada == 0) {
+                obs = JOptionPane.showInputDialog(null, "Observação:", "Observação", JOptionPane.INFORMATION_MESSAGE);
+                pedido.setObservacao(obs);
 
+            }
         }
+
     }
 
     public boolean eBebida ( int indexArray){
