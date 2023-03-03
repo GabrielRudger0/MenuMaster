@@ -4,13 +4,12 @@ import java.util.Date;
 
 public class Clientes {
 
-
-
+    private String idCliente;
+    private String enderecoCliente;
     private String nomeCliente;
     private String cepCliente;
     private String emailCliente;
     private String telefoneCliente;
-    private int idCliente;
     private String senha_cliente;
 
     public String getNomeCliente() {
@@ -45,20 +44,27 @@ public class Clientes {
         this.telefoneCliente = telefoneCliente;
     }
 
-    public int getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
-    }
-
-
     public String getSenha_cliente() {
         return senha_cliente;
     }
 
     public void setSenha_cliente(String senha_cliente) {
         this.senha_cliente = senha_cliente;
+    }
+
+    public String getEnderecoCliente() {
+        return enderecoCliente;
+    }
+
+    public void setEnderecoCliente(String enderecoCliente) {
+        this.enderecoCliente = enderecoCliente;
+    }
+
+    public String getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
     }
 }

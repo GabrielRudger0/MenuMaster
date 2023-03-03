@@ -16,6 +16,7 @@ public class Main {
        // System.out.println(br.com.correios.ClienteWs.getMapPorCep("70002900"));
 
         System.out.println(enderecoapi.getCidade());
+        System.out.println(enderecoapi.getLogradouro());
 
         System.out.println("AHHFADHFADHFIADHFIPADHFIOPADHFIOPDHOPFAD");
 

@@ -15,7 +15,7 @@ public class ClienteDAO {
 
     public void save(Clientes clientes){
 
-        String sql = "INSERT INTO cadastro_cliente(nome_cliente,cep_cliente,email_cliente,tel_cliente, senha_cliente) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO cadastro_cliente(nome_cliente,cep_cliente,email_cliente,cadastro_cliente,tel_cliente, senha_cliente) VALUES(?,?,?,?,?,?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -27,8 +27,9 @@ public class ClienteDAO {
             pstm.setString(1, clientes.getNomeCliente());
             pstm.setString(2, clientes.getCepCliente());
             pstm.setString(3, clientes.getEmailCliente());
-            pstm.setString(4, clientes.getTelefoneCliente());
-            pstm.setString(5, clientes.getSenha_cliente());
+            pstm.setString(4, clientes.getEnderecoCliente());
+            pstm.setString(5, clientes.getTelefoneCliente());
+            pstm.setString(6, clientes.getSenha_cliente());
 
             //executa a query
 
@@ -77,7 +78,8 @@ public class ClienteDAO {
                 Clientes pegaclientes = new Clientes();
 
                 //pegar dados
-
+                pegaclientes.setIdCliente(rset.getString("id_cliente"));
+                pegaclientes.setEnderecoCliente(rset.getString("endereco_cliente"));
                 pegaclientes.setCepCliente(rset.getString("cep_cliente"));
                 pegaclientes.setNomeCliente(rset.getString("nome_cliente"));
                 pegaclientes.setEmailCliente(rset.getString("email_cliente"));
