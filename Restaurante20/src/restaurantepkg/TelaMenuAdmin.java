@@ -12,6 +12,7 @@ public class TelaMenuAdmin {
     private JButton botaoVoltar;
 
     public TelaMenuAdmin() {
+
     TelaCardapio telaCardapio = new TelaCardapio();
     TelaRegistro telaRegistro = new TelaRegistro();
     TelaContabilMenu telaContabilMenu = new TelaContabilMenu();

@@ -18,6 +18,7 @@ public class TelaInformacoesPrato {
     private JButton voltarButton;
 
     public TelaInformacoesPrato(int index) {
+
         Cardapio prato = new Cardapio();
         prato = cardapioDAO.getCardapio().get(index);
 
@@ -27,12 +28,15 @@ public class TelaInformacoesPrato {
         disponibilidadePrato.setText(prato.getDisponibilidade());
         restricoesPrato.setText(prato.getRestricoes());
         ingredientesPrato.setText(prato.getIngredientes());
+
         voltarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ExecutaTelas.frameTelaInformacoesPrato.dispose();
             }
         });
+
+
     }
 
 }

@@ -66,6 +66,7 @@ public class CardapioDAO {
         Connection conn = null;
         PreparedStatement pstn = null;
         //pesquisa SELECT
+
         ResultSet rset = null;
 
         try {

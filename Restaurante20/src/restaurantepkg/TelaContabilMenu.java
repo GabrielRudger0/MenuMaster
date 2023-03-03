@@ -14,10 +14,15 @@ public class TelaContabilMenu {
     private JButton botaoVoltar;
 
     public TelaContabilMenu() {
+
+        TelaRelatorioClasse telaRelatorioClasse = new TelaRelatorioClasse();
+        ExecutaTelas executaTelas = new ExecutaTelas();
+
     relatorioGeralButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            ExecutaTelas.frameTelaContabil.dispose();
+            executaTelas.iniciarTelaRelatorio();
         }
     });
     detalhesDeReceitasButton.addActionListener(new ActionListener() {
