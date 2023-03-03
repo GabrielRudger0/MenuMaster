@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import RestauranteAplication.Main;
 import restauranteDAO.AdminDAO;
 import restauranteDAO.ClienteDAO;
+import restauranteDAO.ContabilDAO;
 
 public class Tela {
     public JPanel telaLogin;
@@ -25,6 +26,7 @@ public class Tela {
     private JTextField receberSenha;
 
     public Tela() {
+
 
 
         botaoLogin.addActionListener(new ActionListener() {
@@ -57,6 +59,8 @@ public class Tela {
                         aceitaSenha = false;
                         ExecutaTelas.frameTelaLogin.dispose();
                         executaTelas.iniciarTelaFazerPedido();
+
+                        System.out.println("eeeee");
                     }
 
 
