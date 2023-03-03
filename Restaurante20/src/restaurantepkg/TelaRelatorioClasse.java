@@ -20,14 +20,22 @@ public class TelaRelatorioClasse {
     private JLabel despesasConsuta;
     private JLabel saldoConsulta;
 
+    private static double saldo = 0;
+    private static double receitas;
 
 
     public TelaRelatorioClasse(){
 
        String data;
-       double saldo;
+
+
        ContabilPKG relatorio = new ContabilPKG();
+
+        for (int i = 0; i <contabilDAO.getRelatorio().size() ; i++) {
+            receitas += contabilDAO.getRelatorio().get(i).getReceitas();
+        }
        relatorio = contabilDAO.getRelatorio().get(0);
+
        saldo = relatorio.getSaldo();
 
         LocalDate currentDate = relatorio.getData().toLocalDate();
@@ -36,9 +44,10 @@ public class TelaRelatorioClasse {
 
         data = ("Today's date is: " + formattedDate);
 
+        receitaConsulta.setText(Double.toString(receitas));
         dataConsulta.setText(data);
         saldoConsulta.setText(Double.toString(saldo));
-
+        receitas = 0;
         voltarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

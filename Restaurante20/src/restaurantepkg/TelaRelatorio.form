@@ -32,14 +32,6 @@
           <text value="Data"/>
         </properties>
       </component>
-      <component id="4aba3" class="javax.swing.JLabel" binding="descricaoConsulta">
-        <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="descricao"/>
-        </properties>
-      </component>
       <component id="75da2" class="javax.swing.JLabel" binding="receitaConsulta">
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -69,6 +61,14 @@
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
+      </component>
+      <component id="4aba3" class="javax.swing.JLabel" binding="descricaoConsulta">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="descricao"/>
+        </properties>
       </component>
     </children>
   </grid>
