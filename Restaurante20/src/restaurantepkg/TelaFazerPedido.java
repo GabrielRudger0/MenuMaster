@@ -350,6 +350,17 @@ public class TelaFazerPedido {
             }
         });
 
+        spinnerPedido1.setModel(new SpinnerNumberModel(0, 0, 12, 1));
+        spinnerPedido2.setModel(new SpinnerNumberModel(0, 0, 12, 1));
+        spinnerPedido3.setModel(new SpinnerNumberModel(0, 0, 12, 1));
+        spinnerPedido4.setModel(new SpinnerNumberModel(0, 0, 12, 1));
+        spinnerPedido5.setModel(new SpinnerNumberModel(0, 0, 12, 1));
+        spinnerBebida1.setModel(new SpinnerNumberModel(0, 0, 30, 1));
+        spinnerBebida2.setModel(new SpinnerNumberModel(0, 0, 30, 1));
+        spinnerBebida3.setModel(new SpinnerNumberModel(0, 0, 30, 1));
+        spinnerBebida4.setModel(new SpinnerNumberModel(0, 0, 30, 1));
+        spinnerBebida5.setModel(new SpinnerNumberModel(0, 0, 30, 1));
+
         spinnerPedido1.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
