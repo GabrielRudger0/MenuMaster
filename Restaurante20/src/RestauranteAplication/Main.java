@@ -17,6 +17,8 @@ public class Main {
 
         System.out.println(enderecoapi.getCidade());
 
+        System.out.println("FIIASDFHJISDJFIOSDJFIOSDJFIO");
+
         executaTelas.iniciarTelaLogin();
         //executaTelas.iniciarTelaFazerPedido();
         //executaTelas.iniciarTelaAdmin();
