@@ -15,6 +15,8 @@ public class ExecutaTelas {
     public static JFrame frameTelaInformacoesPrato = new JFrame("Informações");
     private static Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
+
+
     public void iniciarTelaAdmin() {
 
         frameTelaMenuAdm.setContentPane(new TelaMenuAdmin().telaMenuAdm);

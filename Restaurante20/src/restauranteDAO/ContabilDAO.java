@@ -7,6 +7,7 @@ import restaurantepkg.ContabilPKG;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class ContabilDAO {
 
     public void save(ContabilPKG contabilPKG) {
 
-        String sql = "INSERT INTO contabildata, descricao, receitas, despesas, saldo) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO data, descricao, receitas, despesas, saldo) VALUES(?,?,?,?,?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -51,67 +52,65 @@ public class ContabilDAO {
         }
     }
 
-//    public List<ContabilPKG> getRelatorio() {
-//
-//        //pesquisa SELECT
-//        String sql = "SELECT * FROM ";
-//
-//        List<ContabilPKG> Contabil = new ArrayList<>();
-//
-//        Connection conn = null;
-//        PreparedStatement pstn = null;
-//
-//        ResultSet rset = null;
-//
-//        try {
-//
-//            conn = ConnectionFactory.createConnectionToMySQL();
-//
-//            pstn = (PreparedStatement) conn.prepareStatement(sql);
-//
-//            rset = pstn.executeQuery();
-//
-//
-//            while (rset.next()) {
-//                ContabilPKG contabil = new ContabilPKG();
-//
-//                //pegar dados
-//                contabil.setIdproduto(rset.getInt("idproduto"));
-//                contabil.setCategoria(rset.getString("categoria"));
-//                contabil.setPreco(rset.getInt("preco"));
-//                contabil.setDisponibilidade(rset.getString("disponibilidade"));
-//                contabil.setIngredientes(rset.getString("ingredientes"));
-//                contabil.setRestricoes(rset.getString("restricoes"));
-//                contabil.setNome_prato(rset.getString("nome_prato"));
-//                contabil.setCategoria(rset.getString("categoria"));
-//
-//                ContabilPKG.add(contabil);
-//
-//            }
-//
-//        }catch(Exception e){
-//            e.printStackTrace();
-//        }finally{
-//            try {
-//
-//
-//                if (rset != null) {
-//                    rset.close();
-//                }
-//                if (pstn != null) {
-//                    pstn.close();
-//                }
-//                if (conn != null) {
-//                    conn.close();
-//                }
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
-//
-//
-//        return Contabil;
-//
-//    }
+    public List<ContabilPKG> getRelatorio() {
+
+        //pesquisa SELECT
+        String sql = "SELECT * FROM contabil";
+
+        List<ContabilPKG> Contabil = new ArrayList<>();
+
+        Connection conn = null;
+        PreparedStatement pstn = null;
+        ResultSet rset = null;
+
+        try {
+
+            conn = ConnectionFactory.createConnectionToMySQL();
+
+            pstn = (PreparedStatement) conn.prepareStatement(sql);
+
+            rset = pstn.executeQuery();
+
+
+            while (rset.next()) {
+
+                ContabilPKG contabil = new ContabilPKG();
+
+                //pegar dados
+
+                contabil.setData(rset.getDate("data"));
+                contabil.setDescricao(rset.getString("descricao"));
+                contabil.setReceitas(rset.getDouble("receitas"));
+                contabil.setDespesas(rset.getDouble("despesas"));
+                contabil.setSaldo(rset.getDouble("saldo"));
+
+                Contabil.add(contabil);
+
+            }
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            try {
+
+
+                if (rset != null) {
+                    rset.close();
+                }
+                if (pstn != null) {
+                    pstn.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+
+        return Contabil;
+
+    }
 
 }
