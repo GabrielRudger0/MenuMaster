@@ -36,7 +36,9 @@ public class TelaContabilMenu {
         botaoVoltar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                ExecutaTelas executaTelas = new ExecutaTelas();
+                ExecutaTelas.frameTelaContabil.dispose();
+                executaTelas.iniciarTelaAdmin();
             }
         });
     }

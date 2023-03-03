@@ -13,7 +13,7 @@ public class Main {
        // System.out.println(br.com.correios.ClienteWs.getMapPorCep("70002900"));
 
 
-        //executaTelas.iniciarTelaLogin();
+        executaTelas.iniciarTelaLogin();
         //executaTelas.iniciarTelaFazerPedido();
         //executaTelas.iniciarTelaAdmin();
         //executaTelas.iniciarTelaRegistro();

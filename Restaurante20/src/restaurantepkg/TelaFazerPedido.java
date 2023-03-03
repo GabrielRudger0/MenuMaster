@@ -465,7 +465,7 @@ public class TelaFazerPedido {
             int opcaoSelecionada = 0;
             precoPratoParaFolhaPedido = prato.getPreco();
 
-            opcaoSelecionada = JOptionPane.showOptionDialog(null, "Deseja fazer uma observação?", "Obervação",
+            opcaoSelecionada = JOptionPane.showOptionDialog(null, "Deseja fazer uma observação?", "Observação",
                     JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcaoSimNao, opcaoSimNao[1]);
 
             String pratoPedido = prato.getNome_prato();
