@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import RestauranteAplication.Main;
 import restauranteDAO.AdminDAO;
 import restauranteDAO.ClienteDAO;
-import restauranteDAO.ContabilDAO;
 
 public class Tela {
     public JPanel telaLogin;
@@ -27,8 +26,7 @@ public class Tela {
 
     public Tela() {
 
-
-
+        System.out.println("AAAAAAAAHHHHHHHHHHHHHHHHHH");
         botaoLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -59,8 +57,6 @@ public class Tela {
                         aceitaSenha = false;
                         ExecutaTelas.frameTelaLogin.dispose();
                         executaTelas.iniciarTelaFazerPedido();
-
-                        System.out.println("eeeee");
                     }
 
 
