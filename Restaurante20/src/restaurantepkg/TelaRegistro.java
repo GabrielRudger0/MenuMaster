@@ -4,6 +4,8 @@ import br.com.correios.Endereco;
 import restauranteDAO.ClienteDAO;
 
 import javax.swing.*;
+import javax.swing.event.CaretEvent;
+import javax.swing.event.CaretListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
@@ -73,19 +75,19 @@ public class TelaRegistro {
 
             }
         });
-        inserirCep.addFocusListener(new FocusAdapter() {
-            @Override
-            public void focusLost(FocusEvent e) {
-                super.focusLost(e);
-                cliente.setCepCliente(inserirCep.getText());
-                Endereco enderecoapi = br.com.correios.ClienteWs.getEnderecoPorCep(inserirCep.getText());
-                InserirRua.setText(enderecoapi.getLogradouro());
-                inserirBairro.setText(enderecoapi.getBairro());
-                InserirCidade.setText(enderecoapi.getCidade());
-                InserirEstado.setText(enderecoapi.getUf());
-
-            }
-        });
+//        inserirCep.addFocusListener(new FocusAdapter() {
+//            @Override
+//            public void focusLost(FocusEvent e) {
+//                super.focusLost(e);
+//                cliente.setCepCliente(inserirCep.getText());
+//                Endereco enderecoapi = br.com.correios.ClienteWs.getEnderecoPorCep(inserirCep.getText());
+//                InserirRua.setText(enderecoapi.getLogradouro());
+//                inserirBairro.setText(enderecoapi.getBairro());
+//                InserirCidade.setText(enderecoapi.getCidade());
+//                InserirEstado.setText(enderecoapi.getUf());
+//
+//            }
+//        });
         inserirEmail.addFocusListener(new FocusAdapter() {
             @Override
             public void focusLost(FocusEvent e) {
@@ -156,6 +158,17 @@ public class TelaRegistro {
             }
         });
 
+        inserirCep.addCaretListener(new CaretListener() {
+            @Override
+            public void caretUpdate(CaretEvent e) {
+                cliente.setCepCliente(inserirCep.getText());
+                Endereco enderecoapi = br.com.correios.ClienteWs.getEnderecoPorCep(inserirCep.getText());
+                InserirRua.setText(enderecoapi.getLogradouro());
+                inserirBairro.setText(enderecoapi.getBairro());
+                InserirCidade.setText(enderecoapi.getCidade());
+                InserirEstado.setText(enderecoapi.getUf());
+            }
+        });
     }
     public boolean registroECorreto(Clientes cliente) {
 
