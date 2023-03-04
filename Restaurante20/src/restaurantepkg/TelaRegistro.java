@@ -28,12 +28,19 @@ public class TelaRegistro {
     private JTextField inserirBairro;
     private static String enderecoFormatado;
 
+    private static int codigoJaExecutado = 0;
+
 
     public TelaRegistro() {
 
         ExecutaTelas executaTelas = new ExecutaTelas();
         ClienteDAO clienteDAO = new ClienteDAO();
         Clientes cliente = new Clientes();
+
+        cliente.setNomeCliente("");
+        cliente.setEmailCliente("");
+        cliente.setTelefoneCliente("");
+        cliente.setSenha_cliente("");
 
 
         registrarButton.addActionListener(new ActionListener() {
@@ -80,7 +87,17 @@ public class TelaRegistro {
             @Override
             public void focusLost(FocusEvent e) {
                 super.focusLost(e);
-                cliente.setEmailCliente(inserirEmail.getText());
+                System.out.println(clienteDAO.getClientes().size());
+                for (int i = 0; i <= clienteDAO.getClientes().size() - 1; i++) {
+                    System.out.println(i);
+                    if (clienteDAO.getClientes().get(i).getEmailCliente().equals(inserirEmail.getText())) {
+                        JOptionPane.showMessageDialog(null,"Email já cadastrado no sistema!","Registro",JOptionPane.WARNING_MESSAGE);
+                        inserirEmail.setText("");
+                    } else {
+                        cliente.setEmailCliente(inserirEmail.getText());
+                    }
+                }
+
             }
         });
         inserirTelefone.addFocusListener(new FocusAdapter() {
@@ -151,12 +168,13 @@ public class TelaRegistro {
         inserirCep.addCaretListener(new CaretListener() {
             @Override
             public void caretUpdate(CaretEvent e) {
-                cliente.setCepCliente(inserirCep.getText());
-                Endereco enderecoapi = br.com.correios.ClienteWs.getEnderecoPorCep(inserirCep.getText());
-                InserirRua.setText(enderecoapi.getLogradouro());
-                inserirBairro.setText(enderecoapi.getBairro());
-                InserirCidade.setText(enderecoapi.getCidade());
-                InserirEstado.setText(enderecoapi.getUf());
+                    cliente.setCepCliente(inserirCep.getText());
+                    Endereco enderecoapi = br.com.correios.ClienteWs.getEnderecoPorCep(inserirCep.getText());
+                    InserirRua.setText(enderecoapi.getLogradouro());
+                    inserirBairro.setText(enderecoapi.getBairro());
+                    InserirCidade.setText(enderecoapi.getCidade());
+                    InserirEstado.setText(enderecoapi.getUf());
+
             }
         });
     }
@@ -165,7 +183,7 @@ public class TelaRegistro {
         String textoTela = "Informações não preenchidas!\n";
         boolean verificaRegistro = true;
 
-        if (cliente.getNomeCliente() == null) {
+        if (cliente.getNomeCliente().equals("")) {
             textoTela += "Nome do Cliente;\n";
             verificaRegistro = false;
         }
@@ -173,12 +191,16 @@ public class TelaRegistro {
             textoTela += "CEP do Cliente;\n";
             verificaRegistro = false;
         }
-        if (cliente.getEmailCliente() == null) {
+        if (cliente.getEmailCliente().equals("")) {
             textoTela += "Email do Cliente;\n";
             verificaRegistro = false;
         }
-        if (cliente.getTelefoneCliente() == null) {
+        if (cliente.getTelefoneCliente().equals("")) {
             textoTela += "Telefone do Cliente;\n";
+            verificaRegistro = false;
+        }
+        if (cliente.getSenha_cliente().equals("")) {
+            textoTela += "Senha da Conta;\n";
             verificaRegistro = false;
         }
         if (verificaRegistro == false) {
