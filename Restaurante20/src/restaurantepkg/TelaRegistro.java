@@ -40,6 +40,15 @@ public class TelaRegistro {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (registroECorreto(cliente) != false) {
+                    Endereco enderecoapi = br.com.correios.ClienteWs.getEnderecoPorCep(inserirCep.getText());
+
+                    if (inserirComplemento.getText().equals("")) {
+                        enderecoFormatado = enderecoapi.getLogradouro() + ", " + InserirNumero.getText() + ", " + enderecoapi.getUf() + ", " + enderecoapi.getBairro() +
+                                ", " + enderecoapi.getCidade();
+                    } else {
+                        enderecoFormatado = enderecoapi.getLogradouro() + ", " + InserirNumero.getText() + ", " + inserirComplemento.getText() + ", " +
+                                enderecoapi.getUf() + ", " + enderecoapi.getBairro() + ", " + enderecoapi.getCidade();
+                    }
                     cliente.setEnderecoCliente(enderecoFormatado);
                     clienteDAO.save(cliente);
                     JOptionPane.showMessageDialog(null, "Registro Concluído!", "Registro", JOptionPane.INFORMATION_MESSAGE);
@@ -135,13 +144,7 @@ public class TelaRegistro {
                 System.out.println(inserirComplemento.getText());
                 Endereco enderecoapi = br.com.correios.ClienteWs.getEnderecoPorCep(inserirCep.getText());
                 inserirComplemento.setText(inserirComplemento.getText());
-                if (inserirComplemento.getText().equals("")) {
-                    enderecoFormatado = enderecoapi.getLogradouro() + ", " + InserirNumero.getText() + ", " + enderecoapi.getUf() + ", " + enderecoapi.getBairro() +
-                            ", " + enderecoapi.getCidade();
-                } else {
-                    enderecoFormatado = enderecoapi.getLogradouro() + ", " + InserirNumero.getText() + ", " + inserirComplemento.getText() + ", " +
-                            enderecoapi.getUf() + ", " + enderecoapi.getBairro() + ", " + enderecoapi.getCidade();
-                }
+
             }
         });
 
