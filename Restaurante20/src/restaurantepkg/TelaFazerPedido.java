@@ -81,8 +81,15 @@ public class TelaFazerPedido {
     private JSpinner spinnerBebida3;
     private JSpinner spinnerBebida4;
     private JSpinner spinnerBebida5;
+    private JLabel nomeUsuario;
+    private JLabel idUsuario;
+
+    public static String nomeUsuarioAtual;
 
     public TelaFazerPedido() {
+
+        nomeUsuario.setText(nomeUsuarioAtual + ",");
+        idUsuario.setText("ID: " + PedidoDAO.idClienteAtual);
 
         ExecutaTelas executaTelas = new ExecutaTelas();
 
@@ -317,7 +324,6 @@ public class TelaFazerPedido {
                                 JOptionPane.QUESTION_MESSAGE, null, opcaoConfirma, opcaoConfirma[0]);
                 if (opcaoSelecionada == 0) {
                     JOptionPane.showMessageDialog(null, "Seu pedido chegará em instantes, Obrigado!");
-
                     pedidoDAO.save(pedido);
 
                 }
@@ -467,7 +473,7 @@ public class TelaFazerPedido {
         indexPedidoAtual = indexArray;
         prato = cardapioDAO.getCardapio().get(indexArray);
 
-        if (prato.getDisponibilidade().equals("Não")) {
+        if (prato.getDisponibilidade().equals("0")) {
             JOptionPane.showMessageDialog(null,"Sentimos muito, o item selecionado não está disponível.","Cardapio",JOptionPane.ERROR_MESSAGE);
         } else {
             int qtd = 1;

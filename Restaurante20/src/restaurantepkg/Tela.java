@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import RestauranteAplication.Main;
 import restauranteDAO.AdminDAO;
 import restauranteDAO.ClienteDAO;
+import restauranteDAO.PedidoDAO;
 
 public class Tela {
     public JPanel telaLogin;
@@ -55,6 +56,8 @@ public class Tela {
                         eAdmin = false;
                         aceitaEmail = false;
                         aceitaSenha = false;
+                        PedidoDAO.idClienteAtual = cliente.getIdCliente();
+                        TelaFazerPedido.nomeUsuarioAtual = cliente.getNomeCliente();
                         ExecutaTelas.frameTelaLogin.dispose();
                         executaTelas.iniciarTelaFazerPedido();
                     }
