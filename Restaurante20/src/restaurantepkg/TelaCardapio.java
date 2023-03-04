@@ -25,13 +25,15 @@ public class TelaCardapio {
         spinnerDisponibilidade.setModel(new SpinnerNumberModel(0, 0, 30, 1));
         CardapioDAO cardapioDAO = new CardapioDAO();
         Cardapio cardapioObject = new Cardapio();
+        ExecutaTelas executaTelas = new ExecutaTelas();
 
         confirmarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardapioDAO.save(cardapioObject);
                 JOptionPane.showMessageDialog(null,"1 Item registrado no cardápio!","Cardapio",JOptionPane.INFORMATION_MESSAGE);
-
+                ExecutaTelas.frameTelaCardapio.dispose();
+                executaTelas.iniciarTelaCriarCardapio();
             }
         });
 
