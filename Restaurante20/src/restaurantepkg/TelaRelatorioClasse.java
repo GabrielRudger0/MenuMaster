@@ -19,7 +19,6 @@ public class TelaRelatorioClasse {
     private JLabel receitaConsulta;
     private JLabel despesasConsuta;
     private JLabel saldoConsulta;
-
     private static double saldo = 0;
     private static double receitas;
 

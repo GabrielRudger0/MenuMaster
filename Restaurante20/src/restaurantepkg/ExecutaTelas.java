@@ -12,6 +12,7 @@ public class ExecutaTelas {
     public static JFrame frameTelaAvaliacoes = new JFrame("Avalie nosso serviço!");
     public static JFrame frameTelaContabil = new JFrame("Contabilidade");
     public static JFrame FrameTelaRelatorio = new JFrame("Registro");
+    public static JFrame frameTelaReceita = new JFrame("Receita");
     public static JFrame frameTelaInformacoesPrato = new JFrame("Informações");
     private static Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -94,7 +95,15 @@ public class ExecutaTelas {
         FrameTelaRelatorio.setVisible(true);
         FrameTelaRelatorio.setLocation(dim.width/2-FrameTelaRelatorio.getSize().width/2, dim.height/2-FrameTelaRelatorio.getSize().height/2);
 
-    }
+}
+
+    public void iniciarTelaReceita(){
+        frameTelaReceita.setContentPane(new TelaReceita().frameTelaReceita);
+        frameTelaReceita.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frameTelaReceita.pack();
+        frameTelaReceita.setVisible(true);
+        frameTelaReceita.setLocation(dim.width/2-frameTelaReceita.getSize().width/2, dim.height/2-frameTelaReceita.getSize().height/2);
+}
     public void iniciarTelaInformacoesPedido(int index) {
 
         frameTelaInformacoesPrato.setContentPane(new TelaInformacoesPrato(index).InformacoesPrato);

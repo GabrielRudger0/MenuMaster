@@ -20,9 +20,9 @@ public class Main {
 
         System.out.println("AHHFADHFADHFIADHFIPADHFIOPADHFIOPDHOPFAD");
 
-        executaTelas.iniciarTelaLogin();
+        //executaTelas.iniciarTelaLogin();
         //executaTelas.iniciarTelaFazerPedido();
-        //executaTelas.iniciarTelaAdmin();
+        executaTelas.iniciarTelaAdmin();
         //executaTelas.iniciarTelaRegistro();
     }
 }
