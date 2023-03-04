@@ -40,15 +40,6 @@ public class TelaRegistro {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (registroECorreto(cliente) != false) {
-                    Endereco enderecoapi = br.com.correios.ClienteWs.getEnderecoPorCep(inserirCep.getText());
-                    if (inserirComplemento.getText() == null) {
-                        enderecoFormatado = enderecoapi.getLogradouro() + ", " + InserirNumero.getText() + ", " + enderecoapi.getUf() + ", " + enderecoapi.getBairro() +
-                                ", " + enderecoapi.getCidade();
-                    } else {
-                        enderecoFormatado = enderecoapi.getLogradouro() + ", " + InserirNumero.getText() + ", " + inserirComplemento.getText() + ", " +
-                                enderecoapi.getUf() + ", " + enderecoapi.getBairro() + ", " + enderecoapi.getCidade();
-                    }
-
                     cliente.setEnderecoCliente(enderecoFormatado);
                     clienteDAO.save(cliente);
                     JOptionPane.showMessageDialog(null, "Registro Concluído!", "Registro", JOptionPane.INFORMATION_MESSAGE);
@@ -75,19 +66,7 @@ public class TelaRegistro {
 
             }
         });
-//        inserirCep.addFocusListener(new FocusAdapter() {
-//            @Override
-//            public void focusLost(FocusEvent e) {
-//                super.focusLost(e);
-//                cliente.setCepCliente(inserirCep.getText());
-//                Endereco enderecoapi = br.com.correios.ClienteWs.getEnderecoPorCep(inserirCep.getText());
-//                InserirRua.setText(enderecoapi.getLogradouro());
-//                inserirBairro.setText(enderecoapi.getBairro());
-//                InserirCidade.setText(enderecoapi.getCidade());
-//                InserirEstado.setText(enderecoapi.getUf());
-//
-//            }
-//        });
+
         inserirEmail.addFocusListener(new FocusAdapter() {
             @Override
             public void focusLost(FocusEvent e) {
@@ -150,11 +129,19 @@ public class TelaRegistro {
                 InserirNumero.setText(InserirNumero.getText());
             }
         });
-        inserirComplemento.addFocusListener(new FocusAdapter() {
+        inserirComplemento.addCaretListener(new CaretListener() {
             @Override
-            public void focusLost(FocusEvent e) {
-                super.focusLost(e);
+            public void caretUpdate(CaretEvent e) {
+                System.out.println(inserirComplemento.getText());
+                Endereco enderecoapi = br.com.correios.ClienteWs.getEnderecoPorCep(inserirCep.getText());
                 inserirComplemento.setText(inserirComplemento.getText());
+                if (inserirComplemento.getText().equals("")) {
+                    enderecoFormatado = enderecoapi.getLogradouro() + ", " + InserirNumero.getText() + ", " + enderecoapi.getUf() + ", " + enderecoapi.getBairro() +
+                            ", " + enderecoapi.getCidade();
+                } else {
+                    enderecoFormatado = enderecoapi.getLogradouro() + ", " + InserirNumero.getText() + ", " + inserirComplemento.getText() + ", " +
+                            enderecoapi.getUf() + ", " + enderecoapi.getBairro() + ", " + enderecoapi.getCidade();
+                }
             }
         });
 
