@@ -332,7 +332,7 @@ public class TelaFazerPedido {
                 int opcaoSelecionada = JOptionPane.showOptionDialog(null, texto, "Finalizar Pedido", JOptionPane.OK_CANCEL_OPTION,
                                 JOptionPane.QUESTION_MESSAGE, null, opcaoConfirma, opcaoConfirma[0]);
                 if (opcaoSelecionada == 0) {
-                    JOptionPane.showMessageDialog(null, "Seu pedido chegará em instantes, Obrigado!");
+                    JOptionPane.showMessageDialog(null, "Seu pedido chegará em instantes, Obrigado!","Cardapio",JOptionPane.INFORMATION_MESSAGE);
                     for (int i = 0; i <= listaDePedidos.size() - 1; i++) {
                         pedidoDAO.save(listaDePedidos.get(i));
                     }
