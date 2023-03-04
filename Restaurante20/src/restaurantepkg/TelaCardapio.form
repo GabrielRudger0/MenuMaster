@@ -56,22 +56,6 @@
           <text value="Disponibilidade:"/>
         </properties>
       </component>
-      <component id="a2b78" class="javax.swing.JButton" binding="disponivelButton">
-        <constraints>
-          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Disponível"/>
-        </properties>
-      </component>
-      <component id="15b93" class="javax.swing.JButton" binding="indisponivelButton">
-        <constraints>
-          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Indisponível"/>
-        </properties>
-      </component>
       <component id="2d56c" class="javax.swing.JLabel">
         <constraints>
           <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
@@ -142,6 +126,12 @@
             <item value="Sobremesas"/>
           </model>
         </properties>
+      </component>
+      <component id="44907" class="javax.swing.JSpinner" binding="spinnerDisponibilidade">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
       </component>
     </children>
   </grid>
