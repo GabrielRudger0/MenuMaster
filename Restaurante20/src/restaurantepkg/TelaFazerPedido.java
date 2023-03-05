@@ -90,8 +90,8 @@ public class TelaFazerPedido {
 
     public TelaFazerPedido() {
 
-        nomeUsuario.setText(nomeUsuarioAtual + ",");
-        idUsuario.setText("ID: " + PedidoDAO.idClienteAtual);
+        nomeUsuario.setText(nomeUsuarioAtual);
+        idUsuario.setText("Identificação: " + PedidoDAO.idClienteAtual);
 
         ExecutaTelas executaTelas = new ExecutaTelas();
 
