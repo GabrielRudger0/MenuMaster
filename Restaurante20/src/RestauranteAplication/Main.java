@@ -21,7 +21,6 @@ public class Main {
         System.out.println("AHHFADHFADHFIADHFIPADHFIOPADHFIOPDHOPFAD");
 
         executaTelas.iniciarTelaLogin();
-        //executaTelas.iniciarTelaAvaliacoes();
         //executaTelas.iniciarTelaFazerPedido();
         //executaTelas.iniciarTelaAdmin();
         //executaTelas.iniciarTelaRegistro();
