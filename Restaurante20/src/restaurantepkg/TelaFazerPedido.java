@@ -456,8 +456,8 @@ public class TelaFazerPedido {
 
         fazerPedido.setVisible(true);
         maisInfos.setVisible(true);
-        nomePrato.setText(nome1);
-        DescricaoPrato.setText(descricao1);
+        nomePrato.setText("Nome do Prato: " + nome1);
+        DescricaoPrato.setText("Descrição: " + descricao1);
         valorPrato.setText(preco1);
 
     }
@@ -475,8 +475,8 @@ public class TelaFazerPedido {
         String preco1 = "R$ " + (bebida.getPreco());
 
         fazerPedidoBebida.setVisible(true);
-        nomeBebida.setText(nome1);
-        descricaoBebida.setText(descricao1);
+        nomeBebida.setText("Nome da Bebida: " + nome1);
+        descricaoBebida.setText("Descrição: " + descricao1);
         valorBebida.setText(preco1);
 
     }

@@ -119,6 +119,7 @@
         <properties>
           <model>
             <item value="Nenhum"/>
+            <item value="Entrada"/>
             <item value="Prato Principal"/>
             <item value="Bebidas Alcoólicas"/>
             <item value="Refrescos e Sucos"/>
