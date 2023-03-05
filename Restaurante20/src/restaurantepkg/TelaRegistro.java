@@ -10,6 +10,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.sql.Time;
+import java.time.LocalDateTime;
 
 public class TelaRegistro {
     public JPanel panel1;
@@ -169,12 +171,20 @@ public class TelaRegistro {
             @Override
             public void caretUpdate(CaretEvent e) {
                     cliente.setCepCliente(inserirCep.getText());
-                    Endereco enderecoapi = br.com.correios.ClienteWs.getEnderecoPorCep(inserirCep.getText());
-                    InserirRua.setText(enderecoapi.getLogradouro());
-                    inserirBairro.setText(enderecoapi.getBairro());
-                    InserirCidade.setText(enderecoapi.getCidade());
-                    InserirEstado.setText(enderecoapi.getUf());
+                    if (inserirCep.getText().length() == 8) {
+                        try {
+                            Thread.sleep(100); // pausa a thread por 1 segundo
+                        } catch (InterruptedException a) {
+                            // lida com a exceção, se ocorrer
+                            a.printStackTrace();
+                        }
 
+                        Endereco enderecoapi = br.com.correios.ClienteWs.getEnderecoPorCep(inserirCep.getText());
+                        InserirRua.setText(enderecoapi.getLogradouro());
+                        inserirBairro.setText(enderecoapi.getBairro());
+                        InserirCidade.setText(enderecoapi.getCidade());
+                        InserirEstado.setText(enderecoapi.getUf());
+                    }
             }
         });
     }
