@@ -13,6 +13,7 @@ public class ExecutaTelas {
     public static JFrame frameTelaContabil = new JFrame("Contabilidade");
     public static JFrame FrameTelaRelatorio = new JFrame("Registro");
     public static JFrame frameTelaInformacoesPrato = new JFrame("Informações");
+    private ImageIcon icon = new ImageIcon("C:/Users/Gaybriel Rüdger/IdeaProjects/MenuMaster/Menyu (1).png");
     private static Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
 
@@ -24,7 +25,7 @@ public class ExecutaTelas {
         frameTelaMenuAdm.pack();
         frameTelaMenuAdm.setVisible(true);
         frameTelaMenuAdm.setLocation((dim.width-frameTelaMenuAdm.getSize().width)/2, dim.height/2-frameTelaMenuAdm.getSize().height/2);
-
+        frameTelaMenuAdm.setIconImage(icon.getImage());
 
     }
     public void iniciarTelaRegistro() {
@@ -34,7 +35,7 @@ public class ExecutaTelas {
         frameTelaRegistro.pack();
         frameTelaRegistro.setVisible(true);
         frameTelaRegistro.setLocation((dim.width-frameTelaRegistro.getSize().width)/2, dim.height/2-frameTelaRegistro.getSize().height/2);
-
+        frameTelaRegistro.setIconImage(icon.getImage());
 
     }
     public void iniciarTelaLogin() {
@@ -44,7 +45,7 @@ public class ExecutaTelas {
         frameTelaLogin.pack();
         frameTelaLogin.setVisible(true);
         frameTelaLogin.setLocation(dim.width/2-frameTelaLogin.getSize().width/2, dim.height/2-frameTelaLogin.getSize().height/2);
-
+        frameTelaLogin.setIconImage(icon.getImage());
     }
 
     public void iniciarTelaFazerPedido() {
@@ -54,6 +55,7 @@ public class ExecutaTelas {
         frameTelaFazerPedido.pack();
         frameTelaFazerPedido.setVisible(true);
         frameTelaFazerPedido.setLocation(dim.width/2-frameTelaFazerPedido.getSize().width/2, dim.height/2-frameTelaFazerPedido.getSize().height/2);
+        frameTelaFazerPedido.setIconImage(icon.getImage());
     }
 
     public void iniciarTelaCriarCardapio() {
@@ -63,7 +65,7 @@ public class ExecutaTelas {
         frameTelaCardapio.pack();
         frameTelaCardapio.setVisible(true);
         frameTelaCardapio.setLocation(dim.width/2-frameTelaCardapio.getSize().width/2, dim.height/2-frameTelaCardapio.getSize().height/2);
-
+        frameTelaCardapio.setIconImage(icon.getImage());
     }
     public void iniciarTelaAvaliacoes() {
 
@@ -72,7 +74,7 @@ public class ExecutaTelas {
         frameTelaAvaliacoes.pack();
         frameTelaAvaliacoes.setVisible(true);
         frameTelaAvaliacoes.setLocation(dim.width/2-frameTelaAvaliacoes.getSize().width/2, dim.height/2-frameTelaAvaliacoes.getSize().height/2);
-
+        frameTelaAvaliacoes.setIconImage(icon.getImage());
 
 
     }
@@ -83,7 +85,7 @@ public class ExecutaTelas {
         frameTelaContabil.pack();
         frameTelaContabil.setVisible(true);
         frameTelaContabil.setLocation(dim.width/2-frameTelaContabil.getSize().width/2, dim.height/2-frameTelaContabil.getSize().height/2);
-
+        frameTelaContabil.setIconImage(icon.getImage());
 
     }
     public void iniciarTelaRelatorio() {
@@ -93,7 +95,7 @@ public class ExecutaTelas {
         FrameTelaRelatorio.pack();
         FrameTelaRelatorio.setVisible(true);
         FrameTelaRelatorio.setLocation(dim.width/2-FrameTelaRelatorio.getSize().width/2, dim.height/2-FrameTelaRelatorio.getSize().height/2);
-
+        FrameTelaRelatorio.setIconImage(icon.getImage());
     }
     public void iniciarTelaInformacoesPedido(int index) {
 
@@ -102,6 +104,6 @@ public class ExecutaTelas {
         frameTelaInformacoesPrato.pack();
         frameTelaInformacoesPrato.setVisible(true);
         frameTelaInformacoesPrato.setLocation(dim.width/2-frameTelaInformacoesPrato.getSize().width/2, dim.height/2-frameTelaInformacoesPrato.getSize().height/2);
-
+        frameTelaInformacoesPrato.setIconImage(icon.getImage());
     }
 }
