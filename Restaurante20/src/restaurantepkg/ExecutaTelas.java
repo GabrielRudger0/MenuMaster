@@ -23,7 +23,7 @@ public class ExecutaTelas {
 
     public void iniciarTelaAdmin() {
         iconeAplicativo();
-
+        ImageIcon icon = new ImageIcon(url);
 
         frameTelaMenuAdm.setContentPane(new TelaMenuAdmin().telaMenuAdm);
         frameTelaMenuAdm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
