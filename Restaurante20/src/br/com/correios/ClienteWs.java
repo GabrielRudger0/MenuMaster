@@ -1,5 +1,4 @@
 package br.com.correios;
-
 import com.github.uliss3s.ceputil.Util;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -9,6 +8,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicHeader;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
+
 import javax.xml.soap.MessageFactory;
 import javax.xml.soap.SOAPMessage;
 import java.io.ByteArrayInputStream;

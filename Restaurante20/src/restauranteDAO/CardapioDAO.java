@@ -32,6 +32,7 @@ public class CardapioDAO {
             pstm.setString(5, cardapio.getRestricoes());
             pstm.setString(6, cardapio.getIngredientes());
             pstm.setInt(7, cardapio.getIdproduto());
+
             //executa a query
 
             pstm.execute();

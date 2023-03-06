@@ -2,6 +2,9 @@ package restaurantepkg;
 
 public class Cardapio {
 
+
+
+
     private int idproduto;
 
     private String nome_prato;
@@ -71,4 +74,6 @@ public class Cardapio {
     public void setIdproduto(int idproduto) {
         this.idproduto = idproduto;
     }
+
+
 }

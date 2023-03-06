@@ -5,11 +5,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
-import java.util.ArrayList;
 
-import RestauranteAplication.Main;
 import restauranteDAO.AdminDAO;
 import restauranteDAO.ClienteDAO;
+import restauranteDAO.PedidoDAO;
 
 public class Tela {
     public JPanel telaLogin;
@@ -23,10 +22,9 @@ public class Tela {
     private JButton botaoLogin;
     private JButton botaoSair;
     private JTextField receberSenha;
+    private JButton cadastroButton;
 
     public Tela() {
-
-        System.out.println("AAAAAAAAHHHHHHHHHHHHHHHHHH");
         botaoLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -39,9 +37,6 @@ public class Tela {
                 //Bloco verifica se ambas as credenciais são validas e libera ou barra o usuário
                 if (aceitaEmail == true && aceitaSenha == true) {
                     if (eAdmin == true) {
-                        JOptionPane.showMessageDialog(null,"Login Admin efetuado com sucesso!",
-                                "Login",JOptionPane.INFORMATION_MESSAGE);
-
                         eAdmin = false;
                         aceitaEmail = false;
                         aceitaSenha = false;
@@ -49,12 +44,11 @@ public class Tela {
                         executaTelas.iniciarTelaAdmin();
 
                     } else {
-                        JOptionPane.showMessageDialog(null,"Login efetuado com sucesso!\nBem-Vindo, " + cliente.getNomeCliente() + ".",
-                                "Login",JOptionPane.INFORMATION_MESSAGE);
-
                         eAdmin = false;
                         aceitaEmail = false;
                         aceitaSenha = false;
+                        PedidoDAO.idClienteAtual = cliente.getIdCliente();
+                        TelaFazerPedido.nomeUsuarioAtual = cliente.getNomeCliente();
                         ExecutaTelas.frameTelaLogin.dispose();
                         executaTelas.iniciarTelaFazerPedido();
                     }
@@ -62,7 +56,7 @@ public class Tela {
 
                 } else {
                     JOptionPane.showMessageDialog(null,"Erro no login: Verifique as credenciais digitadas.",
-                            "Login",JOptionPane.ERROR_MESSAGE);
+                            "Erro no Login",JOptionPane.ERROR_MESSAGE);
                 }
 
             }
@@ -138,6 +132,14 @@ public class Tela {
                     }
 
                 }
+            }
+        });
+        cadastroButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ExecutaTelas.frameTelaLogin.dispose();
+                ExecutaTelas executaTelas = new ExecutaTelas();
+                executaTelas.iniciarTelaRegistro();
             }
         });
     }
