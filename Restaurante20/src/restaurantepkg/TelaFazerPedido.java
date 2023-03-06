@@ -363,7 +363,6 @@ public class TelaFazerPedido {
                 if (opcaoSelecionada == 1) {
                     ExecutaTelas executaTelas = new ExecutaTelas();
                     ExecutaTelas.frameTelaFazerPedido.dispose();
-                    executaTelas.iniciarTelaAvaliacoes();
                 }
 
             }
