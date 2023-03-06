@@ -2,6 +2,7 @@ package restauranteDAO;
 
 import com.mysql.jdbc.PreparedStatement;
 import restaurante.factory.ConnectionFactory;
+import restaurantepkg.Clientes;
 import restaurantepkg.PedidoPkg;
 
 import java.sql.Connection;
@@ -18,7 +19,6 @@ public class PedidoDAO {
         PreparedStatement pstm = null;
 
         try {
-
             //cria conexao com banco de dados
             conn = ConnectionFactory.createConnectionToMySQL();
             pstm = (PreparedStatement) conn.prepareStatement(sql);

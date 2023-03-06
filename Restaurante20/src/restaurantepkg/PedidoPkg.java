@@ -1,6 +1,10 @@
 package restaurantepkg;
 
 public class PedidoPkg {
+
+    private String avaliacao5Star;
+
+    private String avaliacaoFinal;
     private String itenspedidos;
 
     private String observacao;
@@ -29,5 +33,21 @@ public class PedidoPkg {
 
     public void setQuantidade(String quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public String getAvaliacao5Star() {
+        return avaliacao5Star;
+    }
+
+    public void setAvaliacao5Star(String avaliacao5Star) {
+        this.avaliacao5Star = avaliacao5Star;
+    }
+
+    public String getAvaliacaoFinal() {
+        return avaliacaoFinal;
+    }
+
+    public void setAvaliacaoFinal(String avaliacaoFinal) {
+        this.avaliacaoFinal = avaliacaoFinal;
     }
 }
