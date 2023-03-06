@@ -13,8 +13,9 @@ import java.util.ArrayList;
 public class TelaFazerPedido {
     public JPanel FazerPedido;
     private CardapioDAO cardapioDAO = new CardapioDAO();
-    private PedidoDAO pedidoDAO = new PedidoDAO();
-    private static ArrayList<PedidoPkg> listaDePedidos = new ArrayList<>();
+    public static PedidoDAO pedidoDAO = new PedidoDAO();
+    public static ArrayList<Cardapio> listaNomePratosPedidos = new ArrayList<>();
+    public static ArrayList<PedidoPkg> listaDePedidos = new ArrayList<>();
     private int[] sequencialIndexes = {-1,-1,-1,-1,-1};
     private static int indexPedidoAtual;
     private static float valorDaCompra;
@@ -319,9 +320,7 @@ public class TelaFazerPedido {
 
                 for (int i = 0; i <= listaDePedidos.size() - 1; i++) {
                     String obs = listaDePedidos.get(i).getObservacao();
-                    if (listaDePedidos.get(i).getObservacao() == null) {
-                        obs = "Nenhuma Observação";
-                    }
+
                     texto +=
                             "Prato/Bebida: " + listaDePedidos.get(i).getItenspedidos() +
                             "\nQuantidade: " + listaDePedidos.get(i).getQuantidade() +
@@ -333,9 +332,10 @@ public class TelaFazerPedido {
                                 JOptionPane.QUESTION_MESSAGE, null, opcaoConfirma, opcaoConfirma[0]);
                 if (opcaoSelecionada == 0) {
                     JOptionPane.showMessageDialog(null, "Seu pedido chegará em instantes, Obrigado!","Cardapio",JOptionPane.INFORMATION_MESSAGE);
-                    for (int i = 0; i <= listaDePedidos.size() - 1; i++) {
-                        pedidoDAO.save(listaDePedidos.get(i));
-                    }
+                    TelaAvaliacao.indexPedidoAtualParaAvaliacao = 0;
+                    executaTelas.iniciarTelaAvaliacoes();
+                    ExecutaTelas.frameTelaFazerPedido.dispose();
+
                 }
             }
         });
@@ -363,6 +363,7 @@ public class TelaFazerPedido {
                 if (opcaoSelecionada == 1) {
                     ExecutaTelas executaTelas = new ExecutaTelas();
                     ExecutaTelas.frameTelaFazerPedido.dispose();
+                    executaTelas.iniciarTelaLogin();
                 }
 
             }
@@ -449,12 +450,14 @@ public class TelaFazerPedido {
 
         Cardapio prato = new Cardapio();
         prato = cardapioDAO.getCardapio().get(indexArray);
+        listaNomePratosPedidos.add(prato);
         String nome1 = prato.getNome_prato();
         String descricao1 = prato.getIngredientes();
         String preco1 = "R$ " + (prato.getPreco());
 
         fazerPedido.setVisible(true);
         maisInfos.setVisible(true);
+
         nomePrato.setText("Nome do Prato: " + nome1);
         DescricaoPrato.setText("Descrição: " + descricao1);
         valorPrato.setText(preco1);
@@ -468,7 +471,7 @@ public class TelaFazerPedido {
 
         Cardapio bebida = new Cardapio();
         bebida = cardapioDAO.getCardapio().get(indexArray);
-
+        listaNomePratosPedidos.add(bebida);
         String nome1 = bebida.getNome_prato();
         String descricao1 = bebida.getIngredientes();
         String preco1 = "R$ " + (bebida.getPreco());
@@ -483,7 +486,6 @@ public class TelaFazerPedido {
     public void registrarPedido(int indexArray) {
         PedidoPkg pedido = new PedidoPkg();
         Cardapio prato = new Cardapio();
-
         indexPedidoAtual = indexArray;
         prato = cardapioDAO.getCardapio().get(indexArray);
 
@@ -494,6 +496,7 @@ public class TelaFazerPedido {
             qtd = retornaIndexPedidoAtual(indexArray);
             Object[] opcaoSimNao = {"Sim", "Não"};
             String obs = "Nenhuma Observação";
+            pedido.setObservacao(obs);
             int opcaoSelecionada = 0;
             valorPrato = prato.getPreco() * qtd;
             valorDaCompra += valorPrato;
