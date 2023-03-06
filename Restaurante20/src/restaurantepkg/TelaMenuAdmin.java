@@ -49,7 +49,7 @@ public class TelaMenuAdmin {
             public void actionPerformed(ActionEvent e) {
                 Object[] opcaoConfirma = {"Logoff", "Fechar Programa"};
                 int opcaoSelecionada = JOptionPane.showOptionDialog(null,
-                        "Deseja sair da conta e voltar a tela de login?", "Menu Admin",
+                        "Deseja sair da conta e voltar a tela de login?", "Tem Certeza?",
                         JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE,
                         null, opcaoConfirma, opcaoConfirma[0]);
 

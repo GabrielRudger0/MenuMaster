@@ -7,10 +7,10 @@ import java.net.URL;
 
 public class ExecutaTelas {
     public static JFrame frameTelaMenuAdm = new JFrame("Menu Admin");
-    public static JFrame frameTelaRegistro = new JFrame("Registro");
+    public static JFrame frameTelaRegistro = new JFrame("Registro de Cliente");
     public static JFrame frameTelaLogin = new JFrame("MenuMaster");
-    public static JFrame frameTelaFazerPedido = new JFrame("Cardapio");
-    public static JFrame frameTelaCardapio = new JFrame("Cardapio");
+    public static JFrame frameTelaFazerPedido = new JFrame("Cardápio");
+    public static JFrame frameTelaCardapio = new JFrame("Registrar Item no Cardápio");
     public static JFrame frameTelaAvaliacoes = new JFrame("Avalie nosso serviço!");
     public static JFrame frameTelaContabil = new JFrame("Contabilidade");
     public static JFrame FrameTelaRelatorio = new JFrame("Registro");

@@ -47,9 +47,7 @@ public class TelaCardapio {
         voltarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ExecutaTelas executaTelas = new ExecutaTelas();
-                ExecutaTelas.frameTelaCardapio.dispose();
-                executaTelas.iniciarTelaAdmin();
+                System.exit(0);
             }
         });
         insiraNomePrato.addFocusListener(new FocusAdapter() {
