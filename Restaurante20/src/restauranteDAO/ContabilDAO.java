@@ -15,7 +15,7 @@ public class ContabilDAO {
 
     public void save(ContabilPKG contabilPKG) {
 
-        String sql = "INSERT INTO data, descricao, receitas, despesas, saldo) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO contabil(data, descricao, receitas, despesas, saldo) VALUES(?,?,?,?,?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;

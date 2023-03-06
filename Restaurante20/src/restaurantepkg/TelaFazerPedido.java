@@ -1,6 +1,7 @@
 package restaurantepkg;
 
 import restauranteDAO.CardapioDAO;
+import restauranteDAO.ContabilDAO;
 import restauranteDAO.PedidoDAO;
 
 import javax.swing.*;
@@ -8,6 +9,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class TelaFazerPedido {
@@ -18,8 +20,8 @@ public class TelaFazerPedido {
     public static ArrayList<PedidoPkg> listaDePedidos = new ArrayList<>();
     private int[] sequencialIndexes = {-1,-1,-1,-1,-1};
     private static int indexPedidoAtual;
-    private static float valorDaCompra;
-    private static float valorPrato;
+    private static double valorDaCompra;
+    private static double valorPrato;
     private static int quantidadePedido1;
     private static int quantidadePedido2;
     private static int quantidadePedido3;
@@ -313,13 +315,14 @@ public class TelaFazerPedido {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Object[] opcaoConfirma = {"Confirmar", "Sair"};
-
+                String pratosPedidos = "Comanda Cliente(ID: " + PedidoDAO.idClienteAtual + "): ";
                 int quantidadePedido = 0;
                 String texto = "Itens Pedidos: \n\n";
                 quantidadePedido = retornaIndexPedidoAtual(indexPedidoAtual);
 
                 for (int i = 0; i <= listaDePedidos.size() - 1; i++) {
                     String obs = listaDePedidos.get(i).getObservacao();
+                    pratosPedidos += listaDePedidos.get(i).getQuantidade() + " " + listaDePedidos.get(i).getItenspedidos() + "; ";
 
                     texto +=
                             "Prato/Bebida: " + listaDePedidos.get(i).getItenspedidos() +
@@ -332,6 +335,22 @@ public class TelaFazerPedido {
                                 JOptionPane.QUESTION_MESSAGE, null, opcaoConfirma, opcaoConfirma[0]);
                 if (opcaoSelecionada == 0) {
                     JOptionPane.showMessageDialog(null, "Seu pedido chegará em instantes, Obrigado!","Cardapio",JOptionPane.INFORMATION_MESSAGE);
+
+                    //INSERE COMANDA NO CONTABIL
+                    //--------------------------------------------------
+                    ContabilDAO tabelaContabilBanco = new ContabilDAO();
+                    ContabilPKG contabilidade = new ContabilPKG();
+
+                    LocalDate hoje = LocalDate.now();
+                    java.sql.Date dataAtual = java.sql.Date.valueOf(hoje);
+                    contabilidade.setData(dataAtual);
+                    contabilidade.setDescricao(pratosPedidos);
+                    contabilidade.setReceitas(valorDaCompra);
+                    contabilidade.setDespesas(0);
+                    contabilidade.setSaldo(valorDaCompra);
+
+                    tabelaContabilBanco.save(contabilidade);
+                    //--------------------------------------------------
                     TelaAvaliacao.indexPedidoAtualParaAvaliacao = 0;
                     executaTelas.iniciarTelaAvaliacoes();
                     ExecutaTelas.frameTelaFazerPedido.dispose();
