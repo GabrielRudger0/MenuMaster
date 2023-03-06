@@ -59,6 +59,7 @@ public class TelaRelatorioClasse {
         receitas = 0;
         despesas = 0;
         saldo = 0;
+
         voltarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

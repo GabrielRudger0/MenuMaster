@@ -1,5 +1,6 @@
 package restaurantepkg;
 
+
 import javax.swing.*;
 import java.awt.*;
 import java.net.MalformedURLException;
@@ -13,9 +14,9 @@ public class ExecutaTelas {
     public static JFrame frameTelaCardapio = new JFrame("Registrar Item no Cardápio");
     public static JFrame frameTelaAvaliacoes = new JFrame("Avalie nosso serviço!");
     public static JFrame frameTelaContabil = new JFrame("Contabilidade");
-    public static JFrame FrameTelaRelatorio = new JFrame("Registro");
-    public static JFrame frameTelaReceita = new JFrame("Receita");
+    public static JFrame FrameTelaRelatorio = new JFrame("Relatorio");
     public static JFrame frameTelaInformacoesPrato = new JFrame("Informações");
+    public static JFrame FrameTelaReceita = new JFrame("Receita");
     private static URL url;
     private static Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -119,11 +120,14 @@ public class ExecutaTelas {
     }
 
     public void iniciarTelaReceita(){
-        frameTelaReceita.setContentPane(new TelaReceita().frameTelaReceita);
-        frameTelaReceita.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frameTelaReceita.pack();
-        frameTelaReceita.setVisible(true);
-        frameTelaReceita.setLocation(dim.width/2-frameTelaReceita.getSize().width/2, dim.height/2-frameTelaReceita.getSize().height/2);
+        iconeAplicativo();
+        ImageIcon icon = new ImageIcon(url);
+
+        FrameTelaReceita.setContentPane(new TelaReceita().FrameTelaReceita);
+        FrameTelaReceita.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        FrameTelaReceita.pack();
+        FrameTelaReceita.setVisible(true);
+        FrameTelaReceita.setLocation(dim.width/2-FrameTelaReceita.getSize().width/2, dim.height/2-FrameTelaReceita.getSize().height/2);
 }
     public void iniciarTelaInformacoesPedido(int index) {
 
