@@ -16,7 +16,7 @@ public class CardapioDAO {
 
     public void save(Cardapio cardapio){
 
-        String sql = "INSERT INTO cardapio(nome_prato, preco, categoria, disponibilidade, restricoes, ingredientes, idproduto,avaliacao5star,avaliacaoobs) VALUES(?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO cardapio(nome_prato, preco, categoria, disponibilidade, restricoes, ingredientes, idproduto) VALUES(?,?,?,?,?,?,?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -32,8 +32,7 @@ public class CardapioDAO {
             pstm.setString(5, cardapio.getRestricoes());
             pstm.setString(6, cardapio.getIngredientes());
             pstm.setInt(7, cardapio.getIdproduto());
-            pstm.setString(8, cardapio.getAvaliacao5Star());
-            pstm.setString(9, cardapio.getAvaliacaoFinal());
+
             //executa a query
 
             pstm.execute();

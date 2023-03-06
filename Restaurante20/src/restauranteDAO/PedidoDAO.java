@@ -2,28 +2,32 @@ package restauranteDAO;
 
 import com.mysql.jdbc.PreparedStatement;
 import restaurante.factory.ConnectionFactory;
-import restaurantepkg.Clientes;
 import restaurantepkg.PedidoPkg;
 
 import java.sql.Connection;
 import java.util.List;
 
 public class PedidoDAO {
+    public static String idClienteAtual;
 
     public void save(PedidoPkg pedidoPkg){
 
-        String sql = "INSERT INTO pedidos(itenspedidos,observacao,quantidade) VALUES(?,?,?)";
+        String sql = "INSERT INTO pedidos(idcliente,itenspedidos,observacao,quantidade,avaliacao5star,avaliacaoobs) VALUES(?,?,?,?,?,?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;
 
         try {
+
             //cria conexao com banco de dados
             conn = ConnectionFactory.createConnectionToMySQL();
             pstm = (PreparedStatement) conn.prepareStatement(sql);
-            pstm.setString(1, pedidoPkg.getItenspedidos());
-            pstm.setString(2, pedidoPkg.getObservacao());
-            pstm.setString(3, pedidoPkg.getQuantidade());
+            pstm.setString(1, idClienteAtual);
+            pstm.setString(2, pedidoPkg.getItenspedidos());
+            pstm.setString(3, pedidoPkg.getObservacao());
+            pstm.setString(4, pedidoPkg.getQuantidade());
+            pstm.setString(5, pedidoPkg.getAvaliacao5Star());
+            pstm.setString(6, pedidoPkg.getAvaliacaoFinal());
 
             //executa a query
 
