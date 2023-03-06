@@ -26,8 +26,6 @@ public class Tela {
     private JTextField receberSenha;
 
     public Tela() {
-
-        System.out.println("AAAAAAAAHHHHHHHHHHHHHHHHHH");
         botaoLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -40,9 +38,6 @@ public class Tela {
                 //Bloco verifica se ambas as credenciais são validas e libera ou barra o usuário
                 if (aceitaEmail == true && aceitaSenha == true) {
                     if (eAdmin == true) {
-                        JOptionPane.showMessageDialog(null,"Login Admin efetuado com sucesso!",
-                                "Login",JOptionPane.INFORMATION_MESSAGE);
-
                         eAdmin = false;
                         aceitaEmail = false;
                         aceitaSenha = false;
@@ -50,9 +45,6 @@ public class Tela {
                         executaTelas.iniciarTelaAdmin();
 
                     } else {
-                        JOptionPane.showMessageDialog(null,"Login efetuado com sucesso!\nBem-Vindo, " + cliente.getNomeCliente() + ".",
-                                "Login",JOptionPane.INFORMATION_MESSAGE);
-
                         eAdmin = false;
                         aceitaEmail = false;
                         aceitaSenha = false;
@@ -65,7 +57,7 @@ public class Tela {
 
                 } else {
                     JOptionPane.showMessageDialog(null,"Erro no login: Verifique as credenciais digitadas.",
-                            "Login",JOptionPane.ERROR_MESSAGE);
+                            "Erro no Login",JOptionPane.ERROR_MESSAGE);
                 }
 
             }

@@ -8,7 +8,7 @@ import java.net.URL;
 public class ExecutaTelas {
     public static JFrame frameTelaMenuAdm = new JFrame("Menu Admin");
     public static JFrame frameTelaRegistro = new JFrame("Registro");
-    public static JFrame frameTelaLogin = new JFrame("Login");
+    public static JFrame frameTelaLogin = new JFrame("MenuMaster");
     public static JFrame frameTelaFazerPedido = new JFrame("Cardapio");
     public static JFrame frameTelaCardapio = new JFrame("Cardapio");
     public static JFrame frameTelaAvaliacoes = new JFrame("Avalie nosso serviço!");

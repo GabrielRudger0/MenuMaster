@@ -123,7 +123,7 @@
             <item value="Prato Principal"/>
             <item value="Bebidas Alcoólicas"/>
             <item value="Refrescos e Sucos"/>
-            <item value="Vegerariano e/ou Vegano"/>
+            <item value="Vegetariano e/ou Vegano"/>
             <item value="Sobremesas"/>
           </model>
         </properties>
