@@ -25,5 +25,7 @@ public class Main {
         //executaTelas.iniciarTelaFazerPedido();
         //executaTelas.iniciarTelaAdmin();
         //executaTelas.iniciarTelaRegistro();
+
+        System.out.println("forcecoomit");
     }
 }
