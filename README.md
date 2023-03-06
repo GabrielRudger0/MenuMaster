@@ -45,7 +45,7 @@
 
 <h3 href="https://github.com/MuriloCordova" align="left">Murilo Cordova</h3>
 <p>   Banco de Dados, Back-End, API/Webservice, Liderança</p>
-
+<img src="https://media.tenor.com/JLxHN8AfAtQAAAAM/this-is-elon-musk-elon-musk.gif" width="150" height="150">
 
 <h3 href="https://github.com/GuilhermeGadotti" align="left">Guilherme Gadotti </h3>
 <p>   Back-End</p>
