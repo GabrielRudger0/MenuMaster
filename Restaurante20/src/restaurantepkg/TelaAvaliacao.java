@@ -12,21 +12,19 @@ public class TelaAvaliacao {
     private JButton botaoEstrela4;
     private JButton botaoEstrela5;
     private JLabel nomePrato;
-    public static String nomePratoPedido;
-    private static int pedidosNaoAvaliados = TelaFazerPedido.listaNomePratosPedidos.size();
+    private static int pedidosNaoAvaliados = TelaFazerPedido.listaDePedidos.size();
     public static String avaliacaoSelecionada;
     public static String comentarioAvaliativo;
     public static int indexPedidoAtualParaAvaliacao;
 
     public TelaAvaliacao() {
 
-        System.out.println(pedidosNaoAvaliados);
-        System.out.println(indexPedidoAtualParaAvaliacao);
         if (pedidosNaoAvaliados == 0) {
             ExecutaTelas.frameTelaAvaliacoes.dispose();
         }
 
         Cardapio pratoDoCardapio = new Cardapio();
+
         nomePrato.setText(TelaFazerPedido.listaNomePratosPedidos.get(indexPedidoAtualParaAvaliacao).getNome_prato());
         botaoEstrela1.addActionListener(new ActionListener() {
             @Override
@@ -69,11 +67,6 @@ public class TelaAvaliacao {
             }
         });
     }
-    private void fechaAvaliacaoAbreLogin() {
-        ExecutaTelas executaTelas = new ExecutaTelas();
-        ExecutaTelas.frameTelaAvaliacoes.dispose();
-        executaTelas.iniciarTelaLogin();
-    }
     private String comentarioAvaliacao() {
         int opcao = JOptionPane.showConfirmDialog(null, "Deseja deixar um comentário sobre o prato?", "Avaliação", JOptionPane.YES_NO_OPTION);
         String comentario = "Sem Comentário";
@@ -94,6 +87,7 @@ public class TelaAvaliacao {
         TelaFazerPedido.pedidoDAO.save(TelaFazerPedido.listaDePedidos.get(indexPedidoAtualParaAvaliacao));
         ExecutaTelas.frameTelaAvaliacoes.dispose();
         --pedidosNaoAvaliados;
+
         if (pedidosNaoAvaliados > 0) {
             ++TelaAvaliacao.indexPedidoAtualParaAvaliacao;
             ExecutaTelas.frameTelaAvaliacoes.dispose();

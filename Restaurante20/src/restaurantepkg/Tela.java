@@ -40,6 +40,7 @@ public class Tela {
                         eAdmin = false;
                         aceitaEmail = false;
                         aceitaSenha = false;
+
                         ExecutaTelas.frameTelaLogin.dispose();
                         executaTelas.iniciarTelaAdmin();
 
@@ -47,6 +48,7 @@ public class Tela {
                         eAdmin = false;
                         aceitaEmail = false;
                         aceitaSenha = false;
+
                         PedidoDAO.idClienteAtual = cliente.getIdCliente();
                         TelaFazerPedido.nomeUsuarioAtual = cliente.getNomeCliente();
                         ExecutaTelas.frameTelaLogin.dispose();
@@ -117,10 +119,8 @@ public class Tela {
                 //Bloco verifica se o email digitado é de uma conta admin
                 // depois verifica se a senha digitada é correspondente
                 if (eAdmin == true) {
-                    System.out.println("senha do banco: " + admin.getSenhaAdm());
                     if (senhaDigitadoUsuario.equals(admin.getSenhaAdm())) {
                         aceitaSenha = true;
-                        System.out.println("aceita senha: " + aceitaSenha);
                     }
                 } else {
                     //Bloco verifica se a senha digitada é correspondente a conta do banco

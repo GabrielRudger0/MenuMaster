@@ -10,11 +10,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
-import java.sql.Time;
-import java.time.LocalDateTime;
 
 public class TelaRegistro {
     public JPanel panel1;
+    public static boolean entrandoComoAdmRegistro = false;
     private JTextField inserirNome;
     private JTextField inserirCep;
     private JTextField inserirEmail;
@@ -29,9 +28,6 @@ public class TelaRegistro {
     private JTextField inserirComplemento;
     private JTextField inserirBairro;
     private static String enderecoFormatado;
-    public static boolean entrandoComoAdmRegistro = false;
-
-    private static int codigoJaExecutado = 0;
 
 
     public TelaRegistro() {
@@ -98,7 +94,6 @@ public class TelaRegistro {
                 super.focusLost(e);
                 System.out.println(clienteDAO.getClientes().size());
                 for (int i = 0; i <= clienteDAO.getClientes().size() - 1; i++) {
-                    System.out.println(i);
                     if (clienteDAO.getClientes().get(i).getEmailCliente().equals(inserirEmail.getText())) {
                         JOptionPane.showMessageDialog(null,"Email já cadastrado no sistema!","Registro",JOptionPane.WARNING_MESSAGE);
                         inserirEmail.setText("");
@@ -167,7 +162,6 @@ public class TelaRegistro {
         inserirComplemento.addCaretListener(new CaretListener() {
             @Override
             public void caretUpdate(CaretEvent e) {
-                System.out.println(inserirComplemento.getText());
                 Endereco enderecoapi = br.com.correios.ClienteWs.getEnderecoPorCep(inserirCep.getText());
                 inserirComplemento.setText(inserirComplemento.getText());
 
