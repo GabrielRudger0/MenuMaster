@@ -13,7 +13,7 @@ public class PedidoDAO {
 
     public void save(PedidoPkg pedidoPkg){
 
-        String sql = "INSERT INTO pedidos(idcliente,itenspedidos,observacao,quantidade) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO pedidos(idcliente,itenspedidos,observacao,quantidade,avaliacao5star,avaliacaoobs) VALUES(?,?,?,?,?,?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -26,6 +26,8 @@ public class PedidoDAO {
             pstm.setString(2, pedidoPkg.getItenspedidos());
             pstm.setString(3, pedidoPkg.getObservacao());
             pstm.setString(4, pedidoPkg.getQuantidade());
+            pstm.setString(5,pedidoPkg.getAvaliacao5Star());
+            pstm.setString(6,pedidoPkg.getAvaliacaoFinal());
 
             //executa a query
 
