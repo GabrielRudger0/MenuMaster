@@ -15,7 +15,6 @@ import java.util.ArrayList;
 public class TelaFazerPedido {
     public JPanel FazerPedido;
     public static PedidoDAO pedidoDAO = new PedidoDAO();
-    public static ArrayList<Cardapio> listaNomePratosPedidos = new ArrayList<>();
     public static ArrayList<PedidoPkg> listaDePedidos = new ArrayList<>();
     private CardapioDAO cardapioDAO = new CardapioDAO();
     private int[] sequencialIndexes = {-1,-1,-1,-1,-1};
@@ -365,7 +364,6 @@ public class TelaFazerPedido {
                 //fazer um delete para deletar todos os pedidos do usuario
                 //ou apenas um
                 listaDePedidos.removeAll(listaDePedidos);
-                listaNomePratosPedidos.removeAll(listaNomePratosPedidos);
                 JOptionPane.showMessageDialog(null,"Itens removidos do carrinho.","Carrinho",JOptionPane.INFORMATION_MESSAGE);
                 valorDaCompra = 0;
             }
@@ -470,7 +468,6 @@ public class TelaFazerPedido {
 
         Cardapio prato = new Cardapio();
         prato = cardapioDAO.getCardapio().get(indexArray);
-        listaNomePratosPedidos.add(prato);
         String nome1 = prato.getNome_prato();
         String descricao1 = prato.getIngredientes();
         String preco1 = "R$ " + (prato.getPreco());
@@ -491,7 +488,6 @@ public class TelaFazerPedido {
 
         Cardapio bebida = new Cardapio();
         bebida = cardapioDAO.getCardapio().get(indexArray);
-        listaNomePratosPedidos.add(bebida);
         String nome1 = bebida.getNome_prato();
         String descricao1 = bebida.getIngredientes();
         String preco1 = "R$ " + (bebida.getPreco());
