@@ -159,9 +159,10 @@ public class TelaRegistro {
                 InserirNumero.setText(InserirNumero.getText());
             }
         });
-        inserirComplemento.addCaretListener(new CaretListener() {
+        inserirComplemento.addFocusListener(new FocusAdapter() {
             @Override
-            public void caretUpdate(CaretEvent e) {
+            public void focusLost(FocusEvent e) {
+                super.focusLost(e);
                 Endereco enderecoapi = br.com.correios.ClienteWs.getEnderecoPorCep(inserirCep.getText());
                 inserirComplemento.setText(inserirComplemento.getText());
 

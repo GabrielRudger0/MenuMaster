@@ -328,12 +328,12 @@ public class TelaFazerPedido {
                             "\nQuantidade: " + listaDePedidos.get(i).getQuantidade() +
                             "\nObservação: " + obs + "\n\n";
                 }
-                texto += "Valor Total: " + valorDaCompra + "\n";
+                texto += "Valor Total: R$" + valorDaCompra + "\n";
 
                 int opcaoSelecionada = JOptionPane.showOptionDialog(null, texto, "Finalizar Pedido", JOptionPane.OK_CANCEL_OPTION,
                                 JOptionPane.QUESTION_MESSAGE, null, opcaoConfirma, opcaoConfirma[0]);
                 if (opcaoSelecionada == 0) {
-                    JOptionPane.showMessageDialog(null, "Seu pedido chegará em instantes, Obrigado!","Cardapio",JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Seu pedido chegará em instantes, Obrigado!","Cardápio",JOptionPane.INFORMATION_MESSAGE);
 
                     //INSERE COMANDA NO CONTABIL
                     //--------------------------------------------------
@@ -372,9 +372,9 @@ public class TelaFazerPedido {
         botaoSair.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Object[] opcaoConfirma = {"Voltar ao Cardapio", "Sair"};
+                Object[] opcaoConfirma = {"Voltar ao Cardápio", "Sair"};
                 int opcaoSelecionada = JOptionPane.showOptionDialog(null,
-                        "Deseja sair da conta e voltar a tela de login?", "Cardapio",
+                        "Deseja sair da conta e voltar a tela de login?", "Cardápio",
                         JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE,
                         null, opcaoConfirma, opcaoConfirma[0]);
 
