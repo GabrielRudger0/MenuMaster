@@ -29,6 +29,7 @@ public class TelaRegistro {
     private JTextField inserirComplemento;
     private JTextField inserirBairro;
     private static String enderecoFormatado;
+    public static boolean entrandoComoAdmRegistro = false;
 
     private static int codigoJaExecutado = 0;
 
@@ -72,7 +73,13 @@ public class TelaRegistro {
             public void actionPerformed(ActionEvent e) {
                 ExecutaTelas executaTelas = new ExecutaTelas();
                 ExecutaTelas.frameTelaRegistro.dispose();
-                executaTelas.iniciarTelaAdmin();
+                if (entrandoComoAdmRegistro == false) {
+                    executaTelas.iniciarTelaLogin();
+                } else {
+                    entrandoComoAdmRegistro = false;
+                    executaTelas.iniciarTelaAdmin();
+                }
+
             }
         });
 

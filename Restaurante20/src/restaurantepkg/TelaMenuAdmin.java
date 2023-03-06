@@ -39,6 +39,7 @@ public class TelaMenuAdmin {
         public void actionPerformed(ActionEvent e) {
 
             ExecutaTelas.frameTelaMenuAdm.dispose();
+            TelaRegistro.entrandoComoAdmRegistro = true;
             executaTelas.iniciarTelaRegistro();
         }
     });

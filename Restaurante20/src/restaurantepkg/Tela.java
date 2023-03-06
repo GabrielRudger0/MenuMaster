@@ -5,9 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
-import java.util.ArrayList;
 
-import RestauranteAplication.Main;
 import restauranteDAO.AdminDAO;
 import restauranteDAO.ClienteDAO;
 import restauranteDAO.PedidoDAO;
@@ -24,6 +22,7 @@ public class Tela {
     private JButton botaoLogin;
     private JButton botaoSair;
     private JTextField receberSenha;
+    private JButton cadastroButton;
 
     public Tela() {
         botaoLogin.addActionListener(new ActionListener() {
@@ -133,6 +132,14 @@ public class Tela {
                     }
 
                 }
+            }
+        });
+        cadastroButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ExecutaTelas.frameTelaLogin.dispose();
+                ExecutaTelas executaTelas = new ExecutaTelas();
+                executaTelas.iniciarTelaRegistro();
             }
         });
     }
