@@ -2,6 +2,11 @@ package restaurantepkg;
 
 public class Cardapio {
 
+
+    private String avaliacao5Star;
+
+    private String avaliacaoFinal;
+
     private int idproduto;
 
     private String nome_prato;
@@ -70,5 +75,21 @@ public class Cardapio {
 
     public void setIdproduto(int idproduto) {
         this.idproduto = idproduto;
+    }
+
+    public String getAvaliacao5Star() {
+        return avaliacao5Star;
+    }
+
+    public void setAvaliacao5Star(String avaliacao5Star) {
+        this.avaliacao5Star = avaliacao5Star;
+    }
+
+    public String getAvaliacaoFinal() {
+        return avaliacaoFinal;
+    }
+
+    public void setAvaliacaoFinal(String avaliacaoFinal) {
+        this.avaliacaoFinal = avaliacaoFinal;
     }
 }
