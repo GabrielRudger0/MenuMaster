@@ -26,10 +26,10 @@ CREATE TABLE IF NOT EXISTS `cadastro_cliente` (
   `cep_cliente` varchar(11) NOT NULL,
   `endereco_cliente` varchar(70) NOT NULL,
   `email_cliente` varchar(45) NOT NULL,
-  `tel_cliente` varchar(11) NOT NULL,
+  `tel_cliente` varchar(12) NOT NULL,
   `senha_cliente` varchar(45) NOT NULL,
   PRIMARY KEY (`id_cliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Exportação de dados foi desmarcado.
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `cardapio` (
   `restricoes` varchar(80) DEFAULT NULL,
   `ingredientes` varchar(80) DEFAULT NULL,
   PRIMARY KEY (`idproduto`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Exportação de dados foi desmarcado.
 
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `contabil` (
   `despesas` decimal(10,2) DEFAULT NULL,
   `saldo` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Exportação de dados foi desmarcado.
 
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `pedidos` (
   PRIMARY KEY (`idpedidos`),
   KEY `clienteFK1` (`idcliente`),
   CONSTRAINT `clienteFK1` FOREIGN KEY (`idcliente`) REFERENCES `cadastro_cliente` (`id_cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Exportação de dados foi desmarcado.
 
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `vrp_admin` (
   `usuario` varchar(45) DEFAULT NULL,
   `senha` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idvrp_admin`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Exportação de dados foi desmarcado.
 
