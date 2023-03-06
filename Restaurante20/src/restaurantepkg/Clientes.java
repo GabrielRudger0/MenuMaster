@@ -1,7 +1,5 @@
 package restaurantepkg;
 
-import java.util.Date;
-
 public class Clientes {
 
     private String idCliente;

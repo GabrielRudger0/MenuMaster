@@ -3,12 +3,9 @@ package restauranteDAO;
 import com.mysql.jdbc.PreparedStatement;
 import restaurante.factory.ConnectionFactory;
 import restaurantepkg.Cardapio;
-import restaurantepkg.Clientes;
-import restaurantepkg.PedidoPkg;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 

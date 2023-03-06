@@ -2,15 +2,14 @@ package restauranteDAO;
 
 import com.mysql.jdbc.PreparedStatement;
 import restaurante.factory.ConnectionFactory;
-import restaurantepkg.Clientes;
 import restaurantepkg.PedidoPkg;
 
 import java.sql.Connection;
-import java.util.List;
 
 public class PedidoDAO {
+    //Pega o Id do cliente logado para registrar nos pedidos;
     public static String idClienteAtual;
-
+    //
     public void save(PedidoPkg pedidoPkg){
 
         String sql = "INSERT INTO pedidos(idcliente,itenspedidos,observacao,quantidade,avaliacao5star,avaliacaoobs) VALUES(?,?,?,?,?,?)";
