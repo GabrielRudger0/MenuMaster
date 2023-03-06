@@ -9,6 +9,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -18,6 +19,7 @@ public class TelaFazerPedido {
     public static ArrayList<PedidoPkg> listaDePedidos = new ArrayList<>();
     private CardapioDAO cardapioDAO = new CardapioDAO();
     private int[] sequencialIndexes = {-1,-1,-1,-1,-1};
+    private DecimalFormat df = new DecimalFormat("R$ ###.00");
     private static int indexPedidoAtual;
     private static double valorDaCompra;
     private static double valorPrato;
@@ -470,7 +472,7 @@ public class TelaFazerPedido {
         prato = cardapioDAO.getCardapio().get(indexArray);
         String nome1 = prato.getNome_prato();
         String descricao1 = prato.getIngredientes();
-        String preco1 = "R$ " + (prato.getPreco());
+        String preco1 = df.format(prato.getPreco());
 
         fazerPedido.setVisible(true);
         maisInfos.setVisible(true);
@@ -490,7 +492,7 @@ public class TelaFazerPedido {
         bebida = cardapioDAO.getCardapio().get(indexArray);
         String nome1 = bebida.getNome_prato();
         String descricao1 = bebida.getIngredientes();
-        String preco1 = "R$ " + (bebida.getPreco());
+        String preco1 = df.format(bebida.getPreco());
 
         fazerPedidoBebida.setVisible(true);
         nomeBebida.setText("Nome da Bebida: " + nome1);
