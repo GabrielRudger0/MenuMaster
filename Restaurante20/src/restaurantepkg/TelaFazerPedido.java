@@ -19,7 +19,7 @@ public class TelaFazerPedido {
     public static ArrayList<PedidoPkg> listaDePedidos = new ArrayList<>();
     private CardapioDAO cardapioDAO = new CardapioDAO();
     private int[] sequencialIndexes = {-1,-1,-1,-1,-1};
-    private DecimalFormat df = new DecimalFormat("R$ ###.00");
+    private DecimalFormat df = new DecimalFormat("R$ ##0.00");
     private static int indexPedidoAtual;
     private static double valorDaCompra;
     private static double valorPrato;
@@ -330,7 +330,7 @@ public class TelaFazerPedido {
                             "\nQuantidade: " + listaDePedidos.get(i).getQuantidade() +
                             "\nObservação: " + obs + "\n\n";
                 }
-                texto += "Valor Total: R$" + valorDaCompra + "\n";
+                texto += "Valor Total: " + df.format(valorDaCompra) + "\n";
 
                 int opcaoSelecionada = JOptionPane.showOptionDialog(null, texto, "Finalizar Pedido", JOptionPane.OK_CANCEL_OPTION,
                                 JOptionPane.QUESTION_MESSAGE, null, opcaoConfirma, opcaoConfirma[0]);
@@ -355,6 +355,7 @@ public class TelaFazerPedido {
                     TelaAvaliacao.indexPedidoAtualParaAvaliacao = 0;
                     executaTelas.iniciarTelaAvaliacoes();
                     ExecutaTelas.frameTelaFazerPedido.dispose();
+                    listaDePedidos.removeAll(listaDePedidos);
 
                 }
             }

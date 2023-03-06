@@ -5,6 +5,7 @@ import restauranteDAO.ContabilDAO;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -12,6 +13,7 @@ public class TelaRelatorioClasse {
 
     private ContabilDAO contabilDAO = new ContabilDAO();
     public JPanel FrameTelaRelatorio;
+    private DecimalFormat df = new DecimalFormat("R$ ##0.00");
     private JLabel head;
     private JButton voltarButton;
     private JLabel dataConsulta;
@@ -51,10 +53,10 @@ public class TelaRelatorioClasse {
 
         data = (formattedDate);
 
-        receitaConsulta.setText(Double.toString(receitas));
+        receitaConsulta.setText(df.format(receitas));
         dataConsulta.setText(data);
-        despesasConsuta.setText(Double.toString(despesas));
-        saldoConsulta.setText(Double.toString(saldo));
+        despesasConsuta.setText(df.format(despesas));
+        saldoConsulta.setText(df.format(saldo));
 
         receitas = 0;
         despesas = 0;
