@@ -2,6 +2,8 @@ package restaurantepkg;
 
 import javax.swing.*;
 import java.awt.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class ExecutaTelas {
     public static JFrame frameTelaMenuAdm = new JFrame("Menu Admin");
@@ -13,12 +15,15 @@ public class ExecutaTelas {
     public static JFrame frameTelaContabil = new JFrame("Contabilidade");
     public static JFrame FrameTelaRelatorio = new JFrame("Registro");
     public static JFrame frameTelaInformacoesPrato = new JFrame("Informações");
-    private ImageIcon icon = new ImageIcon("C:/Users/Gaybriel Rüdger/IdeaProjects/MenuMaster/Menyu (1).png");
+    private static URL url;
     private static Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
 
 
+
     public void iniciarTelaAdmin() {
+        iconeAplicativo();
+
 
         frameTelaMenuAdm.setContentPane(new TelaMenuAdmin().telaMenuAdm);
         frameTelaMenuAdm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -29,6 +34,8 @@ public class ExecutaTelas {
 
     }
     public void iniciarTelaRegistro() {
+        iconeAplicativo();
+        ImageIcon icon = new ImageIcon(url);
 
         frameTelaRegistro.setContentPane(new TelaRegistro().panel1);
         frameTelaRegistro.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -39,6 +46,8 @@ public class ExecutaTelas {
 
     }
     public void iniciarTelaLogin() {
+        iconeAplicativo();
+        ImageIcon icon = new ImageIcon(url);
 
         frameTelaLogin.setContentPane(new Tela().telaLogin);
         frameTelaLogin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -49,6 +58,8 @@ public class ExecutaTelas {
     }
 
     public void iniciarTelaFazerPedido() {
+        iconeAplicativo();
+        ImageIcon icon = new ImageIcon(url);
 
         frameTelaFazerPedido.setContentPane(new TelaFazerPedido().FazerPedido);
         frameTelaFazerPedido.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -59,6 +70,8 @@ public class ExecutaTelas {
     }
 
     public void iniciarTelaCriarCardapio() {
+        iconeAplicativo();
+        ImageIcon icon = new ImageIcon(url);
 
         frameTelaCardapio.setContentPane(new TelaCardapio().telaCriacaoCardapio);
         frameTelaCardapio.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -68,6 +81,8 @@ public class ExecutaTelas {
         frameTelaCardapio.setIconImage(icon.getImage());
     }
     public void iniciarTelaAvaliacoes() {
+        iconeAplicativo();
+        ImageIcon icon = new ImageIcon(url);
 
         frameTelaAvaliacoes.setContentPane(new TelaAvaliacao().telaAvaliacaoPrato);
         frameTelaAvaliacoes.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -79,6 +94,8 @@ public class ExecutaTelas {
 
     }
     public void iniciarTelaContabil() {
+        iconeAplicativo();
+        ImageIcon icon = new ImageIcon(url);
 
         frameTelaContabil.setContentPane(new TelaContabilMenu().TelaContabilidadeMenu);
         frameTelaContabil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -89,6 +106,8 @@ public class ExecutaTelas {
 
     }
     public void iniciarTelaRelatorio() {
+        iconeAplicativo();
+        ImageIcon icon = new ImageIcon(url);
 
         FrameTelaRelatorio.setContentPane(new TelaRelatorioClasse().FrameTelaRelatorio);
         FrameTelaRelatorio.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -99,11 +118,22 @@ public class ExecutaTelas {
     }
     public void iniciarTelaInformacoesPedido(int index) {
 
+        iconeAplicativo();
+        ImageIcon icon = new ImageIcon(url);
+
         frameTelaInformacoesPrato.setContentPane(new TelaInformacoesPrato(index).InformacoesPrato);
         frameTelaInformacoesPrato.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frameTelaInformacoesPrato.pack();
         frameTelaInformacoesPrato.setVisible(true);
         frameTelaInformacoesPrato.setLocation(dim.width/2-frameTelaInformacoesPrato.getSize().width/2, dim.height/2-frameTelaInformacoesPrato.getSize().height/2);
         frameTelaInformacoesPrato.setIconImage(icon.getImage());
+    }
+    private void iconeAplicativo() {
+        try {
+            url = new URL("https://media.discordapp.net/attachments/1003823464400040058/1082104297250107472/Menyu_1.png");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        ImageIcon icon = new ImageIcon(url);
     }
 }
