@@ -1,5 +1,4 @@
 package br.com.correios;
-
 import com.github.uliss3s.ceputil.Util;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
