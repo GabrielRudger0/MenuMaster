@@ -22,31 +22,43 @@ public class TelaRelatorioClasse {
     private static double saldo = 0;
     private static double receitas;
 
+    private static double despesas;
+
 
     public TelaRelatorioClasse(){
 
        String data;
 
-
        ContabilPKG relatorio = new ContabilPKG();
+
+        relatorio = contabilDAO.getRelatorio().get(0);
 
         for (int i = 0; i <contabilDAO.getRelatorio().size() ; i++) {
             receitas += contabilDAO.getRelatorio().get(i).getReceitas();
         }
-       relatorio = contabilDAO.getRelatorio().get(0);
 
-       saldo = relatorio.getSaldo();
+        for (int i = 0; i < contabilDAO.getRelatorio().size(); i++) {
+            despesas+= contabilDAO.getRelatorio().get(i).getDespesas();
+        }
+
+        for (int i = 0; i < contabilDAO.getRelatorio().size(); i++) {
+            saldo+= contabilDAO.getRelatorio().get(i).getSaldo();
+        }
 
         LocalDate currentDate = relatorio.getData().toLocalDate();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String formattedDate = currentDate.format(formatter);
 
-        data = ("Today's date is: " + formattedDate);
+        data = (formattedDate);
 
         receitaConsulta.setText(Double.toString(receitas));
         dataConsulta.setText(data);
+        despesasConsuta.setText(Double.toString(despesas));
         saldoConsulta.setText(Double.toString(saldo));
+
         receitas = 0;
+        despesas = 0;
+        saldo = 0;
         voltarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

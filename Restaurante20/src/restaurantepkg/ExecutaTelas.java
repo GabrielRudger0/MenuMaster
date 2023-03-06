@@ -118,8 +118,6 @@ public class ExecutaTelas {
         FrameTelaRelatorio.setIconImage(icon.getImage());
     }
 
-}
-
     public void iniciarTelaReceita(){
         frameTelaReceita.setContentPane(new TelaReceita().frameTelaReceita);
         frameTelaReceita.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

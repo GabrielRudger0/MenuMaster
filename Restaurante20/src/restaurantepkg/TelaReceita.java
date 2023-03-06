@@ -35,6 +35,8 @@ public class TelaReceita {
         datas = ("Date: " + formattedDate);
 
         data.setText(datas);
+
+
         voltarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {

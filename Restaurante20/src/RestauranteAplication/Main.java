@@ -21,10 +21,13 @@ public class Main {
         System.out.println("AHHFADHFADHFIADHFIPADHFIOPADHFIOPDHOPFAD");
 
         //executaTelas.iniciarTelaLogin();
-        executaTelas.iniciarTelaLogin();
+
         //executaTelas.iniciarTelaAvaliacoes();
+
         //executaTelas.iniciarTelaFazerPedido();
+
         executaTelas.iniciarTelaAdmin();
+
         //executaTelas.iniciarTelaRegistro();
 
         System.out.println("forcecoomit");
