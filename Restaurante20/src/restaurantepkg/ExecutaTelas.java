@@ -15,6 +15,8 @@ public class ExecutaTelas {
     public static JFrame frameTelaAvaliacoes = new JFrame("Avalie nosso serviço!");
     public static JFrame frameTelaContabil = new JFrame("Contabilidade");
     public static JFrame FrameTelaRelatorio = new JFrame("Relatório Geral");
+
+    public static JFrame FrameTelaDespesas = new JFrame("Despesas");
     public static JFrame frameTelaInformacoesPrato = new JFrame("Informações");
     public static JFrame FrameTelaReceita = new JFrame("Receita");
 
@@ -127,6 +129,18 @@ public class ExecutaTelas {
         FrameTelaReceita.setVisible(true);
         FrameTelaReceita.setLocation(dim.width/2-FrameTelaReceita.getSize().width/2, dim.height/2-FrameTelaReceita.getSize().height/2);
         FrameTelaReceita.setIconImage(icon.getImage());
+    }
+
+    public void iniciarTelaDespesas(){
+
+        FrameTelaDespesas.setContentPane(new TelaDespesas().FrameTelaDespesas);
+        FrameTelaDespesas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        FrameTelaDespesas.pack();
+        FrameTelaDespesas.setVisible(true);
+        FrameTelaDespesas.setLocation(dim.width/2-FrameTelaReceita.getSize().width/2, dim.height/2-FrameTelaDespesas.getSize().height/2);
+
+        iconeAplicativo();
+        ImageIcon icon = new ImageIcon(url);
     }
     public void iniciarTelaInformacoesPedido(int index) {
 

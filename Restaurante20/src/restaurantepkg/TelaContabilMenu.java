@@ -38,8 +38,8 @@ public class TelaContabilMenu {
     detalhesDeDespesasButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-
-
+            executaTelas.frameTelaContabil.dispose();
+            executaTelas.iniciarTelaDespesas();
         }
     });
         botaoVoltar.addActionListener(new ActionListener() {
