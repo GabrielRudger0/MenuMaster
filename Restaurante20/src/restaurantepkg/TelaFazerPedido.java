@@ -355,7 +355,6 @@ public class TelaFazerPedido {
                     TelaAvaliacao.indexPedidoAtualParaAvaliacao = 0;
                     executaTelas.iniciarTelaAvaliacoes();
                     ExecutaTelas.frameTelaFazerPedido.dispose();
-                    listaDePedidos.removeAll(listaDePedidos);
 
                 }
             }

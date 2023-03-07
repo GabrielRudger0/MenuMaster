@@ -14,15 +14,12 @@ public class ExecutaTelas {
     public static JFrame frameTelaCardapio = new JFrame("Registrar Item no Cardápio");
     public static JFrame frameTelaAvaliacoes = new JFrame("Avalie nosso serviço!");
     public static JFrame frameTelaContabil = new JFrame("Contabilidade");
-    public static JFrame FrameTelaRelatorio = new JFrame("Relatorio");
+    public static JFrame FrameTelaRelatorio = new JFrame("Relatório Geral");
     public static JFrame frameTelaInformacoesPrato = new JFrame("Informações");
     public static JFrame FrameTelaReceita = new JFrame("Receita");
 
     private static URL url;
     private static Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-
-
-
 
     public void iniciarTelaAdmin() {
         iconeAplicativo();
