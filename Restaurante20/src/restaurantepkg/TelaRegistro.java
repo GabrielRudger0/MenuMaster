@@ -156,7 +156,6 @@ public class TelaRegistro {
             @Override
             public void focusLost(FocusEvent e) {
                 super.focusLost(e);
-
                 InserirNumero.setText(InserirNumero.getText());
             }
         });
@@ -193,7 +192,7 @@ public class TelaRegistro {
             }
         });
     }
-    public boolean registroECorreto(Clientes cliente) {
+    private boolean registroECorreto(Clientes cliente) {
 
         String textoTela = "Informações não preenchidas!\n";
         boolean verificaRegistro = true;
@@ -210,7 +209,7 @@ public class TelaRegistro {
             textoTela += "Email do Cliente;\n";
             verificaRegistro = false;
         }
-        if (cliente.getTelefoneCliente().equals("")) {
+        if (cliente.getTelefoneCliente().equals("") || invalidaTelefone(cliente.getTelefoneCliente()) == true) {
             textoTela += "Telefone do Cliente;\n";
             verificaRegistro = false;
         }
@@ -222,5 +221,23 @@ public class TelaRegistro {
             JOptionPane.showMessageDialog(null,textoTela,"Registro",JOptionPane.ERROR_MESSAGE);
         }
         return verificaRegistro;
+    }
+    private boolean invalidaTelefone(String telefoneDigitado) {
+        String telefone = telefoneDigitado;
+        System.out.println(telefoneDigitado);
+        boolean invalida = false;
+
+        if (telefone.length() < 11 || telefone.length() > 12) {
+            invalida = true;
+            System.out.println(invalida);
+        }
+        for (int i = 0; i < telefone.length(); i++) {
+            if (Character.isLetter(telefone.charAt(i))) {
+                invalida = true;
+                System.out.println(invalida);
+                break;
+            }
+        }
+        return invalida;
     }
 }
