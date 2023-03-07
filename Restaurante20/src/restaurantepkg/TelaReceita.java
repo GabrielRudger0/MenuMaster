@@ -56,13 +56,15 @@ public class TelaReceita {
         for (int i = 0; i < contabilDAO.getRelatorio().size(); i++) {
             receita = contabilDAO.getRelatorio().get(i).getReceitas();
             descricao = contabilDAO.getRelatorio().get(i).getDescricao();
-            model.addRow(new Object[]{contabilDAO.getRelatorio().get(i).getData(),descricao,df.format(receita)});
-        }
+
+            if (contabilDAO.getRelatorio().get(i).getReceitas() != 0) {
+                model.addRow(new Object[]{contabilDAO.getRelatorio().get(i).getData(), descricao, df.format(receita)});
+            }
+            }
 
         JTableReceita.setModel(model);
 
         voltarButton.addActionListener(new ActionListener() {
-
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 ExecutaTelas executaTelas = new ExecutaTelas();
@@ -71,6 +73,7 @@ public class TelaReceita {
                 executaTelas.iniciarTelaContabil();
             }
         });
+
     }
 }
 
