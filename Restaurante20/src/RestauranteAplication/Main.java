@@ -10,7 +10,7 @@ public class Main {
 
         ExecutaTelas executaTelas = new ExecutaTelas();
         CriaDespesas aplicarDespesas = new CriaDespesas();
-        aplicarDespesas.criaDespesas();
+        //aplicarDespesas.criaDespesas();
 
         //executaTelas.iniciarTelaLogin();
 
