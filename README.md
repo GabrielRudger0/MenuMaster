@@ -56,7 +56,3 @@
 <p>   Back-End</p>
 <img src="https://media.tenor.com/Pl4WC5dd83UAAAAC/meme-memes.gif" width="150" height="150">
 
-<h3 href="https://github.com/RamonSilva8" align="left">Chris Mannrich</h3>
-<p>   Back-End</p>
-<img src="https://media.tenor.com/_BiwWBWhYucAAAAd/what-huh.gif" width="150" height="150">
-
