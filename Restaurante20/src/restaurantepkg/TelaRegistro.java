@@ -227,7 +227,7 @@ public class TelaRegistro {
         System.out.println(telefoneDigitado);
         boolean invalida = false;
 
-        if (telefone.length() < 11 || telefone.length() > 12) {
+        if (telefone.length() < 10 || telefone.length() > 11) {
             invalida = true;
             System.out.println(invalida);
         }
