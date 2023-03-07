@@ -12,13 +12,13 @@ public class Main {
 
         ExecutaTelas executaTelas = new ExecutaTelas();
 
-        executaTelas.iniciarTelaLogin();
+        //executaTelas.iniciarTelaLogin();
 
         //executaTelas.iniciarTelaAvaliacoes();
 
         //executaTelas.iniciarTelaFazerPedido();
 
-        //executaTelas.iniciarTelaAdmin();
+        executaTelas.iniciarTelaAdmin();
 
         //executaTelas.iniciarTelaRegistro();
 

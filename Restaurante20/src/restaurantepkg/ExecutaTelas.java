@@ -17,6 +17,7 @@ public class ExecutaTelas {
     public static JFrame FrameTelaRelatorio = new JFrame("Relatorio");
     public static JFrame frameTelaInformacoesPrato = new JFrame("Informações");
     public static JFrame FrameTelaReceita = new JFrame("Receita");
+
     private static URL url;
     private static Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -128,7 +129,8 @@ public class ExecutaTelas {
         FrameTelaReceita.pack();
         FrameTelaReceita.setVisible(true);
         FrameTelaReceita.setLocation(dim.width/2-FrameTelaReceita.getSize().width/2, dim.height/2-FrameTelaReceita.getSize().height/2);
-}
+        FrameTelaReceita.setIconImage(icon.getImage());
+    }
     public void iniciarTelaInformacoesPedido(int index) {
 
         iconeAplicativo();

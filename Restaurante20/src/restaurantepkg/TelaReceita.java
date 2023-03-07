@@ -3,23 +3,28 @@ package restaurantepkg;
 import restauranteDAO.ContabilDAO;
 
 import javax.swing.*;
-
-
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Vector;
 
 
 public class TelaReceita {
+
     private ContabilDAO contabilDAO = new ContabilDAO();
     public JPanel FrameTelaReceita;
-    private JLabel data;
-    private JLabel dataConsulta;
-    private JLabel receitaConsulta;
     private JButton voltarButton;
-    private JTable tabela ;
+    private JTable JTableReceita;
+    private JPanel JPanelTabela;
+
+    private DecimalFormat df =new DecimalFormat("R$ ##0.00");
+    private String data;
+    private double receita;
+    private String descricao;
 
 
     public void TelaRelatorioClasse(){
@@ -34,94 +39,41 @@ public class TelaReceita {
 
         datas = ("Date: " + formattedDate);
 
-        data.setText(datas);
-
-       //initComponents();
-
-//        TableCellEditor cellEditor = new TableCellEditor() {
-//            @Override
-//            public Component getTableCellEditorComponent(JTable jTable, Object o, boolean b, int i, int i1) {
-//                return null;
-//
-//            }
-//
-//            @Override
-//            public Object getCellEditorValue() {
-//                return null;
-//            }
-//
-//            @Override
-//            public boolean isCellEditable(EventObject eventObject) {
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean shouldSelectCell(EventObject eventObject) {
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean stopCellEditing() {
-//                return false;
-//            }
-//
-//            @Override
-//            public void cancelCellEditing() {
-//
-//            }
-//
-//            @Override
-//            public void addCellEditorListener(CellEditorListener cellEditorListener) {
-//
-//            }
-//
-//            @Override
-//            public void removeCellEditorListener(CellEditorListener cellEditorListener) {
-//
-//            }
-//        };
-
-//        DefaultTableModel model = new DefaultTableModel();
-//        ResultSetMetaData metaData = resultSet.getMetaData();
-//        int columnCount = metaData.getColumnCount();
-//
-//
-//        for (int i = 1; i <= columnCount; i++) {
-//            model.addColumn(metaData.getColumnName(i));
-//        }
-//        while (resultSet.next()) {
-//            Object[] row = new Object[columnCount];
-//            for (int i = 1; i <= columnCount; i++) {
-//                row[i - 1] = resultSet.getObject(i);
-//            }
-//            model.addRow(row);
-//        }
-//
  }
 
     public TelaReceita() {
+
+        ContabilPKG relatorio = new ContabilPKG();
+
+        relatorio = contabilDAO.getRelatorio().get(0);
+
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Data");
+        model.addColumn("Receita");
+        model.addColumn("Descrição");
+        model.addRow(new Object[]{"Data", "Descrição","Receita"});
+
+        for (int i = 0; i < contabilDAO.getRelatorio().size(); i++) {
+            receita = contabilDAO.getRelatorio().get(i).getReceitas();
+            descricao = contabilDAO.getRelatorio().get(i).getDescricao();
+            model.addRow(new Object[]{contabilDAO.getRelatorio().get(i).getData(),descricao,df.format(receita)});
+        }
+
+
+
+        JTableReceita.setModel(model);
+
         voltarButton.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 ExecutaTelas executaTelas = new ExecutaTelas();
+                System.out.println(contabilDAO.getRelatorio().size());
                 ExecutaTelas.FrameTelaReceita.dispose();
                 executaTelas.iniciarTelaContabil();
             }
         });
     }
-
-
-//    private void initComponents() {
-//        DefaultTableModel model = new DefaultTableModel(
-//                new Object[][]{
-//                        {1, "João", "Silva"},
-//                        {2, "Maria", "Santos"},
-//                        {3, "José", "Oliveira"}
-//                },
-//                new Object[]{"ID", "Nome", "Sobrenome"}
-//        );
-//        tabela = new JTable(model);
-//
-//
-//    }
 }
+
+

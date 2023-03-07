@@ -28,6 +28,7 @@ public class TelaContabilMenu {
     detalhesDeReceitasButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
+
         executaTelas.frameTelaContabil.dispose();
         executaTelas.iniciarTelaReceita();
         }
