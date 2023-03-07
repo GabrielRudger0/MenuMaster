@@ -29,10 +29,10 @@ CREATE TABLE IF NOT EXISTS `cadastro_cliente` (
   PRIMARY KEY (`id_cliente`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
--- Copiando dados para a tabela restaurantebanco.cadastro_cliente: ~1 rows (aproximadamente)
+-- Copiando dados para a tabela restaurantebanco.cadastro_cliente: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `cadastro_cliente` DISABLE KEYS */;
 INSERT INTO `cadastro_cliente` (`id_cliente`, `nome_cliente`, `cep_cliente`, `endereco_cliente`, `email_cliente`, `tel_cliente`, `senha_cliente`) VALUES
-	(12, 'a', 'a', 'a', 'a', 'a', 'a');
+	(12, 'Guilherme', '89052590', '-', '-', '-', '-');
 /*!40000 ALTER TABLE `cadastro_cliente` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela restaurantebanco.cardapio
@@ -45,13 +45,12 @@ CREATE TABLE IF NOT EXISTS `cardapio` (
   `restricoes` varchar(80) DEFAULT NULL,
   `ingredientes` varchar(80) DEFAULT NULL,
   PRIMARY KEY (`idproduto`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4;
 
 -- Copiando dados para a tabela restaurantebanco.cardapio: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `cardapio` DISABLE KEYS */;
 INSERT INTO `cardapio` (`idproduto`, `nome_prato`, `preco`, `categoria`, `disponibilidade`, `restricoes`, `ingredientes`) VALUES
-	(1, 'Carne Vegana', 29.900000, 'Prato Principal', '10', 'Veganos', 'Carne de Touro'),
-	(2, 'Salada Bovina', 49.900000, 'a', 'a', 'a', 'a');
+	(32, 'Pizza salaminho', 49.000000, 'Prato Principal', '13', 'intolerante a lactose', 'Massa, salaminho, queijo, molho, orégano ');
 /*!40000 ALTER TABLE `cardapio` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela restaurantebanco.contabil
@@ -65,10 +64,10 @@ CREATE TABLE IF NOT EXISTS `contabil` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
 
--- Copiando dados para a tabela restaurantebanco.contabil: ~1 rows (aproximadamente)
+-- Copiando dados para a tabela restaurantebanco.contabil: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `contabil` DISABLE KEYS */;
 INSERT INTO `contabil` (`id`, `data`, `descricao`, `receitas`, `despesas`, `saldo`) VALUES
-	(14, '2023-03-06', 'aaa', 9.90, 9.00, 0.00);
+	(14, '2023-03-06', '-', 0.00, 0.00, 0.00);
 /*!40000 ALTER TABLE `contabil` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela restaurantebanco.pedidos
@@ -83,10 +82,12 @@ CREATE TABLE IF NOT EXISTS `pedidos` (
   PRIMARY KEY (`idpedidos`),
   KEY `clienteFK1` (`idcliente`),
   CONSTRAINT `clienteFK1` FOREIGN KEY (`idcliente`) REFERENCES `cadastro_cliente` (`id_cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
 
 -- Copiando dados para a tabela restaurantebanco.pedidos: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `pedidos` DISABLE KEYS */;
+INSERT INTO `pedidos` (`idpedidos`, `idcliente`, `itenspedidos`, `quantidade`, `observacao`, `avaliacao5star`, `avaliacaoobs`) VALUES
+	(23, 12, '1', '10', '-', '-', '-');
 /*!40000 ALTER TABLE `pedidos` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela restaurantebanco.vrp_admin
@@ -97,10 +98,10 @@ CREATE TABLE IF NOT EXISTS `vrp_admin` (
   PRIMARY KEY (`idvrp_admin`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
--- Copiando dados para a tabela restaurantebanco.vrp_admin: ~1 rows (aproximadamente)
+-- Copiando dados para a tabela restaurantebanco.vrp_admin: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `vrp_admin` DISABLE KEYS */;
 INSERT INTO `vrp_admin` (`idvrp_admin`, `usuario`, `senha`) VALUES
-	(4, 'ad', 'ad');
+	(4, 'adm', 'adm');
 /*!40000 ALTER TABLE `vrp_admin` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
