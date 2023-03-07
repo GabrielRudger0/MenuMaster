@@ -9,7 +9,7 @@ public class Cardapio {
 
     private String nome_prato;
 
-    private float preco;
+    private double preco;
 
     private String categoria;
 
@@ -27,11 +27,11 @@ public class Cardapio {
         this.nome_prato = nome_prato;
     }
 
-    public float getPreco() {
+    public double getPreco() {
         return preco;
     }
 
-    public void setPreco(float preco) {
+    public void setPreco(double preco) {
         this.preco = preco;
     }
 

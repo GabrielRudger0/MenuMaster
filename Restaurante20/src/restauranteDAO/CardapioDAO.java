@@ -23,7 +23,7 @@ public class CardapioDAO {
             conn = ConnectionFactory.createConnectionToMySQL();
             pstm = (PreparedStatement) conn.prepareStatement(sql);
             pstm.setString(1, cardapio.getNome_prato());
-            pstm.setFloat(2, cardapio.getPreco());
+            pstm.setDouble(2, cardapio.getPreco());
             pstm.setString(3, cardapio.getCategoria());
             pstm.setString(4, cardapio.getDisponibilidade());
             pstm.setString(5, cardapio.getRestricoes());
@@ -82,7 +82,7 @@ public class CardapioDAO {
                 //pegar dados
                 cardapio.setIdproduto(rset.getInt("idproduto"));
                 cardapio.setCategoria(rset.getString("categoria"));
-                cardapio.setPreco(rset.getInt("preco"));
+                cardapio.setPreco(rset.getDouble("preco"));
                 cardapio.setDisponibilidade(rset.getString("disponibilidade"));
                 cardapio.setIngredientes(rset.getString("ingredientes"));
                 cardapio.setRestricoes(rset.getString("restricoes"));
