@@ -50,7 +50,7 @@
 
 <h3 href="https://github.com/GuilhermeGadotti" align="left">Guilherme Gadotti </h3>
 <p>   Back-End e Front-End</p>
-<img src="https://media.tenor.com/LAI8l_qXRHYAAAAM/saul-goodman3d-saul.gif" width="150" height="150">
+<img src="https://media.tenor.com/jiiEp5VV5nMAAAAd/the-rock-the-wok.gif" width="150" height="150">
 
 <h3 href="https://github.com/RamonSilva8" align="left">Ramon Isaias</h3>
 <p>   Back-End</p>
