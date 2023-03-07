@@ -317,46 +317,65 @@ public class TelaFazerPedido {
             public void actionPerformed(ActionEvent e) {
                 Object[] opcaoConfirma = {"Confirmar", "Sair"};
                 String pratosPedidos = "Comanda Cliente(ID: " + PedidoDAO.idClienteAtual + "): ";
-                int quantidadePedido = 0;
                 String texto = "Itens Pedidos: \n\n";
+                int quantidadePedido = 0;
+                boolean erroPedidos = false;
                 quantidadePedido = retornaIndexPedidoAtual(indexPedidoAtual);
 
+                if (listaDePedidos.size() == 0) {
+                    erroPedidos = true;
+                }
+
                 for (int i = 0; i <= listaDePedidos.size() - 1; i++) {
-                    String obs = listaDePedidos.get(i).getObservacao();
-                    pratosPedidos += listaDePedidos.get(i).getQuantidade() + " " + listaDePedidos.get(i).getItenspedidos() + "; ";
-
-                    texto +=
-                            "Prato/Bebida: " + listaDePedidos.get(i).getItenspedidos() +
-                            "\nQuantidade: " + listaDePedidos.get(i).getQuantidade() +
-                            "\nObservação: " + obs + "\n\n";
-                }
-                texto += "Valor Total: " + df.format(valorDaCompra) + "\n";
-
-                int opcaoSelecionada = JOptionPane.showOptionDialog(null, texto, "Finalizar Pedido", JOptionPane.OK_CANCEL_OPTION,
-                                JOptionPane.QUESTION_MESSAGE, null, opcaoConfirma, opcaoConfirma[0]);
-                if (opcaoSelecionada == 0) {
-                    JOptionPane.showMessageDialog(null, "Seu pedido chegará em instantes, Obrigado!","Cardápio",JOptionPane.INFORMATION_MESSAGE);
-
-                    //INSERE COMANDA NO CONTABIL
-                    //--------------------------------------------------
-                    ContabilDAO tabelaContabilBanco = new ContabilDAO();
-                    ContabilPKG contabilidade = new ContabilPKG();
-
-                    LocalDate hoje = LocalDate.now();
-                    java.sql.Date dataAtual = java.sql.Date.valueOf(hoje);
-                    contabilidade.setData(dataAtual);
-                    contabilidade.setDescricao(pratosPedidos);
-                    contabilidade.setReceitas(valorDaCompra);
-                    contabilidade.setDespesas(0);
-                    contabilidade.setSaldo(valorDaCompra);
-
-                    tabelaContabilBanco.save(contabilidade);
-                    //--------------------------------------------------
-                    TelaAvaliacao.indexPedidoAtualParaAvaliacao = 0;
-                    executaTelas.iniciarTelaAvaliacoes();
-                    ExecutaTelas.frameTelaFazerPedido.dispose();
+                    if (Integer.parseInt(listaDePedidos.get(i).getQuantidade()) == 0) {
+                        JOptionPane.showMessageDialog(null, "Erro!\nQuantidade inválida, itens removidos do carrinho.", "Finalizar Pedido", JOptionPane.ERROR_MESSAGE);
+                        listaDePedidos.removeAll(listaDePedidos);
+                        erroPedidos = true;
+                        texto = "Itens Pedidos: \n\n";
+                        valorDaCompra = 0;
+                        break;
+                    }
 
                 }
+                if (erroPedidos == false) {
+                    for (int i = 0; i <= listaDePedidos.size() - 1; i++) {
+                        String obs = listaDePedidos.get(i).getObservacao();
+                        pratosPedidos += listaDePedidos.get(i).getQuantidade() + " " + listaDePedidos.get(i).getItenspedidos() + "; ";
+
+                        texto +=
+                                "Prato/Bebida: " + listaDePedidos.get(i).getItenspedidos() +
+                                        "\nQuantidade: " + listaDePedidos.get(i).getQuantidade() +
+                                        "\nObservação: " + obs + "\n\n";
+                    }
+                    texto += "Valor Total: " + df.format(valorDaCompra) + "\n";
+
+                    int opcaoSelecionada = JOptionPane.showOptionDialog(null, texto, "Finalizar Pedido", JOptionPane.OK_CANCEL_OPTION,
+                            JOptionPane.QUESTION_MESSAGE, null, opcaoConfirma, opcaoConfirma[0]);
+                    if (opcaoSelecionada == 0) {
+                        JOptionPane.showMessageDialog(null, "Seu pedido chegará em instantes, Obrigado!","Cardápio",JOptionPane.INFORMATION_MESSAGE);
+
+                        //INSERE COMANDA NO CONTABIL
+                        //--------------------------------------------------
+                        ContabilDAO tabelaContabilBanco = new ContabilDAO();
+                        ContabilPKG contabilidade = new ContabilPKG();
+
+                        LocalDate hoje = LocalDate.now();
+                        java.sql.Date dataAtual = java.sql.Date.valueOf(hoje);
+                        contabilidade.setData(dataAtual);
+                        contabilidade.setDescricao(pratosPedidos);
+                        contabilidade.setReceitas(valorDaCompra);
+                        contabilidade.setDespesas(0);
+                        contabilidade.setSaldo(valorDaCompra);
+
+                        tabelaContabilBanco.save(contabilidade);
+                        //--------------------------------------------------
+                        TelaAvaliacao.indexPedidoAtualParaAvaliacao = 0;
+                        executaTelas.iniciarTelaAvaliacoes();
+                        ExecutaTelas.frameTelaFazerPedido.dispose();
+
+                    }
+                }
+
             }
         });
 

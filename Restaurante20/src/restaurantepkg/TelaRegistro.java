@@ -224,17 +224,14 @@ public class TelaRegistro {
     }
     private boolean invalidaTelefone(String telefoneDigitado) {
         String telefone = telefoneDigitado;
-        System.out.println(telefoneDigitado);
         boolean invalida = false;
 
         if (telefone.length() < 10 || telefone.length() > 11) {
             invalida = true;
-            System.out.println(invalida);
         }
         for (int i = 0; i < telefone.length(); i++) {
             if (Character.isLetter(telefone.charAt(i))) {
                 invalida = true;
-                System.out.println(invalida);
                 break;
             }
         }
