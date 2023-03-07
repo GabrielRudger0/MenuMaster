@@ -14,6 +14,7 @@ import java.awt.event.FocusEvent;
 public class TelaRegistro {
     public JPanel panel1;
     public static boolean entrandoComoAdmRegistro = false;
+    public static boolean apiValidaCEP = false;
     private JTextField inserirNome;
     private JTextField inserirCep;
     private JTextField inserirEmail;
@@ -173,6 +174,7 @@ public class TelaRegistro {
             @Override
             public void caretUpdate(CaretEvent e) {
                     cliente.setCepCliente(inserirCep.getText());
+                    apiValidaCEP = false;
                     if (inserirCep.getText().length() == 8) {
                         try {
                             Thread.sleep(100); // pausa a thread por 1 segundo
@@ -186,6 +188,7 @@ public class TelaRegistro {
                         inserirBairro.setText(enderecoapi.getBairro());
                         InserirCidade.setText(enderecoapi.getCidade());
                         InserirEstado.setText(enderecoapi.getUf());
+                        apiValidaCEP = true;
                     }
             }
         });
@@ -199,8 +202,8 @@ public class TelaRegistro {
             textoTela += "Nome do Cliente;\n";
             verificaRegistro = false;
         }
-        if (cliente.getCepCliente() == null) {
-            textoTela += "CEP do Cliente;\n";
+        if (cliente.getCepCliente() == null || apiValidaCEP == false) {
+            textoTela += "CEP do Cliente Inválido;\n";
             verificaRegistro = false;
         }
         if (cliente.getEmailCliente().equals("")) {
