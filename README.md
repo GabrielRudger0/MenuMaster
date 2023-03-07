@@ -19,6 +19,7 @@
 <p> 👉 Vizualizar cardápio;</p>
 <p> 👉 Vizualizar detalhes dos pratos;</p>
 <p> 👉 Realizar pedidos;</p>
+<p> 👉 Permite escrever uma observação em cada pedido;</p>
 <p> 👉 Avaliar serviço;</p>
 <br>
 
@@ -38,20 +39,24 @@
 <h2 align="left">
     <a href="https://github.com/GabrielRudger0/MenuMaster">🦅 Os Autores</a>
 </h2>
-<h3 href=""https://github.com/GabrielRudger0" align="left"> Gabriel Rüdger <img src="https://media.tenor.com/05u_m7AsVFEAAAAd/frango-andando-frango-assado-andando.gif"  width="20" height="20" width:200px height:200px> </h3>
-<p>   Back-End e Front-End  </p>
-<img src="https://media.tenor.com/-olKpbFHbNEAAAAM/cena.gif" width="150" height="150">
-
 
 <h3 href="https://github.com/MuriloCordova" align="left">Murilo Cordova</h3>
 <p>   Banco de Dados, Back-End, API/Webservice, Liderança</p>
 <img src="https://media.tenor.com/JLxHN8AfAtQAAAAM/this-is-elon-musk-elon-musk.gif" width="150" height="150">
 
+<h3 href=""https://github.com/GabrielRudger0" align="left"> Gabriel Rüdger <img src="https://media.tenor.com/05u_m7AsVFEAAAAd/frango-andando-frango-assado-andando.gif"  width="20" height="20" width:200px height:200px> </h3>
+<p>   Back-End e Front-End  </p>
+<img src="https://media.tenor.com/-olKpbFHbNEAAAAM/cena.gif" width="150" height="150">
+
 <h3 href="https://github.com/GuilhermeGadotti" align="left">Guilherme Gadotti </h3>
-<p>   Back-End</p>
+<p>   Back-End e Front-End</p>
 <img src="https://media.tenor.com/LAI8l_qXRHYAAAAM/saul-goodman3d-saul.gif" width="150" height="150">
 
 <h3 href="https://github.com/RamonSilva8" align="left">Ramon Isaias</h3>
 <p>   Back-End</p>
 <img src="https://media.tenor.com/Pl4WC5dd83UAAAAC/meme-memes.gif" width="150" height="150">
+
+<h3 href="https://github.com/RamonSilva8" align="left">Chris Mannrich</h3>
+<p>   Back-End</p>
+<img src="https://media.tenor.com/_BiwWBWhYucAAAAd/what-huh.gif" width="150" height="150">
 
