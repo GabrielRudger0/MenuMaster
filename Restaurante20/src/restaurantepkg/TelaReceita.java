@@ -59,8 +59,6 @@ public class TelaReceita {
             model.addRow(new Object[]{contabilDAO.getRelatorio().get(i).getData(),descricao,df.format(receita)});
         }
 
-
-
         JTableReceita.setModel(model);
 
         voltarButton.addActionListener(new ActionListener() {
