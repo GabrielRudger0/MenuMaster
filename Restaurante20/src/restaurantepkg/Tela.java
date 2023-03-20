@@ -71,6 +71,7 @@ public class Tela {
             }
 
         });
+
         receberLogin.addFocusListener(new FocusAdapter() {
             @Override
             public void focusLost(FocusEvent e) {

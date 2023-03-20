@@ -10,9 +10,13 @@ import java.text.DecimalFormat;
 
 public class TelaDespesas {
     ContabilDAO contabilDAO = new ContabilDAO();
+
     public JPanel FrameTelaDespesas;
+
     private JButton buttonVoltar;
+
     private JTable JTableDespesas;
+
     private JPanel JPanelTabela;
 
     private DecimalFormat df =new DecimalFormat("R$ ##0.00");

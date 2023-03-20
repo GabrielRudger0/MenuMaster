@@ -11,9 +11,13 @@ import java.util.Random;
 
 public class TelaContabilMenu {
     public JPanel TelaContabilidadeMenu;
+
     private JButton relatorioGeralButton;
+
     private JButton detalhesDeReceitasButton;
+
     private JButton detalhesDeDespesasButton;
+
     private JButton botaoVoltar;
 
     public TelaContabilMenu() {

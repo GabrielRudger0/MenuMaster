@@ -11,14 +11,23 @@ import javax.swing.event.ChangeListener;
 
 public class TelaCardapio {
     public JPanel telaCriacaoCardapio;
+
     private JTextField insiraNomePrato;
+
     private JTextField insiraRestricoes;
+
     private JTextField insiraIngredientes;
+
     private JTextField insiraPreco;
+
     private JComboBox selecionaCategoria;
+
     private JButton confirmarButton;
+
     private JButton voltarButton;
+
     private JSpinner spinnerDisponibilidade;
+
 
     public TelaCardapio() {
 

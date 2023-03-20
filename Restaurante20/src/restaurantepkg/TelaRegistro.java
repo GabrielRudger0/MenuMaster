@@ -13,21 +13,37 @@ import java.awt.event.FocusEvent;
 
 public class TelaRegistro {
     public JPanel panel1;
+
     public static boolean entrandoComoAdmRegistro = false;
+
     public static boolean apiValidaCEP = false;
+
     private JTextField inserirNome;
+
     private JTextField inserirCep;
+
     private JTextField inserirEmail;
+
     private JButton registrarButton;
+
     private JButton voltarButton;
+
     private JTextField inserirTelefone;
+
     private JTextField insiraSenha;
+
     private JTextField InserirRua;
+
     private JTextField InserirNumero;
+
     private JTextField InserirEstado;
+
     private JTextField InserirCidade;
+
     private JTextField inserirComplemento;
+
     private JTextField inserirBairro;
+
     private static String enderecoFormatado;
 
 

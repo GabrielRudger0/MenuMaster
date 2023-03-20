@@ -15,79 +15,153 @@ import java.util.ArrayList;
 
 public class TelaFazerPedido {
     public JPanel FazerPedido;
+
     public static PedidoDAO pedidoDAO = new PedidoDAO();
+
     public static ArrayList<PedidoPkg> listaDePedidos = new ArrayList<>();
+
     private CardapioDAO cardapioDAO = new CardapioDAO();
+
     private int[] sequencialIndexes = {-1,-1,-1,-1,-1};
+
     private DecimalFormat df = new DecimalFormat("R$ ##0.00");
+
     private static int indexPedidoAtual;
+
     private static double valorDaCompra;
+
     private static double valorPrato;
+
     private static int quantidadePedido1;
+
     private static int quantidadePedido2;
+
     private static int quantidadePedido3;
+
     private static int quantidadePedido4;
+
     private static int quantidadePedido5;
+
     private JLabel MenuMaster;
+
     private JLabel nomePrato1;
+
     private JLabel DescricaoPrato1;
+
     private JLabel valorPrato1;
+
     private JButton fazerPedidoButton;
+
     private JButton maisInformacoes1Button;
+
     private JButton fazerPedido2;
+
     private JButton maisInfos2;
+
     private JLabel nomePrato2;
+
     private JLabel DescricaoPrato2;
+
     private JLabel valorPrato2;
+
     private JLabel nomeBebida1;
+
     private JLabel descricaoBebida1;
+
     private JLabel nomePrato3;
+
     private JLabel DescricaoPrato3;
+
     private JLabel valorPrato3;
+
     private JButton fazerPedido3;
+
     private JButton maisInfos3;
+
     private JLabel nomePrato4;
+
     private JLabel DescricaoPrato4;
+
     private JLabel valorPrato4;
+
     private JButton fazerPedido4;
+
     private JButton maisInfos4;
+
     private JLabel nomePrato5;
+
     private JLabel DescricaoPrato5;
+
     private JLabel valorPrato5;
+
     private JButton fazerPedido5;
+
     private JButton maisInfos5;
+
     private JLabel valorBebida1;
+
     private JButton fazerPedidoBebida1;
+
     private JLabel nomeBebida2;
+
     private JLabel descricaoBebida2;
+
     private JLabel valorBebida2;
+
     private JLabel descricaoBebida3;
+
     private JLabel nomeBebida3;
+
     private JLabel valorBebida3;
+
     private JButton fazerPedidoBebida2;
+
     private JButton fazerPedidoBebida3;
+
     private JButton fazerPedidoBebida4;
+
     private JButton fazerPedidoBebida5;
+
     private JLabel descricaoBebida4;
+
     private JLabel descricaoBebida5;
+
     private JLabel valorBebida4;
+
     private JLabel valorBebida5;
+
     private JLabel nomeBebida4;
+
     private JLabel nomeBebida5;
+
     private JButton cofirmarCompraButton;
+
     private JButton botaoCancelar;
+
     private JButton botaoSair;
+
     private JSpinner spinnerPedido1;
+
     private JSpinner spinnerPedido2;
+
     private JSpinner spinnerPedido3;
+
     private JSpinner spinnerPedido4;
+
     private JSpinner spinnerPedido5;
+
     private JSpinner spinnerBebida1;
+
     private JSpinner spinnerBebida2;
+
     private JSpinner spinnerBebida3;
+
     private JSpinner spinnerBebida4;
+
     private JSpinner spinnerBebida5;
+
     private JLabel nomeUsuario;
+
     private JLabel idUsuario;
 
     public static String nomeUsuarioAtual;
