@@ -9,14 +9,23 @@ import java.text.DecimalFormat;
 
 public class TelaInformacoesPrato {
     public JPanel InformacoesPrato;
+
     private CardapioDAO cardapioDAO = new CardapioDAO();
+
     private DecimalFormat df = new DecimalFormat("R$ ##0.00");
+
     private JLabel nomePrato;
+
     private JLabel precoPrato;
+
     private JLabel categoriaPrato;
+
     private JLabel disponibilidadePrato;
+
     private JLabel restricoesPrato;
+
     private JLabel ingredientesPrato;
+
     private JButton voltarButton;
 
     public TelaInformacoesPrato(int index) {

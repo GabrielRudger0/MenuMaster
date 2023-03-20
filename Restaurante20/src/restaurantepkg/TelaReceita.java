@@ -17,14 +17,21 @@ public class TelaReceita {
 
     private ContabilDAO contabilDAO = new ContabilDAO();
     public JPanel FrameTelaReceita;
+
     private JButton voltarButton;
+
     private JTable JTableReceita;
+
     private JPanel JPanelTabela;
 
     private DecimalFormat df =new DecimalFormat("R$ ##0.00");
+
     private String data;
+
     private double receita;
+
     private String descricao;
+
 
 
     public void TelaRelatorioClasse(){

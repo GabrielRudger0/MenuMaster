@@ -13,15 +13,25 @@ public class TelaRelatorioClasse {
 
     private ContabilDAO contabilDAO = new ContabilDAO();
     public JPanel FrameTelaRelatorio;
+
     private DecimalFormat df = new DecimalFormat("R$ ##0.00");
+
     private JLabel head;
+
     private JButton voltarButton;
+
     private JLabel dataConsulta;
+
     private JLabel descricaoConsulta;
+
     private JLabel receitaConsulta;
+
     private JLabel despesasConsuta;
+
     private JLabel saldoConsulta;
+
     private static double saldo = 0;
+
     private static double receitas;
 
     private static double despesas;
@@ -33,7 +43,6 @@ public class TelaRelatorioClasse {
 
        ContabilPKG relatorio = new ContabilPKG();
 
-        relatorio = contabilDAO.getRelatorio().get(0);
 
         for (int i = 0; i <contabilDAO.getRelatorio().size() ; i++) {
             receitas += contabilDAO.getRelatorio().get(i).getReceitas();

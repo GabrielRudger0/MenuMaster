@@ -13,13 +13,13 @@ public class Main {
 
         //aplicarDespesas.criaDespesas();
 
-        executaTelas.iniciarTelaLogin();
+        //executaTelas.iniciarTelaLogin();
 
         //executaTelas.iniciarTelaAvaliacoes();
 
         //executaTelas.iniciarTelaFazerPedido();
 
-        //executaTelas.iniciarTelaAdmin();
+        executaTelas.iniciarTelaAdmin();
 
         //executaTelas.iniciarTelaRegistro();
 

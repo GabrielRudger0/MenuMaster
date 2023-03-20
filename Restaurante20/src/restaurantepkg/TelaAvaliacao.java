@@ -6,16 +6,27 @@ import java.awt.event.ActionListener;
 
 public class TelaAvaliacao {
     public JPanel telaAvaliacaoPrato;
+
     private JButton botaoEstrela1;
+
     private JButton botaoEstrela2;
+
     private JButton botaoEstrela3;
+
     private JButton botaoEstrela4;
+
     private JButton botaoEstrela5;
+
     private JLabel nomePrato;
+
     private static int pedidosNaoAvaliados = TelaFazerPedido.listaDePedidos.size();
+
     public static String avaliacaoSelecionada;
+
     public static String comentarioAvaliativo;
+
     public static int indexPedidoAtualParaAvaliacao;
+
 
     public TelaAvaliacao() {
 
