@@ -10,21 +10,20 @@ import restauranteDAO.AdminDAO;
 import restauranteDAO.ClienteDAO;
 import restauranteDAO.PedidoDAO;
 
-public class Tela {
+public class TelaLogin {
     public JPanel telaLogin;
-    private String emailDigitadoUsuario;
-    private String senhaDigitadoUsuario;
-    private int posicaoArrayCliente;
-    private boolean aceitaEmail = false;
-    private boolean aceitaSenha = false;
-    private static boolean eAdmin = false;
-    private JTextField receberLogin;
-    private JButton botaoLogin;
-    private JButton botaoSair;
-    private JTextField receberSenha;
-    private JButton cadastroButton;
+    private String emailDigitadoUsuario, senhaDigitadoUsuario;
 
-    public Tela() {
+    //Index do cliente é usado para validar a senha após o email der como TRUE
+    private int indexCliente;
+
+    private boolean aceitaEmail = false, aceitaSenha = false;
+    private static boolean eAdmin = false;
+    private JTextField receberLogin, receberSenha;
+    private JButton botaoLogin, botaoSair, cadastroButton;
+
+
+    public TelaLogin() {
         botaoLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -32,7 +31,7 @@ public class Tela {
                 ClienteDAO clienteDAO = new ClienteDAO();
                 Clientes cliente = new Clientes();
 
-                cliente = clienteDAO.getClientes().get(posicaoArrayCliente);
+                cliente = clienteDAO.getClientes().get(indexCliente);
 
                 //Bloco verifica se ambas as credenciais são validas e libera ou barra o usuário
                 if (aceitaEmail == true && aceitaSenha == true) {
@@ -76,6 +75,7 @@ public class Tela {
             @Override
             public void focusLost(FocusEvent e) {
                 super.focusLost(e);
+
                 ClienteDAO clienteDAO = new ClienteDAO();
                 AdminPKG admin = new AdminPKG();
                 AdminDAO adminDAO = new AdminDAO();
@@ -98,7 +98,7 @@ public class Tela {
 
                         if (emailDigitadoUsuario.equals(cliente.getEmailCliente())) {
                             aceitaEmail = true;
-                            posicaoArrayCliente = i;
+                            indexCliente = i;
                         }
                     }
                 }
@@ -125,7 +125,7 @@ public class Tela {
                     }
                 } else {
                     //Bloco verifica se a senha digitada é correspondente a conta do banco
-                    cliente = clienteDAO.getClientes().get(posicaoArrayCliente);
+                    cliente = clienteDAO.getClientes().get(indexCliente);
                     String senhaDoBanco = cliente.getSenha_cliente();
 
                     if (senhaDigitadoUsuario.equals(senhaDoBanco)) {
