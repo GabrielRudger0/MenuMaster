@@ -43,17 +43,18 @@ public class TelaRelatorioClasse {
 
        ContabilPKG relatorio = new ContabilPKG();
 
+        relatorio = contabilDAO.getRelatorio().get(0);
 
         for (int i = 0; i <contabilDAO.getRelatorio().size() ; i++) {
             receitas += contabilDAO.getRelatorio().get(i).getReceitas();
         }
 
         for (int i = 0; i < contabilDAO.getRelatorio().size(); i++) {
-            despesas+= contabilDAO.getRelatorio().get(i).getDespesas();
+            despesas += contabilDAO.getRelatorio().get(i).getDespesas();
         }
 
         for (int i = 0; i < contabilDAO.getRelatorio().size(); i++) {
-            saldo+= contabilDAO.getRelatorio().get(i).getSaldo();
+            saldo += contabilDAO.getRelatorio().get(i).getSaldo();
         }
 
         LocalDate currentDate = relatorio.getData().toLocalDate();
