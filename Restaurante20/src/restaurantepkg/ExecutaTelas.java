@@ -62,7 +62,7 @@ public class ExecutaTelas {
         iconeAplicativo();
         ImageIcon icon = new ImageIcon(url);
 
-        frameTelaLogin.setContentPane(new Tela().telaLogin);
+        frameTelaLogin.setContentPane(new TelaLogin().telaLogin);
         frameTelaLogin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frameTelaLogin.pack();
         frameTelaLogin.setVisible(true);
