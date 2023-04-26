@@ -2,7 +2,7 @@ package restauranteDAO;
 
 import com.mysql.jdbc.PreparedStatement;
 import restaurante.factory.ConnectionFactory;
-import restaurantePKG.Cardapio;
+import restaurantePKG.CardapioPKG;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -11,7 +11,7 @@ import java.util.List;
 
 public class CardapioDAO {
 
-    public void save(Cardapio cardapio){
+    public void save(CardapioPKG cardapio){
 
         String sql = "INSERT INTO cardapio(nome_prato, preco, categoria, disponibilidade, restricoes, ingredientes, idproduto) VALUES(?,?,?,?,?,?,?)";
 
@@ -55,11 +55,11 @@ public class CardapioDAO {
 
 
 
-    public List<Cardapio> getCardapio() {
+    public List<CardapioPKG> getCardapio() {
 
         String sql = "SELECT * FROM cardapio";
 
-        List<Cardapio> cardapio5 = new ArrayList<Cardapio>();
+        List<CardapioPKG> cardapio5 = new ArrayList<CardapioPKG>();
 
         Connection conn = null;
         PreparedStatement pstn = null;
@@ -77,7 +77,7 @@ public class CardapioDAO {
 
 
             while (rset.next()) {
-                Cardapio cardapio = new Cardapio();
+                CardapioPKG cardapio = new CardapioPKG();
 
                 //pegar dados
                 cardapio.setIdproduto(rset.getInt("idproduto"));

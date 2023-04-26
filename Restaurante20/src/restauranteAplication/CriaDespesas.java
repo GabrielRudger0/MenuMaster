@@ -1,12 +1,15 @@
-package restaurantePKG;
+package restauranteAplication;
 
 import restauranteDAO.ContabilDAO;
+import restaurantePKG.ContabilPKG;
+
 import java.time.LocalDate;
 import java.util.Random;
 
 public class CriaDespesas {
 
     public void criaDespesas() {
+
         //As despesas criadas por esse método serão aleatórias e implementadas
         // após o inicio da execução do programa;
 

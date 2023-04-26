@@ -1,6 +1,6 @@
 package restaurantePKG;
 
-public class PedidoPkg {
+public class PedidoPKG {
 
     private String avaliacao5Star;
 

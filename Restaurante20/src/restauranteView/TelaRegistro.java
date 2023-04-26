@@ -2,8 +2,8 @@ package restauranteView;
 
 import br.com.correios.Endereco;
 import restauranteDAO.ClienteDAO;
-import restaurantePKG.Clientes;
-import restaurantePKG.ExecutaTelas;
+import restaurantePKG.ClientesPKG;
+import restauranteAplication.ExecutaTelas;
 
 import javax.swing.*;
 import javax.swing.event.CaretEvent;
@@ -53,7 +53,7 @@ public class TelaRegistro {
 
         ExecutaTelas executaTelas = new ExecutaTelas();
         ClienteDAO clienteDAO = new ClienteDAO();
-        Clientes cliente = new Clientes();
+        ClientesPKG cliente = new ClientesPKG();
 
         cliente.setNomeCliente("");
         cliente.setEmailCliente("");
@@ -210,7 +210,7 @@ public class TelaRegistro {
             }
         });
     }
-    private boolean registroECorreto(Clientes cliente) {
+    private boolean registroECorreto(ClientesPKG cliente) {
 
         String textoTela = "Informações não preenchidas!\n";
         boolean verificaRegistro = true;

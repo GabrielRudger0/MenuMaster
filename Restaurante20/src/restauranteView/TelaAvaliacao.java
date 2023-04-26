@@ -1,7 +1,7 @@
 package restauranteView;
 
-import restaurantePKG.Cardapio;
-import restaurantePKG.ExecutaTelas;
+import restaurantePKG.CardapioPKG;
+import restauranteAplication.ExecutaTelas;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -37,7 +37,7 @@ public class TelaAvaliacao {
             ExecutaTelas.frameTelaAvaliacoes.dispose();
         }
 
-        Cardapio pratoDoCardapio = new Cardapio();
+        CardapioPKG pratoDoCardapio = new CardapioPKG();
 
         nomePrato.setText(TelaFazerPedido.listaDePedidos.get(indexPedidoAtualParaAvaliacao).getItenspedidos());
         botaoEstrela1.addActionListener(new ActionListener() {

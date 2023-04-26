@@ -10,8 +10,8 @@ import restauranteDAO.AdminDAO;
 import restauranteDAO.ClienteDAO;
 import restauranteDAO.PedidoDAO;
 import restaurantePKG.AdminPKG;
-import restaurantePKG.Clientes;
-import restaurantePKG.ExecutaTelas;
+import restaurantePKG.ClientesPKG;
+import restauranteAplication.ExecutaTelas;
 
 public class TelaLogin {
     public JPanel telaLogin;
@@ -32,7 +32,7 @@ public class TelaLogin {
             public void actionPerformed(ActionEvent e) {
                 ExecutaTelas executaTelas = new ExecutaTelas();
                 ClienteDAO clienteDAO = new ClienteDAO();
-                Clientes cliente = new Clientes();
+                ClientesPKG cliente = new ClientesPKG();
 
                 cliente = clienteDAO.getClientes().get(indexCliente);
 
@@ -96,7 +96,7 @@ public class TelaLogin {
                     //Verifica se o email digitado pertence a
                     // uma conta presente no banco de dados
                     for (int i = 0; i < clienteDAO.getClientes().size(); i++) {
-                        Clientes cliente = new Clientes();
+                        ClientesPKG cliente = new ClientesPKG();
                         cliente = clienteDAO.getClientes().get(i);
 
                         if (emailDigitadoUsuario.equals(cliente.getEmailCliente())) {
@@ -113,7 +113,7 @@ public class TelaLogin {
                 super.focusLost(e);
 
                 ClienteDAO clienteDAO = new ClienteDAO();
-                Clientes cliente = new Clientes();
+                ClientesPKG cliente = new ClientesPKG();
                 AdminPKG admin = new AdminPKG();
                 AdminDAO adminDAO = new AdminDAO();
                 admin = adminDAO.getAdminPKG().get(0);

@@ -1,9 +1,6 @@
 package restaurantePKG;
 
-public class Cardapio {
-
-
-
+public class CardapioPKG {
 
     private int idproduto;
 

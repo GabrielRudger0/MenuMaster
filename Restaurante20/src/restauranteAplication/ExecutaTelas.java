@@ -1,4 +1,4 @@
-package restaurantePKG;
+package restauranteAplication;
 
 
 import restauranteView.*;
