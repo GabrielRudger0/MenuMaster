@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
-public class TelaRegistro {
+public class TelaRegistroCliente {
     public JPanel panel1;
 
     public static boolean entrandoComoAdmRegistro = false;
@@ -49,7 +49,7 @@ public class TelaRegistro {
     private static String enderecoFormatado;
 
 
-    public TelaRegistro() {
+    public TelaRegistroCliente() {
 
         ExecutaTelas executaTelas = new ExecutaTelas();
         ClienteDAO clienteDAO = new ClienteDAO();

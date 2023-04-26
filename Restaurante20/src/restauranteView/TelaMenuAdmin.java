@@ -19,9 +19,9 @@ public class TelaMenuAdmin {
 
     public TelaMenuAdmin() {
 
-    TelaCardapio telaCardapio = new TelaCardapio();
-    TelaRegistro telaRegistro = new TelaRegistro();
-    TelaContabilMenu telaContabilMenu = new TelaContabilMenu();
+    TelaRegistroCardapio telaCardapio = new TelaRegistroCardapio();
+    TelaRegistroCliente telaRegistro = new TelaRegistroCliente();
+    TelaMenuContabil telaContabilMenu = new TelaMenuContabil();
     ExecutaTelas executaTelas = new ExecutaTelas();
 
 
@@ -45,7 +45,7 @@ public class TelaMenuAdmin {
         public void actionPerformed(ActionEvent e) {
 
             ExecutaTelas.frameTelaMenuAdm.dispose();
-            TelaRegistro.entrandoComoAdmRegistro = true;
+            TelaRegistroCliente.entrandoComoAdmRegistro = true;
             executaTelas.iniciarTelaRegistro();
         }
     });
