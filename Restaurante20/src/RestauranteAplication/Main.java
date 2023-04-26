@@ -1,6 +1,6 @@
 package RestauranteAplication;
 
-import restaurantepkg.*;
+import restaurantePKG.*;
 
 import java.io.IOException;
 

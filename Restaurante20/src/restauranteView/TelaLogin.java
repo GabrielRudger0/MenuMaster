@@ -1,4 +1,4 @@
-package restaurantepkg;
+package restauranteView;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -9,6 +9,9 @@ import java.awt.event.FocusEvent;
 import restauranteDAO.AdminDAO;
 import restauranteDAO.ClienteDAO;
 import restauranteDAO.PedidoDAO;
+import restaurantePKG.AdminPKG;
+import restaurantePKG.Clientes;
+import restaurantePKG.ExecutaTelas;
 
 public class TelaLogin {
     public JPanel telaLogin;

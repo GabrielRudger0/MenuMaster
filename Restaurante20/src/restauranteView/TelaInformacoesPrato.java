@@ -1,6 +1,8 @@
-package restaurantepkg;
+package restauranteView;
 
 import restauranteDAO.CardapioDAO;
+import restaurantePKG.Cardapio;
+import restaurantePKG.ExecutaTelas;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

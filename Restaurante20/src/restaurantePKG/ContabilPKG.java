@@ -1,4 +1,4 @@
-package restaurantepkg;
+package restaurantePKG;
 
 import java.sql.Date;
 
