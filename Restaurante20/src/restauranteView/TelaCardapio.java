@@ -1,8 +1,8 @@
 package restauranteView;
 
 import restauranteDAO.CardapioDAO;
-import restaurantePKG.Cardapio;
-import restaurantePKG.ExecutaTelas;
+import restaurantePKG.CardapioPKG;
+import restauranteAplication.ExecutaTelas;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,7 +36,7 @@ public class TelaCardapio {
 
         spinnerDisponibilidade.setModel(new SpinnerNumberModel(0, 0, 30, 1));
         CardapioDAO cardapioDAO = new CardapioDAO();
-        Cardapio cardapioObject = new Cardapio();
+        CardapioPKG cardapioObject = new CardapioPKG();
         ExecutaTelas executaTelas = new ExecutaTelas();
 
         confirmarButton.addActionListener(new ActionListener() {

@@ -2,7 +2,7 @@ package restauranteView;
 
 import restauranteDAO.ContabilDAO;
 import restaurantePKG.ContabilPKG;
-import restaurantePKG.ExecutaTelas;
+import restauranteAplication.ExecutaTelas;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

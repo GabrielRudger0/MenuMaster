@@ -2,7 +2,7 @@ package restauranteDAO;
 
 import com.mysql.jdbc.PreparedStatement;
 import restaurante.factory.ConnectionFactory;
-import restaurantePKG.PedidoPkg;
+import restaurantePKG.PedidoPKG;
 
 import java.sql.Connection;
 
@@ -10,7 +10,7 @@ public class PedidoDAO {
     //Pega o Id do cliente logado para registrar nos pedidos;
     public static String idClienteAtual;
     //
-    public void save(PedidoPkg pedidoPkg){
+    public void save(PedidoPKG pedidoPkg){
 
         String sql = "INSERT INTO pedidos(idcliente,itenspedidos,observacao,quantidade,avaliacao5star,avaliacaoobs) VALUES(?,?,?,?,?,?)";
 

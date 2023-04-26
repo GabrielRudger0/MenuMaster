@@ -2,7 +2,7 @@ package restauranteDAO;
 
 import com.mysql.jdbc.PreparedStatement;
 import restaurante.factory.ConnectionFactory;
-import restaurantePKG.Clientes;
+import restaurantePKG.ClientesPKG;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ClienteDAO {
 
-    public void save(Clientes clientes){
+    public void save(ClientesPKG clientes){
 
         String sql = "INSERT INTO cadastro_cliente(nome_cliente,cep_cliente,email_cliente,endereco_cliente,tel_cliente, senha_cliente) VALUES(?,?,?,?,?,?)";
 
@@ -52,11 +52,11 @@ public class ClienteDAO {
 
     }
 
-    public List<Clientes> getClientes() {
+    public List<ClientesPKG> getClientes() {
 
         String sql = "SELECT * FROM cadastro_cliente";
 
-        List<Clientes> clientes = new ArrayList<>();
+        List<ClientesPKG> clientes = new ArrayList<>();
 
         Connection conn = null;
         PreparedStatement pstn = null;
@@ -73,7 +73,7 @@ public class ClienteDAO {
 
 
             while (rset.next()) {
-                Clientes pegaclientes = new Clientes();
+                ClientesPKG pegaclientes = new ClientesPKG();
 
                 //pegar dados
                 pegaclientes.setIdCliente(rset.getString("id_cliente"));

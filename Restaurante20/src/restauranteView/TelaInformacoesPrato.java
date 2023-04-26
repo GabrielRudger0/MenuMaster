@@ -1,8 +1,8 @@
 package restauranteView;
 
 import restauranteDAO.CardapioDAO;
-import restaurantePKG.Cardapio;
-import restaurantePKG.ExecutaTelas;
+import restaurantePKG.CardapioPKG;
+import restauranteAplication.ExecutaTelas;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -32,7 +32,7 @@ public class TelaInformacoesPrato {
 
     public TelaInformacoesPrato(int index) {
 
-        Cardapio prato = new Cardapio();
+        CardapioPKG prato = new CardapioPKG();
         prato = cardapioDAO.getCardapio().get(index);
 
         nomePrato.setText(prato.getNome_prato());

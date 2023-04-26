@@ -3,10 +3,10 @@ package restauranteView;
 import restauranteDAO.CardapioDAO;
 import restauranteDAO.ContabilDAO;
 import restauranteDAO.PedidoDAO;
-import restaurantePKG.Cardapio;
+import restaurantePKG.CardapioPKG;
 import restaurantePKG.ContabilPKG;
-import restaurantePKG.ExecutaTelas;
-import restaurantePKG.PedidoPkg;
+import restauranteAplication.ExecutaTelas;
+import restaurantePKG.PedidoPKG;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -22,7 +22,7 @@ public class TelaFazerPedido {
 
     public static PedidoDAO pedidoDAO = new PedidoDAO();
 
-    public static ArrayList<PedidoPkg> listaDePedidos = new ArrayList<>();
+    public static ArrayList<PedidoPKG> listaDePedidos = new ArrayList<>();
 
     private CardapioDAO cardapioDAO = new CardapioDAO();
 
@@ -565,7 +565,7 @@ public class TelaFazerPedido {
 
         this.organizaSequenciaDeIndex(indexArray);
 
-        Cardapio prato = new Cardapio();
+        CardapioPKG prato = new CardapioPKG();
         prato = cardapioDAO.getCardapio().get(indexArray);
         String nome1 = prato.getNome_prato();
         String descricao1 = prato.getIngredientes();
@@ -585,7 +585,7 @@ public class TelaFazerPedido {
 
         this.organizaSequenciaDeIndex(indexArray);
 
-        Cardapio bebida = new Cardapio();
+        CardapioPKG bebida = new CardapioPKG();
         bebida = cardapioDAO.getCardapio().get(indexArray);
         String nome1 = bebida.getNome_prato();
         String descricao1 = bebida.getIngredientes();
@@ -599,8 +599,8 @@ public class TelaFazerPedido {
     }
 
     public void registrarPedido(int indexArray) {
-        PedidoPkg pedido = new PedidoPkg();
-        Cardapio prato = new Cardapio();
+        PedidoPKG pedido = new PedidoPKG();
+        CardapioPKG prato = new CardapioPKG();
         indexPedidoAtual = indexArray;
         prato = cardapioDAO.getCardapio().get(indexArray);
 
@@ -637,7 +637,7 @@ public class TelaFazerPedido {
     public boolean eBebida ( int indexArray){
         //Função verifica se é uma bebida que esta sendo registrada ou não
             boolean eBebidaSN = false;
-            Cardapio bebida = new Cardapio();
+            CardapioPKG bebida = new CardapioPKG();
             bebida = cardapioDAO.getCardapio().get(indexArray);
 
             if (bebida.getCategoria().equals("Bebidas Alcoólicas") || bebida.getCategoria().equals("Refrescos e Sucos")) {
