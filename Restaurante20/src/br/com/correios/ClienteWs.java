@@ -8,7 +8,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicHeader;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
-import restaurantepkg.TelaRegistro;
+import restauranteView.TelaRegistro;
 
 import javax.xml.soap.MessageFactory;
 import javax.xml.soap.SOAPMessage;

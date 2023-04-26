@@ -1,5 +1,7 @@
-package restaurantepkg;
+package restaurantePKG;
 
+
+import restauranteView.*;
 
 import javax.swing.*;
 import java.awt.*;

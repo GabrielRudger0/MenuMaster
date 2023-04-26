@@ -2,7 +2,7 @@ package restauranteDAO;
 
 import com.mysql.jdbc.PreparedStatement;
 import restaurante.factory.ConnectionFactory;
-import restaurantepkg.Cardapio;
+import restaurantePKG.Cardapio;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

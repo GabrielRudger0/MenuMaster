@@ -1,8 +1,12 @@
-package restaurantepkg;
+package restauranteView;
 
 import restauranteDAO.CardapioDAO;
 import restauranteDAO.ContabilDAO;
 import restauranteDAO.PedidoDAO;
+import restaurantePKG.Cardapio;
+import restaurantePKG.ContabilPKG;
+import restaurantePKG.ExecutaTelas;
+import restaurantePKG.PedidoPkg;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;

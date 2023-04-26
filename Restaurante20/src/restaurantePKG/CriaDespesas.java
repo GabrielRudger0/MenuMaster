@@ -1,4 +1,4 @@
-package restaurantepkg;
+package restaurantePKG;
 
 import restauranteDAO.ContabilDAO;
 import java.time.LocalDate;

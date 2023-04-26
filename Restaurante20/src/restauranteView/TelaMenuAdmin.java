@@ -1,4 +1,6 @@
-package restaurantepkg;
+package restauranteView;
+
+import restaurantePKG.ExecutaTelas;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

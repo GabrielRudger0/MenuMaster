@@ -1,7 +1,9 @@
-package restaurantepkg;
+package restauranteView;
 
 import br.com.correios.Endereco;
 import restauranteDAO.ClienteDAO;
+import restaurantePKG.Clientes;
+import restaurantePKG.ExecutaTelas;
 
 import javax.swing.*;
 import javax.swing.event.CaretEvent;
