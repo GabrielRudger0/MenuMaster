@@ -52,7 +52,7 @@ public class TelaLogin {
                         aceitaSenha = false;
 
                         PedidoDAO.idClienteAtual = cliente.getIdCliente();
-                        TelaFazerPedido.nomeUsuarioAtual = cliente.getNomeCliente();
+                        TelaCardapio.nomeUsuarioAtual = cliente.getNomeCliente();
                         ExecutaTelas.frameTelaLogin.dispose();
                         executaTelas.iniciarTelaFazerPedido();
                     }

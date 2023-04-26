@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 
-public class TelaDespesas {
+public class TelaContabilDespesas {
     ContabilDAO contabilDAO = new ContabilDAO();
 
     public JPanel FrameTelaDespesas;
@@ -26,7 +26,7 @@ public class TelaDespesas {
 
     private Double despesas;
 
-    public TelaDespesas (){
+    public TelaContabilDespesas(){
 
 
         DefaultTableModel model = new DefaultTableModel();

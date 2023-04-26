@@ -22,7 +22,7 @@ public class TelaAvaliacao {
 
     private JLabel nomePrato;
 
-    private static int pedidosNaoAvaliados = TelaFazerPedido.listaDePedidos.size();
+    private static int pedidosNaoAvaliados = TelaCardapio.listaDePedidos.size();
 
     public static String avaliacaoSelecionada;
 
@@ -39,7 +39,7 @@ public class TelaAvaliacao {
 
         CardapioPKG pratoDoCardapio = new CardapioPKG();
 
-        nomePrato.setText(TelaFazerPedido.listaDePedidos.get(indexPedidoAtualParaAvaliacao).getItenspedidos());
+        nomePrato.setText(TelaCardapio.listaDePedidos.get(indexPedidoAtualParaAvaliacao).getItenspedidos());
         botaoEstrela1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -98,9 +98,9 @@ public class TelaAvaliacao {
         return comentario;
     }
     public void adicionaAvaliacoesNoBanco() {
-        TelaFazerPedido.listaDePedidos.get(indexPedidoAtualParaAvaliacao).setAvaliacao5Star(TelaAvaliacao.avaliacaoSelecionada);
-        TelaFazerPedido.listaDePedidos.get(indexPedidoAtualParaAvaliacao).setAvaliacaoFinal(TelaAvaliacao.comentarioAvaliativo);
-        TelaFazerPedido.pedidoDAO.save(TelaFazerPedido.listaDePedidos.get(indexPedidoAtualParaAvaliacao));
+        TelaCardapio.listaDePedidos.get(indexPedidoAtualParaAvaliacao).setAvaliacao5Star(TelaAvaliacao.avaliacaoSelecionada);
+        TelaCardapio.listaDePedidos.get(indexPedidoAtualParaAvaliacao).setAvaliacaoFinal(TelaAvaliacao.comentarioAvaliativo);
+        TelaCardapio.pedidoDAO.save(TelaCardapio.listaDePedidos.get(indexPedidoAtualParaAvaliacao));
         ExecutaTelas.frameTelaAvaliacoes.dispose();
         --pedidosNaoAvaliados;
 

@@ -14,7 +14,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 
-public class TelaReceita {
+public class TelaContabilReceita {
 
     private ContabilDAO contabilDAO = new ContabilDAO();
     public JPanel FrameTelaReceita;
@@ -49,7 +49,7 @@ public class TelaReceita {
 
  }
 
-    public TelaReceita() {
+    public TelaContabilReceita() {
 
         ContabilPKG relatorio = new ContabilPKG();
 

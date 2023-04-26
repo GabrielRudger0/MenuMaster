@@ -52,7 +52,7 @@ public class ExecutaTelas {
         iconeAplicativo();
         ImageIcon icon = new ImageIcon(url);
 
-        frameTelaRegistro.setContentPane(new TelaRegistro().panel1);
+        frameTelaRegistro.setContentPane(new TelaRegistroCliente().panel1);
         frameTelaRegistro.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frameTelaRegistro.pack();
         frameTelaRegistro.setVisible(true);
@@ -76,7 +76,7 @@ public class ExecutaTelas {
         iconeAplicativo();
         ImageIcon icon = new ImageIcon(url);
 
-        frameTelaFazerPedido.setContentPane(new TelaFazerPedido().FazerPedido);
+        frameTelaFazerPedido.setContentPane(new TelaCardapio().FazerPedido);
         frameTelaFazerPedido.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frameTelaFazerPedido.pack();
         frameTelaFazerPedido.setVisible(true);
@@ -88,7 +88,7 @@ public class ExecutaTelas {
         iconeAplicativo();
         ImageIcon icon = new ImageIcon(url);
 
-        frameTelaCardapio.setContentPane(new TelaCardapio().telaCriacaoCardapio);
+        frameTelaCardapio.setContentPane(new TelaRegistroCardapio().telaCriacaoCardapio);
         frameTelaCardapio.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frameTelaCardapio.pack();
         frameTelaCardapio.setVisible(true);
@@ -112,7 +112,7 @@ public class ExecutaTelas {
         iconeAplicativo();
         ImageIcon icon = new ImageIcon(url);
 
-        frameTelaContabil.setContentPane(new TelaContabilMenu().TelaContabilidadeMenu);
+        frameTelaContabil.setContentPane(new TelaMenuContabil().TelaContabilidadeMenu);
         frameTelaContabil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frameTelaContabil.pack();
         frameTelaContabil.setVisible(true);
@@ -136,7 +136,7 @@ public class ExecutaTelas {
         iconeAplicativo();
         ImageIcon icon = new ImageIcon(url);
 
-        FrameTelaReceita.setContentPane(new TelaReceita().FrameTelaReceita);
+        FrameTelaReceita.setContentPane(new TelaContabilReceita().FrameTelaReceita);
         FrameTelaReceita.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         FrameTelaReceita.pack();
         FrameTelaReceita.setVisible(true);
@@ -146,7 +146,7 @@ public class ExecutaTelas {
 
     public void iniciarTelaDespesas(){
 
-        FrameTelaDespesas.setContentPane(new TelaDespesas().FrameTelaDespesas);
+        FrameTelaDespesas.setContentPane(new TelaContabilDespesas().FrameTelaDespesas);
         FrameTelaDespesas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         FrameTelaDespesas.pack();
         FrameTelaDespesas.setVisible(true);

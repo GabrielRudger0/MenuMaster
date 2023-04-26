@@ -8,7 +8,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicHeader;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
-import restauranteView.TelaRegistro;
+import restauranteView.TelaRegistroCliente;
 
 import javax.xml.soap.MessageFactory;
 import javax.xml.soap.SOAPMessage;
@@ -94,7 +94,7 @@ public class ClienteWs {
         Document document = null;
         try {
            if (!Util.validaCep(cep)) {
-                TelaRegistro.apiValidaCEP = false;
+                TelaRegistroCliente.apiValidaCEP = false;
                 throw new RuntimeException("Formato de CEP inválido");
             }
 
