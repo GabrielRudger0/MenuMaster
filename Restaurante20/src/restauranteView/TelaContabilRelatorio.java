@@ -11,35 +11,17 @@ import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class TelaRelatorioClasse {
+public class TelaContabilRelatorio {
 
     private ContabilDAO contabilDAO = new ContabilDAO();
     public JPanel FrameTelaRelatorio;
-
     private DecimalFormat df = new DecimalFormat("R$ ##0.00");
-
-    private JLabel head;
-
     private JButton voltarButton;
-
-    private JLabel dataConsulta;
-
-    private JLabel descricaoConsulta;
-
-    private JLabel receitaConsulta;
-
-    private JLabel despesasConsuta;
-
-    private JLabel saldoConsulta;
-
-    private static double saldo = 0;
-
-    private static double receitas;
-
-    private static double despesas;
+    private JLabel tituloRelatorio, dataConsulta, descricaoConsulta, receitaConsulta, despesasConsulta, saldoConsulta;
+    private static double saldo = 0, receitas, despesas;
 
 
-    public TelaRelatorioClasse(){
+    public TelaContabilRelatorio(){
 
        String data;
 
@@ -67,7 +49,7 @@ public class TelaRelatorioClasse {
 
         receitaConsulta.setText(df.format(receitas));
         dataConsulta.setText(data);
-        despesasConsuta.setText(df.format(despesas));
+        despesasConsulta.setText(df.format(despesas));
         saldoConsulta.setText(df.format(saldo));
 
         receitas = 0;
@@ -78,7 +60,7 @@ public class TelaRelatorioClasse {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ExecutaTelas executaTelas = new ExecutaTelas();
-                ExecutaTelas.FrameTelaRelatorio.dispose();
+                ExecutaTelas.FrameTelaContabilRelatorio.dispose();
                 executaTelas.iniciarTelaContabil();
             }
         });

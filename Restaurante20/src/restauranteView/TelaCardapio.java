@@ -19,156 +19,41 @@ import java.util.ArrayList;
 
 public class TelaCardapio {
     public JPanel FazerPedido;
-
-    public static PedidoDAO pedidoDAO = new PedidoDAO();
-
-    public static ArrayList<PedidoPKG> listaDePedidos = new ArrayList<>();
-
     private CardapioDAO cardapioDAO = new CardapioDAO();
-
     private int[] sequencialIndexes = {-1,-1,-1,-1,-1};
-
     private DecimalFormat df = new DecimalFormat("R$ ##0.00");
-
-    private static int indexPedidoAtual;
-
-    private static double valorDaCompra;
-
-    private static double valorPrato;
-
-    private static int quantidadePedido1;
-
-    private static int quantidadePedido2;
-
-    private static int quantidadePedido3;
-
-    private static int quantidadePedido4;
-
-    private static int quantidadePedido5;
-
-    private JLabel MenuMaster;
-
-    private JLabel nomePrato1;
-
-    private JLabel DescricaoPrato1;
-
-    private JLabel valorPrato1;
-
-    private JButton fazerPedidoButton;
-
-    private JButton maisInformacoes1Button;
-
-    private JButton fazerPedido2;
-
-    private JButton maisInfos2;
-
-    private JLabel nomePrato2;
-
-    private JLabel DescricaoPrato2;
-
-    private JLabel valorPrato2;
-
-    private JLabel nomeBebida1;
-
-    private JLabel descricaoBebida1;
-
-    private JLabel nomePrato3;
-
-    private JLabel DescricaoPrato3;
-
-    private JLabel valorPrato3;
-
-    private JButton fazerPedido3;
-
-    private JButton maisInfos3;
-
-    private JLabel nomePrato4;
-
-    private JLabel DescricaoPrato4;
-
-    private JLabel valorPrato4;
-
-    private JButton fazerPedido4;
-
-    private JButton maisInfos4;
-
-    private JLabel nomePrato5;
-
-    private JLabel DescricaoPrato5;
-
-    private JLabel valorPrato5;
-
-    private JButton fazerPedido5;
-
-    private JButton maisInfos5;
-
-    private JLabel valorBebida1;
-
-    private JButton fazerPedidoBebida1;
-
-    private JLabel nomeBebida2;
-
-    private JLabel descricaoBebida2;
-
-    private JLabel valorBebida2;
-
-    private JLabel descricaoBebida3;
-
-    private JLabel nomeBebida3;
-
-    private JLabel valorBebida3;
-
-    private JButton fazerPedidoBebida2;
-
-    private JButton fazerPedidoBebida3;
-
-    private JButton fazerPedidoBebida4;
-
-    private JButton fazerPedidoBebida5;
-
-    private JLabel descricaoBebida4;
-
-    private JLabel descricaoBebida5;
-
-    private JLabel valorBebida4;
-
-    private JLabel valorBebida5;
-
-    private JLabel nomeBebida4;
-
-    private JLabel nomeBebida5;
-
-    private JButton cofirmarCompraButton;
-
-    private JButton botaoCancelar;
-
-    private JButton botaoSair;
-
-    private JSpinner spinnerPedido1;
-
-    private JSpinner spinnerPedido2;
-
-    private JSpinner spinnerPedido3;
-
-    private JSpinner spinnerPedido4;
-
-    private JSpinner spinnerPedido5;
-
-    private JSpinner spinnerBebida1;
-
-    private JSpinner spinnerBebida2;
-
-    private JSpinner spinnerBebida3;
-
-    private JSpinner spinnerBebida4;
-
-    private JSpinner spinnerBebida5;
-
-    private JLabel nomeUsuario;
-
-    private JLabel idUsuario;
-
     public static String nomeUsuarioAtual;
+    public static PedidoDAO pedidoDAO = new PedidoDAO();
+    public static ArrayList<PedidoPKG> listaDePedidos = new ArrayList<>();
+    private static double valorDaCompra, valorPrato;
+    private static int indexPedidoAtual, quantidadePedido1, quantidadePedido2, quantidadePedido3,
+            quantidadePedido4, quantidadePedido5;
+    private JLabel nomeUsuario, idUsuario;
+    private JLabel MenuMaster,
+            nomePrato1, descricaoPrato1, valorPrato1,
+            nomePrato2, descricaoPrato2, valorPrato2,
+            nomePrato3, descricaoPrato3, valorPrato3,
+            nomePrato4, descricaoPrato4, valorPrato4,
+            nomePrato5, descricaoPrato5, valorPrato5;
+    private JLabel
+            nomeBebida1, descricaoBebida1, valorBebida1,
+            nomeBebida2, descricaoBebida2, valorBebida2,
+            nomeBebida3, descricaoBebida3, valorBebida3,
+            nomeBebida4, descricaoBebida4, valorBebida4,
+            nomeBebida5, descricaoBebida5, valorBebida5;
+    private JButton
+            fazerPedido1, maisInfos1,
+            fazerPedido2, maisInfos2,
+            fazerPedido3, maisInfos3,
+            fazerPedido4, maisInfos4,
+            fazerPedido5, maisInfos5;
+
+    private JButton fazerPedidoBebida1, fazerPedidoBebida2, fazerPedidoBebida3,
+            fazerPedidoBebida4, fazerPedidoBebida5;
+
+    private JButton botaoConfirmarCompra, botaoCancelar, botaoSair;
+    private JSpinner spinnerPedido1, spinnerPedido2, spinnerPedido3, spinnerPedido4, spinnerPedido5,
+            spinnerBebida1, spinnerBebida2, spinnerBebida3, spinnerBebida4, spinnerBebida5;
 
     public TelaCardapio() {
 
@@ -178,117 +63,42 @@ public class TelaCardapio {
         ExecutaTelas executaTelas = new ExecutaTelas();
 
         //INSERÇÃO DE PRATOS
-        //
         // E BEBIDAS
 
         //Prato/Bebida 1
-        if (cardapioDAO.getCardapio().size() >= 1) {
-
-            //Blocos verificam se é uma bebida que foi registrada ou um prato
-            //Caso seja uma bebida, desativa a posição de pratos, e vice versa
-            if (this.eBebida(0)) {
-                fazerPedidoButton.setVisible(false);
-                maisInformacoes1Button.setVisible(false);
-                spinnerPedido1.setVisible(false);
-                this.inserirBebida(0, nomeBebida1, descricaoBebida1, valorBebida1, fazerPedidoBebida1);
-            } else {
-                fazerPedidoBebida1.setVisible(false);
-                spinnerBebida1.setVisible(false);
-                this.inserirNoCardapio(nomePrato1, DescricaoPrato1, valorPrato1, fazerPedidoButton, maisInformacoes1Button, 0);
-            }
-        } else {
-            fazerPedidoBebida1.setVisible(false);
-            fazerPedidoButton.setVisible(false);
-            maisInformacoes1Button.setVisible(false);
-            spinnerPedido1.setVisible(false);
-            spinnerBebida1.setVisible(false);
-        }
+        registrarBebibaOuPrato( nomePrato1,descricaoPrato1,valorPrato1,
+                                nomeBebida1, descricaoBebida1, valorBebida1,
+                                fazerPedido1, maisInfos1, spinnerPedido1,
+                                fazerPedidoBebida1, spinnerBebida1, 0, 1);
 
         //Prato/Bebida 2
-        if (cardapioDAO.getCardapio().size() >= 2) {
-            if (this.eBebida(1)) {
-                fazerPedido2.setVisible(false);
-                maisInfos2.setVisible(false);
-                spinnerPedido2.setVisible(false);
-                this.inserirBebida(1, nomeBebida2, descricaoBebida2, valorBebida2, fazerPedidoBebida2);
-            } else {
-                fazerPedidoBebida2.setVisible(false);
-                spinnerBebida2.setVisible(false);
-                this.inserirNoCardapio(nomePrato2, DescricaoPrato2, valorPrato2, fazerPedido2, maisInfos2, 1);
-            }
-
-        } else {
-            fazerPedidoBebida2.setVisible(false);
-            fazerPedido2.setVisible(false);
-            maisInfos2.setVisible(false);
-            spinnerPedido2.setVisible(false);
-            spinnerBebida2.setVisible(false);
-        }
+        registrarBebibaOuPrato( nomePrato2,descricaoPrato2,valorPrato2,
+                nomeBebida2, descricaoBebida2, valorBebida2,
+                fazerPedido2, maisInfos2, spinnerPedido2,
+                fazerPedidoBebida2, spinnerBebida2, 1, 2);
 
         //Prato/Bebida 3
-        if (cardapioDAO.getCardapio().size() >= 3) {
-            if (this.eBebida(2)) {
-                fazerPedido3.setVisible(false);
-                maisInfos3.setVisible(false);
-                spinnerPedido3.setVisible(false);
-                this.inserirBebida(2, nomeBebida3, descricaoBebida3, valorBebida3, fazerPedidoBebida3);
-            } else {
-                fazerPedidoBebida3.setVisible(false);
-                spinnerBebida3.setVisible(false);
-                this.inserirNoCardapio(nomePrato3, DescricaoPrato3, valorPrato3, fazerPedido3, maisInfos3, 2);
-            }
+        registrarBebibaOuPrato( nomePrato3,descricaoPrato3,valorPrato3,
+                nomeBebida3, descricaoBebida3, valorBebida3,
+                fazerPedido3, maisInfos3, spinnerPedido3,
+                fazerPedidoBebida3, spinnerBebida3, 2, 3);
 
-        } else {
-            fazerPedidoBebida3.setVisible(false);
-            fazerPedido3.setVisible(false);
-            maisInfos3.setVisible(false);
-            spinnerPedido3.setVisible(false);
-            spinnerBebida3.setVisible(false);
-        }
         //Prato/Bebida 4
-        if (cardapioDAO.getCardapio().size() >= 4) {
-            if (this.eBebida(3)) {
-                fazerPedido4.setVisible(false);
-                maisInfos4.setVisible(false);
-                spinnerPedido4.setVisible(false);
-                this.inserirBebida(3, nomeBebida4, descricaoBebida4, valorBebida4, fazerPedidoBebida4);
-            } else {
-                fazerPedidoBebida4.setVisible(false);
-                spinnerBebida4.setVisible(false);
-                this.inserirNoCardapio(nomePrato4, DescricaoPrato4, valorPrato4, fazerPedido4, maisInfos4, 3);
-            }
-
-        } else {
-            fazerPedidoBebida4.setVisible(false);
-            fazerPedido4.setVisible(false);
-            maisInfos4.setVisible(false);
-            spinnerPedido4.setVisible(false);
-            spinnerBebida4.setVisible(false);
-        }
+        registrarBebibaOuPrato( nomePrato4,descricaoPrato4,valorPrato4,
+                nomeBebida4, descricaoBebida4, valorBebida4,
+                fazerPedido4, maisInfos4, spinnerPedido4,
+                fazerPedidoBebida4, spinnerBebida4, 3, 4);
 
         //Prato/Bebida 5
-        if (cardapioDAO.getCardapio().size() >= 5) {
-            if (this.eBebida(4)) {
-                fazerPedido5.setVisible(false);
-                maisInfos5.setVisible(false);
-                spinnerPedido5.setVisible(false);
-                this.inserirBebida(4, nomeBebida5, descricaoBebida5, valorBebida5, fazerPedidoBebida5);
-            } else {
-                fazerPedidoBebida5.setVisible(false);
-                spinnerBebida5.setVisible(false);
-                this.inserirNoCardapio(nomePrato5, DescricaoPrato5, valorPrato5, fazerPedido5, maisInfos5, 4);
-            }
+        registrarBebibaOuPrato( nomePrato5,descricaoPrato5,valorPrato5,
+                nomeBebida5, descricaoBebida5, valorBebida5,
+                fazerPedido5, maisInfos5, spinnerPedido5,
+                fazerPedidoBebida5, spinnerBebida5, 4, 5);
 
-        } else {
-            fazerPedidoBebida5.setVisible(false);
-            fazerPedido5.setVisible(false);
-            maisInfos5.setVisible(false);
-            spinnerPedido5.setVisible(false);
-            spinnerBebida5.setVisible(false);
-        }
+        // --------------------------------
+        // BOTÕES DE "INFO" E "FAZER PEDIDO"
 
-
-        maisInformacoes1Button.addActionListener(new ActionListener() {
+        maisInfos1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 executaTelas.iniciarTelaInformacoesPedido(0);
@@ -320,7 +130,7 @@ public class TelaCardapio {
             }
         });
 
-        fazerPedidoButton.addActionListener(new ActionListener() {
+        fazerPedido1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 registrarPedido(0);
@@ -390,15 +200,19 @@ public class TelaCardapio {
                 }
             }
         });
-        cofirmarCompraButton.addActionListener(new ActionListener() {
+
+        // FIM BOTÕES DE "INFO" E "FAZER PEDIDO"
+        // --------------------------------
+
+        // --------------------------------
+        // BOTÕES DE FINALIZAÇÃO
+        botaoConfirmarCompra.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Object[] opcaoConfirma = {"Confirmar", "Sair"};
                 String pratosPedidos = "Comanda Cliente(ID: " + PedidoDAO.idClienteAtual + "): ";
                 String texto = "Itens Pedidos: \n\n";
-                int quantidadePedido = 0;
                 boolean erroPedidos = false;
-                quantidadePedido = retornaIndexPedidoAtual(indexPedidoAtual);
 
                 if (listaDePedidos.size() == 0) {
                     erroPedidos = true;
@@ -449,7 +263,7 @@ public class TelaCardapio {
                         //--------------------------------------------------
                         TelaAvaliacao.indexPedidoAtualParaAvaliacao = 0;
                         executaTelas.iniciarTelaAvaliacoes();
-                        ExecutaTelas.frameTelaFazerPedido.dispose();
+                        ExecutaTelas.frameTelaCardapio.dispose();
 
                     }
                 }
@@ -479,13 +293,17 @@ public class TelaCardapio {
 
                 if (opcaoSelecionada == 1) {
                     ExecutaTelas executaTelas = new ExecutaTelas();
-                    ExecutaTelas.frameTelaFazerPedido.dispose();
+                    ExecutaTelas.frameTelaCardapio.dispose();
                     executaTelas.iniciarTelaLogin();
                 }
 
             }
         });
+        // FIM BOTÕES DE FINALIZAÇÃO
+        // --------------------------------
 
+        // --------------------------------
+        // SPINNERS
         spinnerPedido1.setModel(new SpinnerNumberModel(0, 0, 12, 1));
         spinnerPedido2.setModel(new SpinnerNumberModel(0, 0, 12, 1));
         spinnerPedido3.setModel(new SpinnerNumberModel(0, 0, 12, 1));
@@ -558,15 +376,48 @@ public class TelaCardapio {
                 quantidadePedido5 = (int) spinnerBebida5.getValue();
             }
         });
+
+        // FIM SPINNERS
+        // --------------------------------
+    }
+    private void registrarBebibaOuPrato(JLabel nomePrato, JLabel descricaoPrato, JLabel valorPrato,
+                                        JLabel nomeBebida, JLabel descricaoBebida, JLabel valorBebida,
+                                        JButton fazerPedido, JButton maisInfos, JSpinner spinnerPedido,
+                                        JButton fazerPedidoBebida, JSpinner spinnerBebida,
+                                        int indexArray, int posicaoNoCardapio) {
+
+        if (cardapioDAO.getCardapio().size() >= posicaoNoCardapio) {
+
+            //Blocos verificam se é uma bebida que foi registrada ou um prato
+            //Caso seja uma bebida, desativa a posição de pratos, e vice versa
+            if (this.eBebida(indexArray)) {
+                removerVisibilidadePrato(fazerPedido, maisInfos, spinnerPedido);
+                this.inserirBebida(0, nomeBebida, descricaoBebida, valorBebida, fazerPedidoBebida);
+            } else {
+                removerVisibilidadeBebida(fazerPedidoBebida, spinnerBebida);
+                this.inserirPrato(nomePrato, descricaoPrato, valorPrato, fazerPedido, maisInfos, indexArray);
+            }
+        } else {
+            removerVisibilidadePrato(fazerPedido, maisInfos, spinnerPedido);
+            removerVisibilidadeBebida(fazerPedidoBebida, spinnerBebida);
+        }
+    }
+    private void removerVisibilidadePrato(JButton fazerPedido, JButton maisInfos, JSpinner spinnerPedido) {
+        fazerPedido.setVisible(false);
+        spinnerPedido.setVisible(false);
+        maisInfos.setVisible(false);
+    }
+    private void removerVisibilidadeBebida(JButton fazerPedidoBebida, JSpinner spinnerBebida) {
+        fazerPedidoBebida.setVisible(false);
+        spinnerBebida.setVisible(false);
     }
 
-    public void inserirNoCardapio(JLabel nomePrato, JLabel DescricaoPrato, JLabel valorPrato,
-                                  JButton fazerPedido, JButton maisInfos, int indexArray) {
+    public void inserirPrato(JLabel nomePrato, JLabel DescricaoPrato, JLabel valorPrato,
+                             JButton fazerPedido, JButton maisInfos, int indexArray) {
 
         this.organizaSequenciaDeIndex(indexArray);
 
-        CardapioPKG prato = new CardapioPKG();
-        prato = cardapioDAO.getCardapio().get(indexArray);
+        CardapioPKG prato = cardapioDAO.getCardapio().get(indexArray);
         String nome1 = prato.getNome_prato();
         String descricao1 = prato.getIngredientes();
         String preco1 = df.format(prato.getPreco());
@@ -585,24 +436,22 @@ public class TelaCardapio {
 
         this.organizaSequenciaDeIndex(indexArray);
 
-        CardapioPKG bebida = new CardapioPKG();
-        bebida = cardapioDAO.getCardapio().get(indexArray);
-        String nome1 = bebida.getNome_prato();
-        String descricao1 = bebida.getIngredientes();
-        String preco1 = df.format(bebida.getPreco());
+        CardapioPKG bebida = cardapioDAO.getCardapio().get(indexArray);
+        String nome = bebida.getNome_prato();
+        String descricao = bebida.getIngredientes();
+        String preco = df.format(bebida.getPreco());
 
         fazerPedidoBebida.setVisible(true);
-        nomeBebida.setText("Nome da Bebida: " + nome1);
-        descricaoBebida.setText("Descrição: " + descricao1);
-        valorBebida.setText(preco1);
+        nomeBebida.setText("Nome da Bebida: " + nome);
+        descricaoBebida.setText("Descrição: " + descricao);
+        valorBebida.setText(preco);
 
     }
 
     public void registrarPedido(int indexArray) {
         PedidoPKG pedido = new PedidoPKG();
-        CardapioPKG prato = new CardapioPKG();
+        CardapioPKG prato = cardapioDAO.getCardapio().get(indexArray);
         indexPedidoAtual = indexArray;
-        prato = cardapioDAO.getCardapio().get(indexArray);
 
         if (prato.getDisponibilidade().equals("0")) {
             JOptionPane.showMessageDialog(null,"Sentimos muito, o item selecionado não está disponível.","Cardapio",JOptionPane.ERROR_MESSAGE);
@@ -617,8 +466,6 @@ public class TelaCardapio {
             valorDaCompra += valorPrato;
             opcaoSelecionada = JOptionPane.showOptionDialog(null, "Deseja fazer uma observação?", "Observação",
                     JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcaoSimNao, opcaoSimNao[1]);
-
-
 
             if (opcaoSelecionada == 0) {
                 obs = JOptionPane.showInputDialog(null, "Observação:", "Observação", JOptionPane.INFORMATION_MESSAGE);
@@ -637,8 +484,7 @@ public class TelaCardapio {
     public boolean eBebida ( int indexArray){
         //Função verifica se é uma bebida que esta sendo registrada ou não
             boolean eBebidaSN = false;
-            CardapioPKG bebida = new CardapioPKG();
-            bebida = cardapioDAO.getCardapio().get(indexArray);
+            CardapioPKG bebida = cardapioDAO.getCardapio().get(indexArray);
 
             if (bebida.getCategoria().equals("Bebidas Alcoólicas") || bebida.getCategoria().equals("Refrescos e Sucos")) {
                 eBebidaSN = true;
@@ -652,10 +498,8 @@ public class TelaCardapio {
         // o index de cada item vai entrando na variavel sequencialIndexes[]
         if (sequencialIndexes[0] == -1) {
             sequencialIndexes[0] = indexArray;
-
         } else if(sequencialIndexes[1] == -1){
             sequencialIndexes[1] = indexArray;
-
         } else if(sequencialIndexes[2] == -1) {
             sequencialIndexes[2] = indexArray;
         } else if(sequencialIndexes[3] == -1) {
@@ -686,4 +530,5 @@ public class TelaCardapio {
         }
         return quantidadePedido;
     }
+
 }

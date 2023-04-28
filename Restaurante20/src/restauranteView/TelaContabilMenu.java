@@ -6,25 +6,17 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class TelaMenuContabil {
+public class TelaContabilMenu {
     public JPanel TelaContabilidadeMenu;
+    private JButton relatorioGeralButton, detalhesDeReceitasButton, detalhesDeDespesasButton, botaoVoltar;
 
-    private JButton relatorioGeralButton;
-
-    private JButton detalhesDeReceitasButton;
-
-    private JButton detalhesDeDespesasButton;
-
-    private JButton botaoVoltar;
-
-    public TelaMenuContabil() {
-        TelaRelatorioClasse telaRelatorioClasse = new TelaRelatorioClasse();
+    public TelaContabilMenu() {
         ExecutaTelas executaTelas = new ExecutaTelas();
 
     relatorioGeralButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            ExecutaTelas.frameTelaContabil.dispose();
+            ExecutaTelas.frameTelaContabilMenu.dispose();
             executaTelas.iniciarTelaRelatorio();
         }
     });
@@ -32,14 +24,14 @@ public class TelaMenuContabil {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-        executaTelas.frameTelaContabil.dispose();
+        executaTelas.frameTelaContabilMenu.dispose();
         executaTelas.iniciarTelaReceita();
         }
     });
     detalhesDeDespesasButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            executaTelas.frameTelaContabil.dispose();
+            executaTelas.frameTelaContabilMenu.dispose();
             executaTelas.iniciarTelaDespesas();
         }
     });
@@ -47,7 +39,7 @@ public class TelaMenuContabil {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ExecutaTelas executaTelas = new ExecutaTelas();
-                ExecutaTelas.frameTelaContabil.dispose();
+                ExecutaTelas.frameTelaContabilMenu.dispose();
                 executaTelas.iniciarTelaAdmin();
             }
         });
