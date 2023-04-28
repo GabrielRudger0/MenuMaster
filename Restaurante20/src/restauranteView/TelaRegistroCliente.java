@@ -14,38 +14,12 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
 public class TelaRegistroCliente {
-    public JPanel panel1;
-
+    public JPanel telaRegistroCliente;
     public static boolean entrandoComoAdmRegistro = false;
-
     public static boolean apiValidaCEP = false;
-
-    private JTextField inserirNome;
-
-    private JTextField inserirCep;
-
-    private JTextField inserirEmail;
-
-    private JButton registrarButton;
-
-    private JButton voltarButton;
-
-    private JTextField inserirTelefone;
-
-    private JTextField insiraSenha;
-
-    private JTextField InserirRua;
-
-    private JTextField InserirNumero;
-
-    private JTextField InserirEstado;
-
-    private JTextField InserirCidade;
-
-    private JTextField inserirComplemento;
-
-    private JTextField inserirBairro;
-
+    private JTextField inserirNome, inserirCep, inserirComplemento, inserirNumero, inserirRua,
+            inserirCidade, inserirBairro, inserirEstado, inserirEmail, inserirTelefone, insiraSenha;
+    private JButton registrarButton, voltarButton;
     private static String enderecoFormatado;
 
 
@@ -68,16 +42,16 @@ public class TelaRegistroCliente {
                     Endereco enderecoapi = br.com.correios.ClienteWs.getEnderecoPorCep(inserirCep.getText());
 
                     if (inserirComplemento.getText().equals("")) {
-                        enderecoFormatado = enderecoapi.getLogradouro() + ", " + InserirNumero.getText() + ", " + enderecoapi.getUf() + ", " + enderecoapi.getBairro() +
+                        enderecoFormatado = enderecoapi.getLogradouro() + ", " + inserirNumero.getText() + ", " + enderecoapi.getUf() + ", " + enderecoapi.getBairro() +
                                 ", " + enderecoapi.getCidade();
                     } else {
-                        enderecoFormatado = enderecoapi.getLogradouro() + ", " + InserirNumero.getText() + ", " + inserirComplemento.getText() + ", " +
+                        enderecoFormatado = enderecoapi.getLogradouro() + ", " + inserirNumero.getText() + ", " + inserirComplemento.getText() + ", " +
                                 enderecoapi.getUf() + ", " + enderecoapi.getBairro() + ", " + enderecoapi.getCidade();
                     }
                     cliente.setEnderecoCliente(enderecoFormatado);
                     clienteDAO.save(cliente);
                     JOptionPane.showMessageDialog(null, "Registro Concluído!", "Registro", JOptionPane.INFORMATION_MESSAGE);
-                    ExecutaTelas.frameTelaRegistro.dispose();
+                    ExecutaTelas.frameTelaRegistroCliente.dispose();
                     executaTelas.iniciarTelaRegistro();
                 }
             }
@@ -87,7 +61,7 @@ public class TelaRegistroCliente {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ExecutaTelas executaTelas = new ExecutaTelas();
-                ExecutaTelas.frameTelaRegistro.dispose();
+                ExecutaTelas.frameTelaRegistroCliente.dispose();
                 if (entrandoComoAdmRegistro == false) {
                     executaTelas.iniciarTelaLogin();
                 } else {
@@ -137,12 +111,20 @@ public class TelaRegistroCliente {
                 cliente.setSenha_cliente(insiraSenha.getText());
             }
         });
-        InserirRua.addFocusListener(new FocusAdapter() {
+        inserirRua.addFocusListener(new FocusAdapter() {
             @Override
             public void focusLost(FocusEvent e) {
                 super.focusLost(e);
                 Endereco enderecoapi = br.com.correios.ClienteWs.getEnderecoPorCep(inserirCep.getText());
-                enderecoapi.setLogradouro(InserirRua.getText());
+                enderecoapi.setLogradouro(inserirRua.getText());
+            }
+        });
+        inserirCidade.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusLost(FocusEvent e) {
+                super.focusLost(e);
+                Endereco enderecoapi = br.com.correios.ClienteWs.getEnderecoPorCep(inserirCep.getText());
+                enderecoapi.setBairro(inserirCidade.getText());
             }
         });
         inserirBairro.addFocusListener(new FocusAdapter() {
@@ -150,31 +132,23 @@ public class TelaRegistroCliente {
             public void focusLost(FocusEvent e) {
                 super.focusLost(e);
                 Endereco enderecoapi = br.com.correios.ClienteWs.getEnderecoPorCep(inserirCep.getText());
-                enderecoapi.setBairro(inserirBairro.getText());
+                enderecoapi.setCidade(inserirBairro.getText());
             }
         });
-        InserirCidade.addFocusListener(new FocusAdapter() {
+        inserirEstado.addFocusListener(new FocusAdapter() {
             @Override
             public void focusLost(FocusEvent e) {
                 super.focusLost(e);
                 Endereco enderecoapi = br.com.correios.ClienteWs.getEnderecoPorCep(inserirCep.getText());
-                enderecoapi.setCidade(InserirCidade.getText());
-            }
-        });
-        InserirEstado.addFocusListener(new FocusAdapter() {
-            @Override
-            public void focusLost(FocusEvent e) {
-                super.focusLost(e);
-                Endereco enderecoapi = br.com.correios.ClienteWs.getEnderecoPorCep(inserirCep.getText());
-                enderecoapi.setUf(InserirEstado.getText());
+                enderecoapi.setUf(inserirEstado.getText());
             }
         });
 
-        InserirNumero.addFocusListener(new FocusAdapter() {
+        inserirNumero.addFocusListener(new FocusAdapter() {
             @Override
             public void focusLost(FocusEvent e) {
                 super.focusLost(e);
-                InserirNumero.setText(InserirNumero.getText());
+                inserirNumero.setText(inserirNumero.getText());
             }
         });
         inserirComplemento.addFocusListener(new FocusAdapter() {
@@ -201,10 +175,10 @@ public class TelaRegistroCliente {
                         }
 
                         Endereco enderecoapi = br.com.correios.ClienteWs.getEnderecoPorCep(inserirCep.getText());
-                        InserirRua.setText(enderecoapi.getLogradouro());
-                        inserirBairro.setText(enderecoapi.getBairro());
-                        InserirCidade.setText(enderecoapi.getCidade());
-                        InserirEstado.setText(enderecoapi.getUf());
+                        inserirRua.setText(enderecoapi.getLogradouro());
+                        inserirCidade.setText(enderecoapi.getBairro());
+                        inserirBairro.setText(enderecoapi.getCidade());
+                        inserirEstado.setText(enderecoapi.getUf());
                         apiValidaCEP = true;
                     }
             }

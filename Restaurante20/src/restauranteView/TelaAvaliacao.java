@@ -1,6 +1,5 @@
 package restauranteView;
 
-import restaurantePKG.CardapioPKG;
 import restauranteAplication.ExecutaTelas;
 
 import javax.swing.*;
@@ -9,35 +8,17 @@ import java.awt.event.ActionListener;
 
 public class TelaAvaliacao {
     public JPanel telaAvaliacaoPrato;
-
-    private JButton botaoEstrela1;
-
-    private JButton botaoEstrela2;
-
-    private JButton botaoEstrela3;
-
-    private JButton botaoEstrela4;
-
-    private JButton botaoEstrela5;
-
-    private JLabel nomePrato;
-
+    public static String avaliacaoSelecionada, comentarioAvaliativo;
+    public static int  indexPedidoAtualParaAvaliacao;
     private static int pedidosNaoAvaliados = TelaCardapio.listaDePedidos.size();
-
-    public static String avaliacaoSelecionada;
-
-    public static String comentarioAvaliativo;
-
-    public static int indexPedidoAtualParaAvaliacao;
-
+    private JButton botaoEstrela1, botaoEstrela2, botaoEstrela3, botaoEstrela4, botaoEstrela5;
+    private JLabel nomePrato;
 
     public TelaAvaliacao() {
 
         if (pedidosNaoAvaliados == 0) {
             ExecutaTelas.frameTelaAvaliacoes.dispose();
         }
-
-        CardapioPKG pratoDoCardapio = new CardapioPKG();
 
         nomePrato.setText(TelaCardapio.listaDePedidos.get(indexPedidoAtualParaAvaliacao).getItenspedidos());
         botaoEstrela1.addActionListener(new ActionListener() {
@@ -101,11 +82,14 @@ public class TelaAvaliacao {
         TelaCardapio.listaDePedidos.get(indexPedidoAtualParaAvaliacao).setAvaliacao5Star(TelaAvaliacao.avaliacaoSelecionada);
         TelaCardapio.listaDePedidos.get(indexPedidoAtualParaAvaliacao).setAvaliacaoFinal(TelaAvaliacao.comentarioAvaliativo);
         TelaCardapio.pedidoDAO.save(TelaCardapio.listaDePedidos.get(indexPedidoAtualParaAvaliacao));
+
         ExecutaTelas.frameTelaAvaliacoes.dispose();
+
         --pedidosNaoAvaliados;
 
         if (pedidosNaoAvaliados > 0) {
             ++TelaAvaliacao.indexPedidoAtualParaAvaliacao;
+
             ExecutaTelas.frameTelaAvaliacoes.dispose();
             ExecutaTelas executaTelas = new ExecutaTelas();
             executaTelas.iniciarTelaAvaliacoes();

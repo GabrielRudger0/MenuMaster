@@ -10,20 +10,12 @@ import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 
 public class TelaContabilDespesas {
+    public JPanel FrameTelaDespesas, tabela;
     ContabilDAO contabilDAO = new ContabilDAO();
-
-    public JPanel FrameTelaDespesas;
-
     private JButton buttonVoltar;
-
     private JTable JTableDespesas;
-
-    private JPanel JPanelTabela;
-
-    private DecimalFormat df =new DecimalFormat("R$ ##0.00");
-
+    private DecimalFormat df = new DecimalFormat("R$ ##0.00");
     private String descricao;
-
     private Double despesas;
 
     public TelaContabilDespesas(){
@@ -50,7 +42,7 @@ public class TelaContabilDespesas {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 ExecutaTelas executaTelas = new ExecutaTelas();
-                ExecutaTelas.FrameTelaDespesas.dispose();
+                ExecutaTelas.FrameTelaContabilDespesas.dispose();
                 executaTelas.iniciarTelaContabil();
             }
         });

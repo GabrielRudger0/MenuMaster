@@ -6,37 +6,28 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class TelaMenuAdmin {
+public class TelaAdminMenu {
     public JPanel telaMenuAdm;
+    private JButton registrarPratoButton, registrarClienteButton, contabilidadeMenuButton,
+        botaoVoltar;
 
-    private JButton registrarPratoNoCardápioButton;
 
-    private JButton registrarClienteButton;
+    public TelaAdminMenu() {
 
-    private JButton contabilidadeMenuButton;
-
-    private JButton botaoVoltar;
-
-    public TelaMenuAdmin() {
-
-    TelaRegistroCardapio telaCardapio = new TelaRegistroCardapio();
-    TelaRegistroCliente telaRegistro = new TelaRegistroCliente();
-    TelaMenuContabil telaContabilMenu = new TelaMenuContabil();
     ExecutaTelas executaTelas = new ExecutaTelas();
-
 
     contabilidadeMenuButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            ExecutaTelas.frameTelaMenuAdm.dispose();
+            ExecutaTelas.frameTelaAdminMenu.dispose();
             executaTelas.iniciarTelaContabil();
         }
     });
 
-    registrarPratoNoCardápioButton.addActionListener(new ActionListener() {
+    registrarPratoButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            ExecutaTelas.frameTelaMenuAdm.dispose();
+            ExecutaTelas.frameTelaAdminMenu.dispose();
             executaTelas.iniciarTelaCriarCardapio();
         }
     });
@@ -44,7 +35,7 @@ public class TelaMenuAdmin {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            ExecutaTelas.frameTelaMenuAdm.dispose();
+            ExecutaTelas.frameTelaAdminMenu.dispose();
             TelaRegistroCliente.entrandoComoAdmRegistro = true;
             executaTelas.iniciarTelaRegistro();
         }
@@ -61,7 +52,7 @@ public class TelaMenuAdmin {
 
                 if (opcaoSelecionada == 0) {
                     ExecutaTelas executaTelas = new ExecutaTelas();
-                    ExecutaTelas.frameTelaMenuAdm.dispose();
+                    ExecutaTelas.frameTelaAdminMenu.dispose();
                     executaTelas.iniciarTelaLogin();
 
                 } else if (opcaoSelecionada == 1) {

@@ -17,23 +17,12 @@ import java.time.format.DateTimeFormatter;
 public class TelaContabilReceita {
 
     private ContabilDAO contabilDAO = new ContabilDAO();
-    public JPanel FrameTelaReceita;
-
+    public JPanel FrameTelaReceita, tabela;
     private JButton voltarButton;
-
     private JTable JTableReceita;
-
-    private JPanel JPanelTabela;
-
     private DecimalFormat df =new DecimalFormat("R$ ##0.00");
-
-    private String data;
-
     private double receita;
-
     private String descricao;
-
-
 
     public void TelaRelatorioClasse(){
 
@@ -67,7 +56,7 @@ public class TelaContabilReceita {
 
             if (contabilDAO.getRelatorio().get(i).getReceitas() != 0) {
                 model.addRow(new Object[]{contabilDAO.getRelatorio().get(i).getData(), descricao, df.format(receita)});
-            }
+                }
             }
 
         JTableReceita.setModel(model);
@@ -76,8 +65,7 @@ public class TelaContabilReceita {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 ExecutaTelas executaTelas = new ExecutaTelas();
-                System.out.println(contabilDAO.getRelatorio().size());
-                ExecutaTelas.FrameTelaReceita.dispose();
+                ExecutaTelas.FrameTelaContabilReceita.dispose();
                 executaTelas.iniciarTelaContabil();
             }
         });

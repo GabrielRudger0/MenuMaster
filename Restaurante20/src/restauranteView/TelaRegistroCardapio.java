@@ -14,23 +14,10 @@ import javax.swing.event.ChangeListener;
 
 public class TelaRegistroCardapio {
     public JPanel telaCriacaoCardapio;
-
-    private JTextField insiraNomePrato;
-
-    private JTextField insiraRestricoes;
-
-    private JTextField insiraIngredientes;
-
-    private JTextField insiraPreco;
-
+    private JTextField insiraNomePrato, insiraRestricoes, insiraIngredientes, insiraPreco;
     private JComboBox selecionaCategoria;
-
-    private JButton confirmarButton;
-
-    private JButton voltarButton;
-
     private JSpinner spinnerDisponibilidade;
-
+    private JButton confirmarButton, voltarButton;
 
     public TelaRegistroCardapio() {
 
@@ -44,7 +31,7 @@ public class TelaRegistroCardapio {
             public void actionPerformed(ActionEvent e) {
                 cardapioDAO.save(cardapioObject);
                 JOptionPane.showMessageDialog(null,"1 Item registrado no cardápio!","Registrar Item no Cardápio",JOptionPane.INFORMATION_MESSAGE);
-                ExecutaTelas.frameTelaCardapio.dispose();
+                ExecutaTelas.frameTelaRegistroCardapio.dispose();
                 executaTelas.iniciarTelaCriarCardapio();
             }
         });
@@ -59,7 +46,8 @@ public class TelaRegistroCardapio {
         voltarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                ExecutaTelas.frameTelaRegistroCardapio.dispose();
+                executaTelas.iniciarTelaAdmin();
             }
         });
         insiraNomePrato.addFocusListener(new FocusAdapter() {
