@@ -246,21 +246,8 @@ public class TelaCardapio {
                     if (opcaoSelecionada == 0) {
                         JOptionPane.showMessageDialog(null, "Seu pedido chegará em instantes, Obrigado!","Cardápio",JOptionPane.INFORMATION_MESSAGE);
 
-                        //INSERE COMANDA NO CONTABIL
-                        //--------------------------------------------------
-                        ContabilDAO tabelaContabilBanco = new ContabilDAO();
-                        ContabilPKG contabilidade = new ContabilPKG();
+                        enviaComandaParaContabil(pratosPedidos);
 
-                        LocalDate hoje = LocalDate.now();
-                        java.sql.Date dataAtual = java.sql.Date.valueOf(hoje);
-                        contabilidade.setData(dataAtual);
-                        contabilidade.setDescricao(pratosPedidos);
-                        contabilidade.setReceitas(valorDaCompra);
-                        contabilidade.setDespesas(0);
-                        contabilidade.setSaldo(valorDaCompra);
-
-                        tabelaContabilBanco.save(contabilidade);
-                        //--------------------------------------------------
                         TelaAvaliacao.indexPedidoAtualParaAvaliacao = 0;
                         executaTelas.iniciarTelaAvaliacoes();
                         ExecutaTelas.frameTelaCardapio.dispose();
@@ -304,6 +291,7 @@ public class TelaCardapio {
 
         // --------------------------------
         // SPINNERS
+
         spinnerPedido1.setModel(new SpinnerNumberModel(0, 0, 12, 1));
         spinnerPedido2.setModel(new SpinnerNumberModel(0, 0, 12, 1));
         spinnerPedido3.setModel(new SpinnerNumberModel(0, 0, 12, 1));
@@ -388,14 +376,14 @@ public class TelaCardapio {
 
         if (cardapioDAO.getCardapio().size() >= posicaoNoCardapio) {
 
-            //Blocos verificam se é uma bebida que foi registrada ou um prato
-            //Caso seja uma bebida, desativa a posição de pratos, e vice versa
+            //Bloco divide e organiza o cardápio entre bebida e prato
+
             if (this.eBebida(indexArray)) {
                 removerVisibilidadePrato(fazerPedido, maisInfos, spinnerPedido);
-                this.inserirBebida(0, nomeBebida, descricaoBebida, valorBebida, fazerPedidoBebida);
+                this.inserirItem(nomeBebida, descricaoBebida, valorBebida, fazerPedidoBebida, maisInfos, indexArray);
             } else {
                 removerVisibilidadeBebida(fazerPedidoBebida, spinnerBebida);
-                this.inserirPrato(nomePrato, descricaoPrato, valorPrato, fazerPedido, maisInfos, indexArray);
+                this.inserirItem(nomePrato, descricaoPrato, valorPrato, fazerPedido, maisInfos, indexArray);
             }
         } else {
             removerVisibilidadePrato(fazerPedido, maisInfos, spinnerPedido);
@@ -412,39 +400,24 @@ public class TelaCardapio {
         spinnerBebida.setVisible(false);
     }
 
-    public void inserirPrato(JLabel nomePrato, JLabel DescricaoPrato, JLabel valorPrato,
-                             JButton fazerPedido, JButton maisInfos, int indexArray) {
+    public void inserirItem(JLabel nomeItem, JLabel descricaoItem, JLabel valorItem,
+                            JButton fazerPedido, JButton maisInfos, int indexArray) {
 
         this.organizaSequenciaDeIndex(indexArray);
 
-        CardapioPKG prato = cardapioDAO.getCardapio().get(indexArray);
-        String nome1 = prato.getNome_prato();
-        String descricao1 = prato.getIngredientes();
-        String preco1 = df.format(prato.getPreco());
+        CardapioPKG item = cardapioDAO.getCardapio().get(indexArray);
+        String nome = item.getNome_prato();
+        String descricao = item.getIngredientes();
+        String preco = df.format(item.getPreco());
 
         fazerPedido.setVisible(true);
-        maisInfos.setVisible(true);
+        if (!this.eBebida(indexArray)) {
+            maisInfos.setVisible(true);
+        }
 
-        nomePrato.setText("Nome do Prato: " + nome1);
-        DescricaoPrato.setText("Descrição: " + descricao1);
-        valorPrato.setText(preco1);
-
-    }
-
-    public void inserirBebida(int indexArray, JLabel nomeBebida, JLabel descricaoBebida, JLabel valorBebida,
-                              JButton fazerPedidoBebida) {
-
-        this.organizaSequenciaDeIndex(indexArray);
-
-        CardapioPKG bebida = cardapioDAO.getCardapio().get(indexArray);
-        String nome = bebida.getNome_prato();
-        String descricao = bebida.getIngredientes();
-        String preco = df.format(bebida.getPreco());
-
-        fazerPedidoBebida.setVisible(true);
-        nomeBebida.setText("Nome da Bebida: " + nome);
-        descricaoBebida.setText("Descrição: " + descricao);
-        valorBebida.setText(preco);
+        nomeItem.setText("Nome do Prato: " + nome);
+        descricaoItem.setText("Descrição: " + descricao);
+        valorItem.setText(preco);
 
     }
 
@@ -458,7 +431,7 @@ public class TelaCardapio {
             JOptionPane.showMessageDialog(null,"Sentimos muito, o item selecionado não está disponível.","Cardapio",JOptionPane.ERROR_MESSAGE);
         } else {
             int qtd = 1;
-            qtd = retornaIndexPedidoAtual(indexArray);
+            qtd = retornaQuantidadePedidoAtual(indexArray);
 
             Object[] opcaoSimNao = {"Sim", "Não"};
             String obs = "Nenhuma Observação";
@@ -483,8 +456,23 @@ public class TelaCardapio {
         }
 
     }
+    private void enviaComandaParaContabil(String comanda) {
 
-    public boolean eBebida ( int indexArray){
+        ContabilDAO tabelaContabilBanco = new ContabilDAO();
+        ContabilPKG contabilidade = new ContabilPKG();
+
+        LocalDate hoje = LocalDate.now();
+        java.sql.Date dataAtual = java.sql.Date.valueOf(hoje);
+        contabilidade.setData(dataAtual);
+        contabilidade.setDescricao(comanda);
+        contabilidade.setReceitas(valorDaCompra);
+        contabilidade.setDespesas(0);
+        contabilidade.setSaldo(valorDaCompra);
+
+        tabelaContabilBanco.save(contabilidade);
+    }
+
+    private boolean eBebida ( int indexArray){
         //Função verifica se é uma bebida que esta sendo registrada ou não
             boolean eBebidaSN = false;
             CardapioPKG bebida = cardapioDAO.getCardapio().get(indexArray);
@@ -495,7 +483,7 @@ public class TelaCardapio {
             return eBebidaSN;
 
     }
-    public void organizaSequenciaDeIndex(int indexArray) {
+    private void organizaSequenciaDeIndex(int indexArray) {
 
         //Função criada para organizar os botões respectivamente com seus itens
         // o index de cada item vai entrando na variavel sequencialIndexes[]
@@ -506,7 +494,7 @@ public class TelaCardapio {
             }
         }
     }
-    public int retornaIndexPedidoAtual(int index) {
+    public int retornaQuantidadePedidoAtual(int index) {
         int quantidadePedido = 0;
         switch (index) {
             case 0:
