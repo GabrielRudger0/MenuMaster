@@ -451,6 +451,7 @@ public class TelaCardapio {
     public void registrarPedido(int indexArray) {
         PedidoPKG pedido = new PedidoPKG();
         CardapioPKG prato = cardapioDAO.getCardapio().get(indexArray);
+
         indexPedidoAtual = indexArray;
 
         if (prato.getDisponibilidade().equals("0")) {
@@ -458,9 +459,11 @@ public class TelaCardapio {
         } else {
             int qtd = 1;
             qtd = retornaIndexPedidoAtual(indexArray);
+
             Object[] opcaoSimNao = {"Sim", "Não"};
             String obs = "Nenhuma Observação";
             pedido.setObservacao(obs);
+
             int opcaoSelecionada = 0;
             valorPrato = prato.getPreco() * qtd;
             valorDaCompra += valorPrato;
@@ -496,16 +499,11 @@ public class TelaCardapio {
 
         //Função criada para organizar os botões respectivamente com seus itens
         // o index de cada item vai entrando na variavel sequencialIndexes[]
-        if (sequencialIndexes[0] == -1) {
-            sequencialIndexes[0] = indexArray;
-        } else if(sequencialIndexes[1] == -1){
-            sequencialIndexes[1] = indexArray;
-        } else if(sequencialIndexes[2] == -1) {
-            sequencialIndexes[2] = indexArray;
-        } else if(sequencialIndexes[3] == -1) {
-            sequencialIndexes[3] = indexArray;
-        } else if(sequencialIndexes[4] == -1) {
-            sequencialIndexes[4] = indexArray;
+        for (int i = 0; i < 5; i++) {
+            if (sequencialIndexes[i] == -1) {
+                sequencialIndexes[i] = indexArray;
+                break;
+            }
         }
     }
     public int retornaIndexPedidoAtual(int index) {
