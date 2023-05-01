@@ -13,6 +13,7 @@ public class Main {
 
         executaTelas.iniciarTelaLogin();
 
+        System.out.println("a");
         //executaTelas.iniciarTelaRegistro();
 
     }
