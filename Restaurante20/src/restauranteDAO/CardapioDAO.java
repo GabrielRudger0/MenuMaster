@@ -2,19 +2,16 @@ package restauranteDAO;
 
 import com.mysql.jdbc.PreparedStatement;
 import restaurante.factory.ConnectionFactory;
-import restaurantepkg.Cardapio;
-import restaurantepkg.Clientes;
-import restaurantepkg.PedidoPkg;
+import restaurantePKG.CardapioPKG;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CardapioDAO {
 
-    public void save(Cardapio cardapio){
+    public void save(CardapioPKG cardapio){
 
         String sql = "INSERT INTO cardapio(nome_prato, preco, categoria, disponibilidade, restricoes, ingredientes, idproduto) VALUES(?,?,?,?,?,?,?)";
 
@@ -26,7 +23,7 @@ public class CardapioDAO {
             conn = ConnectionFactory.createConnectionToMySQL();
             pstm = (PreparedStatement) conn.prepareStatement(sql);
             pstm.setString(1, cardapio.getNome_prato());
-            pstm.setFloat(2, cardapio.getPreco());
+            pstm.setDouble(2, cardapio.getPreco());
             pstm.setString(3, cardapio.getCategoria());
             pstm.setString(4, cardapio.getDisponibilidade());
             pstm.setString(5, cardapio.getRestricoes());
@@ -58,11 +55,11 @@ public class CardapioDAO {
 
 
 
-    public List<Cardapio> getCardapio() {
+    public List<CardapioPKG> getCardapio() {
 
         String sql = "SELECT * FROM cardapio";
 
-        List<Cardapio> cardapio5 = new ArrayList<Cardapio>();
+        List<CardapioPKG> cardapio5 = new ArrayList<CardapioPKG>();
 
         Connection conn = null;
         PreparedStatement pstn = null;
@@ -80,12 +77,12 @@ public class CardapioDAO {
 
 
             while (rset.next()) {
-                Cardapio cardapio = new Cardapio();
+                CardapioPKG cardapio = new CardapioPKG();
 
                 //pegar dados
                 cardapio.setIdproduto(rset.getInt("idproduto"));
                 cardapio.setCategoria(rset.getString("categoria"));
-                cardapio.setPreco(rset.getInt("preco"));
+                cardapio.setPreco(rset.getDouble("preco"));
                 cardapio.setDisponibilidade(rset.getString("disponibilidade"));
                 cardapio.setIngredientes(rset.getString("ingredientes"));
                 cardapio.setRestricoes(rset.getString("restricoes"));

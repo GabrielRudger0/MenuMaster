@@ -2,12 +2,10 @@ package restauranteDAO;
 
 import com.mysql.jdbc.PreparedStatement;
 import restaurante.factory.ConnectionFactory;
-import restaurantepkg.Cardapio;
-import restaurantepkg.ContabilPKG;
+import restaurantePKG.ContabilPKG;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +13,7 @@ public class ContabilDAO {
 
     public void save(ContabilPKG contabilPKG) {
 
-        String sql = "INSERT INTO data, descricao, receitas, despesas, saldo) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO contabil(data, descricao, receitas, despesas, saldo) VALUES(?,?,?,?,?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;
