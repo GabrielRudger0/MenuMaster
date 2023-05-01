@@ -26,8 +26,7 @@ public class TelaCardapio {
     public static PedidoDAO pedidoDAO = new PedidoDAO();
     public static ArrayList<PedidoPKG> listaDePedidos = new ArrayList<>();
     private static double valorDaCompra, valorPrato;
-    private static int indexPedidoAtual, quantidadePedido1, quantidadePedido2, quantidadePedido3,
-            quantidadePedido4, quantidadePedido5;
+    private static int[] quantidadePedido = new int[5];
     private JLabel nomeUsuario, idUsuario;
     private JLabel MenuMaster,
             nomePrato1, descricaoPrato1, valorPrato1,
@@ -306,62 +305,62 @@ public class TelaCardapio {
         spinnerPedido1.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                quantidadePedido1 = (int) spinnerPedido1.getValue();
+                quantidadePedido[0] = (int) spinnerPedido1.getValue();
 
             }
         });
         spinnerPedido2.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                quantidadePedido2 = (int) spinnerPedido2.getValue();
+                quantidadePedido[1] = (int) spinnerPedido2.getValue();
             }
         });
         spinnerPedido3.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                quantidadePedido3 = (int) spinnerPedido3.getValue();
+                quantidadePedido[2] = (int) spinnerPedido3.getValue();
             }
         });
         spinnerPedido4.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                quantidadePedido4 = (int) spinnerPedido4.getValue();
+                quantidadePedido[3] = (int) spinnerPedido4.getValue();
             }
         });
         spinnerPedido5.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                quantidadePedido5 = (int) spinnerPedido5.getValue();
+                quantidadePedido[4] = (int) spinnerPedido5.getValue();
             }
         });
         spinnerBebida1.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                quantidadePedido1 = (int) spinnerBebida1.getValue();
+                quantidadePedido[0] = (int) spinnerBebida1.getValue();
             }
         });
         spinnerBebida2.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                quantidadePedido2 = (int) spinnerBebida2.getValue();
+                quantidadePedido[1] = (int) spinnerBebida2.getValue();
             }
         });
         spinnerBebida3.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                quantidadePedido3 = (int) spinnerBebida3.getValue();
+                quantidadePedido[2] = (int) spinnerBebida3.getValue();
             }
         });
         spinnerBebida4.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                quantidadePedido4 = (int) spinnerBebida4.getValue();
+                quantidadePedido[3] = (int) spinnerBebida4.getValue();
             }
         });
         spinnerBebida5.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                quantidadePedido5 = (int) spinnerBebida5.getValue();
+                quantidadePedido[4] = (int) spinnerBebida5.getValue();
             }
         });
 
@@ -403,7 +402,12 @@ public class TelaCardapio {
     public void inserirItem(JLabel nomeItem, JLabel descricaoItem, JLabel valorItem,
                             JButton fazerPedido, JButton maisInfos, int indexArray) {
 
-        this.organizaSequenciaDeIndex(indexArray);
+        for (int i = 0; i < 5; i++) {
+            if (sequencialIndexes[i] == -1) {
+                sequencialIndexes[i] = indexArray;
+                break;
+            }
+        }
 
         CardapioPKG item = cardapioDAO.getCardapio().get(indexArray);
         String nome = item.getNome_prato();
@@ -425,13 +429,11 @@ public class TelaCardapio {
         PedidoPKG pedido = new PedidoPKG();
         CardapioPKG prato = cardapioDAO.getCardapio().get(indexArray);
 
-        indexPedidoAtual = indexArray;
-
         if (prato.getDisponibilidade().equals("0")) {
             JOptionPane.showMessageDialog(null,"Sentimos muito, o item selecionado não está disponível.","Cardapio",JOptionPane.ERROR_MESSAGE);
         } else {
             int qtd = 1;
-            qtd = retornaQuantidadePedidoAtual(indexArray);
+            qtd = quantidadePedido[indexArray];
 
             Object[] opcaoSimNao = {"Sim", "Não"};
             String obs = "Nenhuma Observação";
@@ -482,39 +484,6 @@ public class TelaCardapio {
             }
             return eBebidaSN;
 
-    }
-    private void organizaSequenciaDeIndex(int indexArray) {
-
-        //Função criada para organizar os botões respectivamente com seus itens
-        // o index de cada item vai entrando na variavel sequencialIndexes[]
-        for (int i = 0; i < 5; i++) {
-            if (sequencialIndexes[i] == -1) {
-                sequencialIndexes[i] = indexArray;
-                break;
-            }
-        }
-    }
-    public int retornaQuantidadePedidoAtual(int index) {
-        int quantidadePedido = 0;
-        switch (index) {
-            case 0:
-                quantidadePedido = quantidadePedido1;
-                break;
-            case 1:
-                quantidadePedido = quantidadePedido2;
-                break;
-            case 2:
-                quantidadePedido = quantidadePedido3;
-                break;
-            case 3:
-                quantidadePedido = quantidadePedido4;
-                break;
-            case 4:
-                quantidadePedido = quantidadePedido5;
-                break;
-
-        }
-        return quantidadePedido;
     }
 
 }
