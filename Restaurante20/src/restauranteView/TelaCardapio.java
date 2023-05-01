@@ -53,6 +53,7 @@ public class TelaCardapio {
     private JButton botaoConfirmarCompra, botaoCancelar, botaoSair;
     private JSpinner spinnerPedido1, spinnerPedido2, spinnerPedido3, spinnerPedido4, spinnerPedido5,
             spinnerBebida1, spinnerBebida2, spinnerBebida3, spinnerBebida4, spinnerBebida5;
+    private JSpinner[] spinners = {spinnerPedido1, spinnerPedido2, spinnerPedido3, spinnerPedido4, spinnerPedido5,  spinnerBebida1, spinnerBebida2, spinnerBebida3, spinnerBebida4, spinnerBebida5};
 
     public TelaCardapio() {
 
@@ -288,19 +289,9 @@ public class TelaCardapio {
         // FIM BOTÕES DE FINALIZAÇÃO
         // --------------------------------
 
-        // --------------------------------
-        // SPINNERS
-
-        spinnerPedido1.setModel(new SpinnerNumberModel(0, 0, 12, 1));
-        spinnerPedido2.setModel(new SpinnerNumberModel(0, 0, 12, 1));
-        spinnerPedido3.setModel(new SpinnerNumberModel(0, 0, 12, 1));
-        spinnerPedido4.setModel(new SpinnerNumberModel(0, 0, 12, 1));
-        spinnerPedido5.setModel(new SpinnerNumberModel(0, 0, 12, 1));
-        spinnerBebida1.setModel(new SpinnerNumberModel(0, 0, 30, 1));
-        spinnerBebida2.setModel(new SpinnerNumberModel(0, 0, 30, 1));
-        spinnerBebida3.setModel(new SpinnerNumberModel(0, 0, 30, 1));
-        spinnerBebida4.setModel(new SpinnerNumberModel(0, 0, 30, 1));
-        spinnerBebida5.setModel(new SpinnerNumberModel(0, 0, 30, 1));
+        for (int i = 0; i < 10; i++) {
+            spinners[i].setModel(new SpinnerNumberModel(0, 0, 15, 1));
+        }
 
         spinnerPedido1.addChangeListener(new ChangeListener() {
             @Override
@@ -364,8 +355,6 @@ public class TelaCardapio {
             }
         });
 
-        // FIM SPINNERS
-        // --------------------------------
     }
     private void registrarBebibaOuPrato(JLabel nomePrato, JLabel descricaoPrato, JLabel valorPrato,
                                         JLabel nomeBebida, JLabel descricaoBebida, JLabel valorBebida,
