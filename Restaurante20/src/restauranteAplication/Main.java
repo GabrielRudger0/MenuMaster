@@ -14,6 +14,7 @@ public class Main {
         executaTelas.iniciarTelaLogin();
 
         System.out.println("a");
+        System.out.println("b");
         //executaTelas.iniciarTelaRegistro();
 
     }
